@@ -1,0 +1,925 @@
+// FONTS (Other interesting types: Lato, PT Sans)
+
+@font-face
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: normal
+    src: local('Open Sans'), local('OpenSans'), url(/fonts/opensans-regular.woff) format('woff'), url(/fonts/opensans-regular.ttf) format('truetype')
+
+@font-face
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: bold
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(/fonts/opensans-bold.woff) format('woff'), url(/fonts/opensans-bold.ttf) format('truetype')
+
+// VARIABLES
+
+$home: #4892fc
+$posts: #7853bb
+$photos: #54af3d
+$videos: #e9604e
+
+$default: #333
+
+$gray: #999
+$lightgray: #ccc
+
+$padding: 15px
+
+$minwidth: 300px
+$maxwidth: 1200px
+
+$bootstrapsm: 768px
+
+// MIXINS
+
+@mixin tab-active($color) 
+    color: $color
+    border-bottom-color: $color
+
+// COMMON
+
+.icon-container
+    height: 20px
+    width: 24px
+    .icon
+        display: block
+        width: 24px
+        height: 24px
+        margin-top: -2px
+
+.icon-container, .btn .text
+    display: inline-block
+    vertical-align: top
+
+.btn .text
+    color: white
+    margin-right: 3px
+
+body
+    font-family: 'Open Sans', sans-serif
+    color: $default
+    margin: 0 auto $padding
+    min-width: $minwidth
+    max-width: $maxwidth
+    overflow-y: scroll
+    // Hack to prevent horizontal scrollbar when flipping photos on Firefox
+    @media screen and (min-width: $minwidth)
+        overflow-x: hidden
+
+input, textarea, button, h1, h2, h3, h4, h5, h6
+    font-family: inherit
+    color: inherit
+
+h1, h2, h3, h4
+    margin: 0
+    font-weight: 400
+    line-height: inherit
+
+noscript h4, .ie
+    margin: $padding
+    padding: $padding
+    background: #DFD
+    border: 1px solid green
+
+a:hover, a:focus
+    text-decoration: none
+    outline: none
+
+.btn-primary
+    color: white !important
+
+header a.home-tab,
+.home a,
+.home .tab-color
+    color: $home
+
+.home .btn-primary
+    background: $home
+    border-color: $home
+
+header a.posts-tab,
+.posts a,
+.posts .tab-color
+    color: $posts
+
+.posts .btn-primary
+    background: $posts
+    border-color: $posts
+
+header a.photos-tab,
+.photos a,
+.photos .tab-color
+    color: $photos
+
+.photos .btn-primary
+    background: $photos
+    border-color: $photos
+
+header a.videos-tab,
+.videos a,
+.videos .tab-color
+    color: $videos
+
+.videos .btn-primary
+    background: $videos
+    border-color: $videos
+
+.alert-fixed
+    position: fixed
+    width: 100%
+    top: 0
+    z-index: 9999
+    + .alert
+        visibility: hidden
+
+.alert
+    word-wrap: break-word
+    border-radius: 0
+    border-top: 0
+    margin-bottom: 0
+    box-shadow: 0 0 4px $gray
+    .close
+        top: -15px
+        right: -36px
+        padding: 12px 19px
+        font-size: 24px
+        opacity: 1
+
+.alert-dismissable .close:hover
+    color: inherit
+    opacity: 1
+
+.padded
+    padding-left: $padding
+    padding-right: $padding
+
+.buttons
+    margin: 20px 0 0 $padding
+    > *
+        vertical-align: middle
+    lw-social
+        margin-right: 10px
+
+.translucent-header
+    z-index: 1
+    background: rgba(0, 0, 0, 0.5) // Fallback
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%) // IE 10+
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%) // W3C
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    color: white
+    text-align: left
+    display: table
+    padding: 10px $padding 20px
+    > *
+        opacity: 0.7
+        display: table-cell
+        vertical-align: middle
+        + *
+            text-align: right
+
+[lw-center]
+    > div
+        display: table
+        width: 100%
+        height: 100%
+        > div
+            display: table-cell
+            vertical-align: middle
+    &.horizontal-center
+        > div > div
+            text-align: center
+            > div
+                display: inline-block
+
+.modal
+    background: rgba(255, 255, 255, 0.5)
+    &.in
+        display: block
+    .close
+        padding: 15px
+        margin: -15px -15px 0 0
+
+.modal-footer
+    margin-top: 0
+
+.icon
+    display: inline-block
+    background-size: cover
+
+.home, .posts, .videos
+    article, section
+        margin-top: 15px
+    article + article, section + section
+        margin-top: 40px
+    h3
+        margin-top: 0
+
+.ago
+    color: $gray
+    display: block
+    &:first-letter
+        text-transform: uppercase
+
+.pinyin,.en-us,.fr-fr
+    color: $gray
+
+.table
+    display: table
+
+.cell
+    display: table-cell
+
+// FASTCLICK
+
+a, input, button
+    -ms-touch-action: none !important
+
+// DIRECTIVES
+
+[lw-sticky]
+    position: -webkit-sticky
+    position: -moz-sticky
+    position: -ms-sticky
+    position: -o-sticky
+    position: sticky
+    top: 0 // Safari
+    &.stuck > div
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        line-height: 0
+
+lw-more, lw-card, lw-photo
+    display: block
+
+lw-social
+    display: inline-block
+    .facebook
+        border-radius: 3px 0 0 3px
+        background: #3B5998
+    .twitter
+        border-radius: 0 3px 3px 0
+        background: #4099FF
+
+@mixin compact
+    .btn
+        padding: 6px
+    .text
+        display: none !important
+
+lw-social.compact
+    @include compact
+
+@media screen and (max-width: 550px)
+    lw-social
+        @include compact
+
+// ERROR
+
+.error
+    h4
+        margin: 15px 0
+    + main
+        display: none
+
+// HEADER
+
+header
+    border-bottom: 1px solid $lightgray
+
+.title
+    text-align: center
+    > a
+        color: $gray !important
+
+nav
+    display: table
+    width: 100%
+
+.tab
+    display: table-cell
+    font-size: 18px
+    border-bottom: 5px solid transparent
+    text-align: center
+    padding: 8px 0 12px
+
+@media screen and (min-width: 600px)
+    header
+        display: table
+        width: 100%
+    .title, nav
+        display: table-cell
+        vertical-align: middle
+    .title
+        text-align: left
+        padding-left: $padding
+    nav
+        text-align: right
+        width: auto
+    .tab
+        display: inline-block
+        padding: 16px 15px 12px
+
+.home .home-tab
+    @include tab-active($home)
+
+.posts .posts-tab
+    @include tab-active($posts)
+
+.photos .photos-tab
+    @include tab-active($photos)
+
+.videos .videos-tab
+    @include tab-active($videos)
+
+lw-progress
+    display: block
+    margin-top: -2px
+    height: 2px
+    pointer-events: none
+    > div
+        width: 0
+        height: 3px
+        background: $home
+        &.smooth
+            transition: width 0.5s linear, opacity 0.5s linear
+        &.fade
+            opacity: 0
+        .photos &
+            background: $photos
+        .posts &
+            background: $posts
+        .videos &
+            background: $videos
+
+lw-admin
+    display: none !important
+
+.new
+    margin: $padding 0 0 $padding
+
+.admin
+    .btn
+        background: $default
+        border: none
+        color: white !important
+    lw-status
+        > *
+            vertical-align: middle
+        .validate
+            background: red
+        .validated
+            background: green
+        .processing
+            font-size: 14px
+            color: red
+
+.center
+    text-align: center
+    > div
+        display: inline-block
+        text-align: left
+
+.video-header
+    h3, .admin
+        display: inline-block
+        vertical-align: middle
+    .admin
+        margin-left: 5px
+
+lw-post .header
+    h3, .admin
+        display: inline-block
+        vertical-align: middle
+    .admin
+        margin-left: 5px
+
+// POSTS
+
+.posts .articles
+    width: 100%
+    max-width: 800px
+    &.single
+        text-align: center
+        article lw-social
+            display: none
+
+lw-post
+    display: block
+    text-align: left
+    width: 100%
+    border: 1px solid #CCC
+    padding: $padding
+    border-radius: 6px
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3)
+    .date
+        color: $gray
+    .admin
+        margin-left: 5px
+    .poster
+        display: block
+    img
+        width: 100%
+    .zh-cn
+        color: $posts
+    .content .text
+        margin-top: $padding
+        h4
+            margin-top: 5px
+    lw-social
+        display: block
+        margin-top: $padding
+
+@media screen and (min-width: 700px)
+    lw-post .content
+        display: table
+        width: 100%
+        .poster, .text
+            display: table-cell
+            vertical-align: middle
+        .text
+            margin-top: 0
+            width: 350px
+            padding-left: $padding
+
+// PHOTO
+
+.photos
+    main
+        margin-top: 5px
+        > .admin
+            margin-bottom: $padding
+        > div
+            position: relative
+    .new
+        margin-top: 10px
+    .photo
+        pointer-events: none
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    .single
+        > div
+            text-align: center
+            width: 100%
+            max-width: 500px
+        .buttons
+            margin: 20px 0 0
+
+lw-photo
+    position: absolute
+    .admin
+        position: absolute
+        left: 15px
+        bottom: 15px
+        .processing
+            display: block
+            background: white
+            margin-top: 5px
+            padding: 1px 4px
+            border-radius: 3px
+    .flipped + .admin
+        display: none
+
+.photos .placeholder
+    width: 100%
+    max-width: 500px
+    position: relative
+    margin: $padding 0
+    lw-photo
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    .photo-buttons
+        display: none
+
+.card
+    display: block
+    position: relative
+    height: 100%
+
+    // Flip card "over" other cards
+    // Webkit: focus doesn't work, use transition
+    transition: z-index 0 0.6s
+    &.flipped
+        z-index: 1
+        transition: z-index 0s 0s
+    // Firefox: transition doesn't work, use focus
+    &:focus
+        z-index: 1
+
+    > div
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        position: absolute
+        perspective: 1000px
+    .front, .back
+        display: block
+        position: absolute
+        width: 100%
+        height: 100%
+        backface-visibility: hidden
+        // Hack to make card edges less aliased during flipping on Firefox
+        outline: 1px solid transparent
+    .front, &.flipped .back
+        transition: transform 0.6s ease-out, opacity 0.2s ease-in 0.2s
+        opacity: 1
+    .back, &.flipped .front
+        transform: rotateY(180deg)
+        transition: transform 0.6s ease-out, opacity 0.1s ease-in 0.1s
+        opacity: 0
+    &.flipped .back
+        transform: rotateY(360deg)
+
+//
+// Cleaner implementation, but doesn't work on IE
+//
+// .card
+//     display: block
+//     perspective: 1000px
+//     position: relative
+//     height: 100%
+//     transition: z-index 0 0.6s
+//     > div
+//         top: 0
+//         left: 0
+//         width: 100%
+//         height: 100%
+//         position: absolute
+//         transform-style: preserve-3d
+//         transition: transform 0.6s
+//     .front, .back
+//         display: block
+//         position: absolute
+//         width: 100%
+//         height: 100%
+//         backface-visibility: hidden
+//     .front
+//         transition: opacity 0.4s 0.1s
+//     &.flipped
+//         transition: none
+//         z-index: 1
+//         .front
+//             transition: opacity 0.2s 0.1s
+//             opacity: 0.1
+//     .back, &.flipped > div
+//         transform: rotateY(180deg)
+
+.photo-back
+    display: table
+    width: 100%
+    height: 100%
+    color: $default
+    > div
+        display: table-cell
+        width: 100%
+        height: 100%
+        text-align: center
+        vertical-align: middle
+        padding: 0 10px 35px
+    h3
+        margin-top: 20px
+    h1 + h3
+        margin-top: 15px
+
+.photo-buttons
+    position: absolute
+    bottom: 15px
+    left: 0
+    right: 0
+    text-align: center
+    lw-social
+        margin-right: 10px
+
+// VIDEOS
+
+.videos .poster
+    width: 100%
+    min-height: 205px
+
+lw-post
+    .header
+        margin-bottom: $padding
+
+.video-header
+    .ago
+        margin: 5px 0 10px
+
+.preview
+    display: block
+    position: relative
+    .overlay
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+    .icon
+        width: 200px
+        height: 200px
+        opacity: 0.9
+    img:not([src])
+        background: $lightgray
+        padding-top: percentage(9/16)
+
+// VIDEO
+
+.video [lw-sticky]
+    &, > div
+        z-index: 3
+
+.lines
+    margin-top: 15px
+    > div
+        margin-top: 10px
+    h3
+        margin: 0 0 0px
+
+.translation
+    position: relative
+    button
+        border: 1px solid $lightgray
+        background: none
+        color: $default
+    .text
+        position: relative
+        z-index: 1
+
+.show-translation-container
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+
+.hidden-translation
+    .show-translation-container
+        opacity: 1
+        z-index: 2
+    .text
+        opacity: 0
+        cursor: default
+
+.translation .text,
+.hidden-translation .show-translation-container
+    transition: opacity 0.1s 0.1s linear
+
+.show-translation-container,
+.hidden-translation .text
+    transition: opacity 0.1s linear
+
+.player
+    width: 100%
+    max-width: $maxwidth
+    background: black
+    margin: 0 auto
+    text-align: center
+    lw-video, lw-video > div, iframe
+        display: block
+        height: 100%
+        width: 100%
+    video
+        height: 100%
+        max-width: 100% // Safari
+
+.sources
+    color: darken($gray, 10%)
+    background: lighten($lightgray, 10%)
+    padding: 10px $padding
+    text-align: center
+
+// HOME
+
+.home h3
+    margin-bottom: 15px
+
+.latest
+    overflow: hidden
+    .row
+        margin: 0 -5px 0 0
+    .col-xs-4
+        padding: 0 5px 0 0
+    a
+        padding-top: 67%
+        width: 100%
+        position: relative
+        display: block
+        overflow: hidden
+    .translucent-header
+        z-index: 2
+        div
+            opacity: 1
+        @media screen and (max-width: 599px)
+            display: none
+    .placeholder
+        background-size: cover
+        background-position: center
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        opacity: 0
+        -webkit-transform: translate3d(0,0,0) // Fix Webkit flickering bug
+        &.active
+            opacity: 1
+            z-index: 1
+    @for $i from 0 through 4
+        .col#{$i}
+            .placeholder
+                transition: opacity 0s (1s + $i*4/3) ease-in-out
+                &.active
+                    transition: opacity 0.6s (0s + $i*4/3) ease-in-out
+
+.mailchimp
+    label
+        display: block
+        font-weight: normal
+        margin-bottom: 10px
+    .perks
+        span
+            vertical-align: bottom
+        .icon
+            width: 14px
+            height: 14px
+            margin: 0 5px 3px 0
+    button
+        margin: 10px 0
+
+@media screen and (min-width: 599px)
+    .mailchimp
+        input
+            display: inline-block
+            max-width: 400px
+            margin-bottom: 10px
+            vertical-align: middle
+        button
+            margin: 0 0 10px 10px
+            vertical-align: middle
+
+.latest-campaign
+    margin-top: 5px
+    lw-write
+        display: inline-block
+        color: $gray
+        &.loaded
+            color: $default
+            font-size: 0
+            a
+                font-size: 14px
+
+.lessons
+    margin-bottom: -15px
+    overflow: hidden
+    .row
+        text-align: center
+        > div
+            margin-bottom: 15px
+
+.illus
+    display: block
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
+    width: 120%
+    margin-left: -10%
+    &.reputable
+        background-image: url(/images/Mat_Lily_01.svg)
+    &.adaptable
+        background-image: url(/images/Mat_Lily_02.svg)
+    &.efficient
+        background-image: url(/images/Mat_Lily_03.svg)
+    &.bilingual
+        background-image: url(/images/Mat_Lily_04.svg)
+ 
+.illus
+    padding-top: 80%
+    @media screen and (max-width: 1050px)
+        padding-top: 90%
+    @media screen and (max-width: 900px)
+        padding-top: 100%
+    @media screen and (max-width: $bootstrapsm - 1)
+        padding-top: 65%
+    @media screen and (max-width: 650px)
+        padding-top: 80%
+    @media screen and (max-width: 500px)
+        padding-top: 100%
+
+.contact
+    .portrait
+        background-image: url(/images/portrait.jpg)
+        background-position: 0% 20%
+        background-repeat: no-repeat
+        background-size: cover
+        padding-top: 70%
+    img
+        border-radius: 100%
+        width: 100%
+        max-width: 400px
+    .methods
+        padding-left: $padding
+    .method
+        margin-top: 15px
+        .icon, h4
+            display: inline-block
+            vertical-align: middle
+        .icon
+            background-color: $home
+            border-radius: 3px
+            width: 32px
+            height: 32px
+        h4
+            margin: 0 0 0 10px
+            color: $default
+    .email h4
+        font-weight: bold
+
+@media screen and (min-width: 610px)
+    .contact
+        .portrait
+            border-radius: 100%
+            width: 250px
+            height: 250px
+            padding-top: 0
+            margin-left: $padding
+            display: inline-block
+            vertical-align: middle
+        .methods
+            display: inline-block
+            vertical-align: middle
+
+.reviews .loading
+    display: none
+
+.modal .reviews
+    padding-left: 0
+    padding-right: 0
+    margin-top: 0
+    h3
+        margin-top: 0
+    .loading
+        display: block
+        color: $gray
+    .review + .loading
+        display: none
+
+.review
+    &:nth-child(2n+1)
+        text-align: right
+    + .review
+        margin-top: 30px
+    > div
+        display: inline-block
+        margin-bottom: 0
+        @media screen and (min-width: $bootstrapsm)
+            max-width: 70%
+    .text, .photo
+        display: table-cell
+        text-align: left
+        vertical-align: top
+    p
+        white-space: pre-line
+        background: #F5F5F5
+        padding: 9.5px
+        line-height: 1.428571429
+        border-radius: 6px
+        border: 1px solid #cccccc
+    img
+        width: 150px
+        height: 150px
+        border-radius: 100%
+        margin: 0 20px 0 0
+
+.modal-body .review
+    > div
+        max-width: 100%
+    @media screen and (max-width: 575px)
+        .text, .photo
+            display: block
+        .photo
+            text-align: center
+            margin: 0 0 10px 0
+
+// FOOTER
+
+footer
+    min-width: $minwidth
+    margin-top: 20px
+    border-top: 1px solid $lightgray
+    padding: $padding $padding 0
+    color: $gray
+    a
+        color: $gray !important
+    small
+        // Fix for a weird issue where the copyright notice won't be at the exact same vertical
+        // position on the photos tab as on the other tabs
+        display: block

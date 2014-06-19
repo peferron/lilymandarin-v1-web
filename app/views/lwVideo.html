@@ -1,0 +1,10 @@
+<div ng-switch on="source.type">
+    <video ng-switch-when="internal" controls autoplay>
+        <source type="video/mp4" ng-src="{{source | videoSrc: 'mp4'}}">
+        <source type="video/webm" ng-src="{{source | videoSrc: 'webm'}}">
+    </video>
+
+    <iframe ng-switch-when="external-youtube" ng-src="{{'http://www.youtube.com/embed/' + source.value + '?modestbranding=1&cc_load_policy=0&theme=dark&autohide=1&autoplayy=1'}}" frameborder="0" allowfullscreen></iframe>
+
+    <iframe ng-switch-when="external-youku" ng-src="{{'http://player.youku.com/embed/' + source.value + '?isAutoPlay=true'}}" frameborder="0" allowfullscreen></iframe>
+</div>

@@ -1,0 +1,10 @@
+<lw-admin>
+    <a href="/admin/new/photo?category=photo" target="_blank" class="btn btn-xs new">New</a>
+</lw-admin>
+<style lw-style css="{{css}}" scoped></style>
+<div ng-style="{height: totalHeight + 'px'}">
+    <lw-photo ng-repeat="photo in photos" ng-style="photo.style" photo="photo"></lw-photo>
+</div>
+<div class="buttons">
+    <lw-more></lw-more>
+</div>

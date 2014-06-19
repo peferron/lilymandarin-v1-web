@@ -1,0 +1,15 @@
+<section class="reviews padded">
+    <h3>Student reviews</h3>
+    <div class="review" ng-repeat="review in reviews">
+        <div>
+            <div class="photo">
+                <img ng-if="review.photo" ng-src="/images/reviews/{{review.photo}}">
+            </div>
+            <div class="text">
+                <p>{{review.text}}</p>
+                <span>— {{review.name}}</span>
+            </div>
+        </div>
+    </div>
+    <small class="loading">Loading...</small>
+</section>

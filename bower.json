@@ -1,0 +1,26 @@
+{
+  "name": "lilymandarin-web",
+  "version": "0.1.0",
+  "homepage": "https://github.com/peferron/lilymandarin-web",
+  "authors": [
+    "pe.ferron@gmail.com"
+  ],
+  "description": "Web interface for http://lilymandarin.com",
+  "main": "app/index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.2.18",
+    "fastclick": "~1.0.2",
+    "angular-route": "~1.2.18",
+    "angular": "~1.2.18"
+  }
+}

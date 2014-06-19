@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en-US" ng-app="lw">
+    <head>
+        <meta charset="utf-8">
+        <meta name="fragment" content="!">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title ng-bind="title">LilyMandarin</title>
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png">
+        <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/images/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="/images/favicon-196x196.png" sizes="196x196">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="msapplication-TileImage" content="/images/mstile-144x144.png">
+
+        <!-- build:css /styles/libs.min.css -->
+        <link href="/lib/bootstrap_custom/css/bootstrap.css" rel="stylesheet">
+        <!-- endbuild -->
+
+        <!-- build:css /styles/lilyweb.prefixed.min.css -->
+        <link href="/styles/lilyweb.prefixed.css" rel="stylesheet">
+        <!-- endbuild -->
+
+        <!-- build:css /styles/icons-svg.min.css -->
+        <link href="/icons/icons-svg.css" rel="stylesheet">
+        <!-- endbuild -->
+
+        <!-- build:js /scripts/libs.min.nomap.js -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-resource/angular-resource.js"></script>
+        <script src="/bower_components/angular-route/angular-route.js"></script>
+        <script src="/bower_components/fastclick/lib/fastclick.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js /scripts/lilyweb.ngmin.min.js -->
+        <script src="/scripts/app.js"></script>
+        <script src="/scripts/route.js"></script>
+        
+        <script src="/scripts/controllers/Home.js"></script>
+        <script src="/scripts/controllers/Posts.js"></script>
+        <script src="/scripts/controllers/Post.js"></script>
+        <script src="/scripts/controllers/Photos.js"></script>
+        <script src="/scripts/controllers/Photo.js"></script>
+        <script src="/scripts/controllers/Videos.js"></script>
+        <script src="/scripts/controllers/Video.js"></script>
+        <script src="/scripts/controllers/Reviews.js"></script>
+
+        <script src="/scripts/directives/lwAdmin.js"></script>
+        <script src="/scripts/directives/lwStatus.js"></script>
+        <script src="/scripts/directives/lwCard.js"></script>
+        <script src="/scripts/directives/lwSticky.js"></script>
+        <script src="/scripts/directives/lwStyle.js"></script>
+        <script src="/scripts/directives/lwTopHalf.js"></script>
+        <script src="/scripts/directives/lwMore.js"></script>
+        <script src="/scripts/directives/lwCenter.js"></script>
+        <script src="/scripts/directives/lwPhoto.js"></script>
+        <script src="/scripts/directives/lwProgress.js"></script>
+        <script src="/scripts/directives/lwCarousel.js"></script>
+        <script src="/scripts/directives/lwWrite.js"></script>
+        <script src="/scripts/directives/lwVideo.js"></script>
+        <script src="/scripts/directives/lwPost.js"></script>
+        <script src="/scripts/directives/lwSocial.js"></script>
+        <script src="/scripts/directives/lwVideoHeader.js"></script>
+
+        <script src="/scripts/filters/ago.js"></script>
+        <script src="/scripts/filters/fancyDate.js"></script>
+        <script src="/scripts/filters/plural.js"></script>
+        <script src="/scripts/filters/responseError.js"></script>
+        <script src="/scripts/filters/ufl.js"></script>
+        <script src="/scripts/filters/fancySource.js"></script>
+        <script src="/scripts/filters/progress.js"></script>
+        <script src="/scripts/filters/imgSrc.js"></script>
+        <script src="/scripts/filters/videoSrc.js"></script>
+
+        <script src="/scripts/services/ClickTap.js"></script>
+        <script src="/scripts/services/Article.js"></script>
+        <script src="/scripts/services/Alert.js"></script>
+        <script src="/scripts/services/Loading.js"></script>
+        <script src="/scripts/services/Analytics.js"></script>
+        <script src="/scripts/services/Admin.js"></script>
+        <script src="/scripts/services/Review.js"></script>
+        <script src="/scripts/services/Modal.js"></script>
+        <script src="/scripts/services/Source.js"></script>
+        <script src="/scripts/services/Domain.js"></script>
+        <!-- endbuild -->
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-46097386-1', 'lilymandarin.com')
+        </script>
+    </head>
+    <body ng-class="tab">
+        <noscript><h4>To use lilymandarin.com, please enable JavaScript in your browser settings, then refresh this page.</h4></noscript>
+        
+        <!--[if lte IE 9]>
+        <h4 class="ie">You seem to be using an old browser! We recommend you to install <a target="_blank" href="http://google.com/chrome">Chrome</a> or <a target="_blank" href="http://firefox.com">Firefox</a> for a better experience on Lilymandarin.com and many more websites.</h4>
+        <![endif]-->
+        
+        <ng-include src="'/views/header.html'"></ng-include>
+
+        <div class="error padded" ng-cloak ng-if="error">
+            <h4>{{error}}</h4>
+            <a class="btn btn-primary more" href="/">Back to the homepage</a>
+        </div>
+
+        <main ng-view></main>
+        
+        <footer><small>© 2014 房艳 · Website by <a target="_blank" href="http://www.facebook.com/peferron">Pierre-Emile Ferron</a> · Illustrations by <a target="_blank" href="http://dzo-ho.blogspot.com">Dzoan Ho</a></small></footer>
+    </body>
+</html>

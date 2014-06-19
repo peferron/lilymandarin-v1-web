@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /admin
+Disallow: /admin/
+Disallow: /reviews
+
+Sitemap: http://lilymandarin.com/sitemap.xml
