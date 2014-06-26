@@ -21,14 +21,14 @@ angular
                 };
 
                 var length = $scope.posts.length;
-                if (length) {
-                    params.validatedBefore = $scope.posts[length - 1].firstValidationTimeNano;
-                    // Only get non-validated articles on the first load, otherwise they will end up
-                    // duplicated!
-                    params.validatedOnly = true;
-                } else {
+                if (!length) {
+                    // First load
                     params.validatedBefore = '0';
                     params.validatedOnly = !Admin;
+                } else {
+                    // Subsequent loads
+                    params.validatedBefore = $scope.posts[length - 1].firstValidationTimeNano;
+                    params.validatedOnly = true;
                 }
 
                 Article.query(params, function(posts) {
@@ -36,7 +36,12 @@ angular
                     // already-appended posts in $scope.posts
                     $scope.posts = $scope.posts.concat(posts);
 
-                    $scope.loadStatus = posts.length < params.count ? 'ended' : 'ready';
+                    if (posts.length < params.count ||
+                        posts.length && !posts[posts.length - 1].validated) {
+                        $scope.loadStatus = 'ended';
+                    } else {
+                        $scope.loadStatus = 'ready';
+                    }
                 });
             };
 
