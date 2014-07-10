@@ -84,17 +84,8 @@ module.exports = function (grunt) {
 
         // Empties folders to start fresh
         clean: {
-            dist: {
-                files: [{
-                    dot: true,
-                    src: [
-                        '.tmp',
-                        '<%= dist %>/*',
-                        '!<%= dist %>/.git*'
-                    ]
-                }]
-            },
-            serve: '.tmp'
+            tmp: '.tmp',
+            dist: 'dist'
         },
 
         // SVG minification
@@ -353,7 +344,7 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
-            'clean:serve',
+            'clean:tmp',
 
             'copy:icons',
             'grunticon',
@@ -367,7 +358,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', [
-        'clean:serve',
+        'clean:tmp',
 
         'sass',
         'autoprefixer',
@@ -379,6 +370,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         //'test',
 
+        'clean:tmp',
         'clean:dist',
 
         // SVG
@@ -402,7 +394,9 @@ module.exports = function (grunt) {
         'copy',
         'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+
+        'clean:tmp'
     ]);
 
     grunt.registerTask('deploy', [
