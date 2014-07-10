@@ -14,15 +14,15 @@ module.exports = function (grunt) {
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             jsTest: {
-                files: ['test/spec/{,*/}*.js'],
+                files: ['test/spec/**.js'],
                 tasks: ['karma']
             },
             icons: {
-                files: ['<%= app %>/icons/{,*/}*.svg'],
+                files: ['<%= app %>/static/icons/**/*.svg'],
                 tasks: ['copy:icons', 'grunticon']
             },
             styles: {
-                files: ['<%= app %>/styles/{,*/}*.sass'],
+                files: ['<%= app %>/styles/**/*.sass'],
                 tasks: ['sass', 'autoprefixer']
             },
             livereload: {
@@ -101,9 +101,9 @@ module.exports = function (grunt) {
         svgmin: {
             tmp: {
                 expand: true,
-                cwd: '<%= app %>/icons',
+                cwd: '<%= app %>/static/icons',
                 src: '*.svg',
-                dest: '.tmp/icons'
+                dest: '.tmp/static/icons'
             }
         },
 
@@ -111,12 +111,12 @@ module.exports = function (grunt) {
         grunticon: {
             tmp: {
                 expand: true,
-                cwd: '.tmp/icons',
+                cwd: '.tmp/static/icons',
                 src: '*.svg',
-                dest: '.tmp/icons',
+                dest: '.tmp/static/icons',
                 options: {
                     datasvgcss: 'icons-svg.css',
-                    template: '<%= app %>/icons/template.hbs'
+                    template: '<%= app %>/static/icons/template.hbs'
                 }
             }
         },
@@ -148,8 +148,8 @@ module.exports = function (grunt) {
                     src: '.tmp/styles/lilyweb.prefixed.css',
                     dest: '.tmp/styles/lilyweb.prefixed.min.css'
                 }, {
-                    src: '.tmp/icons/icons-svg.css',
-                    dest: '.tmp/icons/icons-svg.min.css'
+                    src: '.tmp/static/icons/icons-svg.css',
+                    dest: '.tmp/static/icons/icons-svg.min.css'
                 }]
             }
         },
@@ -172,7 +172,10 @@ module.exports = function (grunt) {
             },
             tmp: {
                 cwd: '<%= app %>',
-                src: 'views/{,*/}*.html',
+                src: [
+                    'directives/**/*.html',
+                    'views/**/*.html'
+                ],
                 dest: '.tmp/views/views.js'
             }
         },
@@ -181,7 +184,9 @@ module.exports = function (grunt) {
         concat: {
             lilyweb: {
                 src: [
-                    '<%= app %>/scripts/{,*/}*.js',
+                    '<%= app %>/directives/**/*.js',
+                    '<%= app %>/filters/**/*.js',
+                    '<%= app %>/services/**/*.js',
                     '.tmp/views/views.js'
                 ],
                 dest: '.tmp/scripts/lilyweb.js'
@@ -225,9 +230,9 @@ module.exports = function (grunt) {
         copy: {
             icons: {
                 expand: true,
-                cwd: '<%= app %>/icons',
+                cwd: '<%= app %>/static/icons',
                 src: ['*.svg'],
-                dest: '.tmp/icons'
+                dest: '.tmp/static/icons'
             },
             dist: {
                 files: [{
@@ -238,13 +243,13 @@ module.exports = function (grunt) {
                         'robots.txt',
                         'browserconfig.xml',
                         'favicon.ico',
-                        'data/*',
-                        'fonts/*',
-                        'images/**'
+                        'static/data/**',
+                        'static/fonts/**',
+                        'static/images/**'
                     ],
                     dest: '<%= dist %>'
                 }, {
-                    src: '<%= app %>/lib/bootstrap_custom/css/bootstrap.min.css',
+                    src: '<%= app %>/static/lib/bootstrap_custom/css/bootstrap.min.css',
                     dest: '<%= dist %>/styles/libs.min.css'
                 }, {
                     expand: true,
@@ -255,7 +260,7 @@ module.exports = function (grunt) {
                     ],
                     dest: '<%= dist %>'
                 }, {
-                    src: '.tmp/icons/icons-svg.min.css',
+                    src: '.tmp/static/icons/icons-svg.min.css',
                     dest: '<%= dist %>/styles/icons-svg.min.css'
                 }]
             }
