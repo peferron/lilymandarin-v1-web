@@ -176,7 +176,7 @@ module.exports = function (grunt) {
                     'directives/**/*.html',
                     'views/**/*.html'
                 ],
-                dest: '.tmp/views/views.js'
+                dest: '.tmp/views/views-html.js'
             }
         },
 
@@ -184,10 +184,12 @@ module.exports = function (grunt) {
         concat: {
             lilyweb: {
                 src: [
+                    '<%= app %>/*.js',
                     '<%= app %>/directives/**/*.js',
                     '<%= app %>/filters/**/*.js',
                     '<%= app %>/services/**/*.js',
-                    '.tmp/views/views.js'
+                    '<%= app %>/views/**/*.js',
+                    '.tmp/views/views-html.js'
                 ],
                 dest: '.tmp/scripts/lilyweb.js'
             },
