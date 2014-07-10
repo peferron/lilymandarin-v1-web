@@ -1,0 +1,3 @@
+<a href="/admin/edit/{{article.id}}" target="_blank" class="edit btn btn-xs">Edit</a> 
+<a href="/admin/{{article.validated ? 'unvalidate' : 'validate'}}/{{article.id}}" target="_blank" class="validate btn btn-xs" ng-class="{validated: article.validated}">{{article.validated ? 'Validated' : 'Not validated yet'}}</a>
+<span class="processing" ng-if="article.internal.progress < 100">{{article.internal.progress | Progress}}</span>

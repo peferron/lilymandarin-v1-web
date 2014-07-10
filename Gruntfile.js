@@ -30,12 +30,20 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= app %>/{,*/}*.html',
-                    '<%= app %>/lib/{,*/}*.css',
-                    '<%= app %>/scripts/{,*/}*.js',
-                    '<%= app %>/data/{,*/}*.json',
-                    '.tmp/styles/{,*/}*.css',
-                    '.tmp/icons/icons-svg.css'
+                    '<%= app %>/*.html',
+                    '<%= app %>/*.js',
+                    '<%= app %>/data/**.json',
+                    '<%= app %>/directives/**/*.html',
+                    '<%= app %>/directives/**/*.js',
+                    '<%= app %>/directives/**/*.css',
+                    '<%= app %>/filters/**/*.js',
+                    '<%= app %>/views/**/*.html',
+                    '<%= app %>/views/**/*.js',
+                    '<%= app %>/views/**/*.css',
+                    '<%= app %>/services/**/*.js',
+                    '.tmp/styles/*.css',
+                    '.tmp/icons/icons-svg.css',
+                    'Gruntfile.js'
                 ]
             }
         },

@@ -1,0 +1,29 @@
+<lw-card>
+    <div class="front">
+        <div class="translucent-header">
+            <small>{{clickTap | Ufl}} to show translation</small>
+            <small>{{photo.ago | Ago}}</small>
+        </div>
+        <img class="photo" ng-if="photo | ImgSrc" ng-src="{{photo | ImgSrc: 600}}">
+    </div>
+    <div class="back">
+        <div class="photo-back">
+            <div>
+                <h1 class="zh-cn">{{photo.lines[0]['zh-CN']}}</h1>
+                <h3 class="pinyin">{{photo.lines[0]['pinyin']}}</h3>
+                <h3 class="en-us">{{photo.lines[0]['en-US']}}</h3>
+            </div>
+        </div>
+        <div class="photo-buttons">
+            <lw-social class="compact" url="socialUrl" text="socialText"></lw-social><a class="btn btn-primary" href="/photo/{{photo.id}}/{{photo.slug}}" target="_blank" ng-click="$event.stopPropagation()">
+                <span class="icon-container">
+                    <span class="icon icon-link-white"></span>
+                </span>
+                <span class="text">Link</span>
+            </a>
+        </div>
+    </div>
+</lw-card>
+<lw-admin>
+    <lw-status article="photo"></lw-status>
+</lw-admin>

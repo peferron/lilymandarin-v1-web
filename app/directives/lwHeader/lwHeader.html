@@ -1,0 +1,41 @@
+<div ng-if="modal">
+    <div class="modal in" ng-click="hideModal()">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div ng-include="modal.templateUrl"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="alert">
+    <div class="alert-fixed">
+        <div class="alert alert-dismissable" ng-class="{warning: 'alert-warning', success: 'alert-success', error: 'alert-danger', info: 'alert-info'}[alert.type]">
+            <button type="button" ng-click="hideAlert()" class="close">&times;</button>
+            {{alert.message}}
+        </div>
+    </div>
+    <div class="alert alert-dismissable">
+        {{alert.message}}
+    </div>
+</div>
+
+<header>
+    <h2 class="title">
+        <a title="Homepage" href="/">Lily</a>
+        <span class="tab-color" ng-switch="" on="tab">
+            <span ng-switch-when="home">Mandarin</span>
+            <span ng-switch-when="posts">Posts</span>
+            <span ng-switch-when="photos">Photos</span>
+            <span ng-switch-when="videos">Videos</span>
+        </span>
+    </h2>
+    <nav>
+        <a href="/" class="tab home-tab">Home</a>
+        <a href="/posts" class="tab posts-tab">Posts</a>
+        <a href="/photos" class="tab photos-tab">Photos</a>
+        <a href="/videos" class="tab videos-tab">Videos</a>
+    </nav>
+</header>
+
+<lw-progress loading="loading"></lw-progress>

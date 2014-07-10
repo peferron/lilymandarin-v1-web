@@ -42,57 +42,58 @@
         <script src="/bower_components/angular-route/angular-route.js"></script>
         <script src="/bower_components/fastclick/lib/fastclick.js"></script>
         <!-- endbuild -->
-        
+
         <!-- build:js /scripts/lilyweb.ngmin.min.js -->
-        <script src="/scripts/app.js"></script>
-        <script src="/scripts/route.js"></script>
-        
-        <script src="/scripts/controllers/Home.js"></script>
-        <script src="/scripts/controllers/Posts.js"></script>
-        <script src="/scripts/controllers/Post.js"></script>
-        <script src="/scripts/controllers/Photos.js"></script>
-        <script src="/scripts/controllers/Photo.js"></script>
-        <script src="/scripts/controllers/Videos.js"></script>
-        <script src="/scripts/controllers/Video.js"></script>
-        <script src="/scripts/controllers/Reviews.js"></script>
+        <script src="/app.js"></script>
+        <script src="/route.js"></script>
 
-        <script src="/scripts/directives/lwAdmin.js"></script>
-        <script src="/scripts/directives/lwStatus.js"></script>
-        <script src="/scripts/directives/lwCard.js"></script>
-        <script src="/scripts/directives/lwSticky.js"></script>
-        <script src="/scripts/directives/lwStyle.js"></script>
-        <script src="/scripts/directives/lwTopHalf.js"></script>
-        <script src="/scripts/directives/lwMore.js"></script>
-        <script src="/scripts/directives/lwCenter.js"></script>
-        <script src="/scripts/directives/lwPhoto.js"></script>
-        <script src="/scripts/directives/lwProgress.js"></script>
-        <script src="/scripts/directives/lwCarousel.js"></script>
-        <script src="/scripts/directives/lwWrite.js"></script>
-        <script src="/scripts/directives/lwVideo.js"></script>
-        <script src="/scripts/directives/lwPost.js"></script>
-        <script src="/scripts/directives/lwSocial.js"></script>
-        <script src="/scripts/directives/lwVideoHeader.js"></script>
+        <script src="/directives/lwHeader/lwHeader.js"></script>
+        <script src="/directives/lwCard/lwCard.js"></script>
+        <script src="/directives/lwCarousel/lwCarousel.js"></script>
+        <script src="/directives/lwPhoto/lwPhoto.js"></script>
+        <script src="/directives/lwVideo/lwVideo.js"></script>
+        <script src="/directives/lwVideoHeader/lwVideoHeader.js"></script>
+        <script src="/directives/lwSocial/lwSocial.js"></script>
+        <script src="/directives/lwMore/lwMore.js"></script>
+        <script src="/directives/lwPost/lwPost.js"></script>
+        <script src="/directives/lwProgress/lwProgress.js"></script>
+        <script src="/directives/lwStatus/lwStatus.js"></script>
+        <script src="/directives/lwWrite/lwWrite.js"></script>
+        <script src="/directives/lwAdmin/lwAdmin.js"></script>
+        <script src="/directives/lwSticky/lwSticky.js"></script>
+        <script src="/directives/lwStyle/lwStyle.js"></script>
+        <script src="/directives/lwTopHalf/lwTopHalf.js"></script>
+        <script src="/directives/lwCenter/lwCenter.js"></script>
 
-        <script src="/scripts/filters/ago.js"></script>
-        <script src="/scripts/filters/fancyDate.js"></script>
-        <script src="/scripts/filters/plural.js"></script>
-        <script src="/scripts/filters/responseError.js"></script>
-        <script src="/scripts/filters/ufl.js"></script>
-        <script src="/scripts/filters/fancySource.js"></script>
-        <script src="/scripts/filters/progress.js"></script>
-        <script src="/scripts/filters/imgSrc.js"></script>
-        <script src="/scripts/filters/videoSrc.js"></script>
+        <script src="/views/home/home.js"></script>
+        <script src="/views/posts/posts.js"></script>
+        <script src="/views/post/post.js"></script>
+        <script src="/views/photos/photos.js"></script>
+        <script src="/views/photo/photo.js"></script>
+        <script src="/views/videos/videos.js"></script>
+        <script src="/views/video/video.js"></script>
+        <script src="/views/reviews/reviews.js"></script>
 
-        <script src="/scripts/services/ClickTap.js"></script>
-        <script src="/scripts/services/Article.js"></script>
-        <script src="/scripts/services/Alert.js"></script>
-        <script src="/scripts/services/Loading.js"></script>
-        <script src="/scripts/services/Analytics.js"></script>
-        <script src="/scripts/services/Admin.js"></script>
-        <script src="/scripts/services/Review.js"></script>
-        <script src="/scripts/services/Modal.js"></script>
-        <script src="/scripts/services/Source.js"></script>
-        <script src="/scripts/services/Domain.js"></script>
+        <script src="/filters/Ago.js"></script>
+        <script src="/filters/FancyDate.js"></script>
+        <script src="/filters/Plural.js"></script>
+        <script src="/filters/ResponseError.js"></script>
+        <script src="/filters/Ufl.js"></script>
+        <script src="/filters/FancySource.js"></script>
+        <script src="/filters/Progress.js"></script>
+        <script src="/filters/ImgSrc.js"></script>
+        <script src="/filters/VideoSrc.js"></script>
+
+        <script src="/services/ClickTap.js"></script>
+        <script src="/services/Article.js"></script>
+        <script src="/services/Alert.js"></script>
+        <script src="/services/Loading.js"></script>
+        <script src="/services/Analytics.js"></script>
+        <script src="/services/Admin.js"></script>
+        <script src="/services/Review.js"></script>
+        <script src="/services/Modal.js"></script>
+        <script src="/services/Source.js"></script>
+        <script src="/services/Domain.js"></script>
         <!-- endbuild -->
 
         <script>
@@ -101,12 +102,12 @@
     </head>
     <body ng-class="tab">
         <noscript><h4>To use lilymandarin.com, please enable JavaScript in your browser settings, then refresh this page.</h4></noscript>
-        
+
         <!--[if lte IE 9]>
         <h4 class="ie">You seem to be using an old browser! We recommend you to install <a target="_blank" href="http://google.com/chrome">Chrome</a> or <a target="_blank" href="http://firefox.com">Firefox</a> for a better experience on Lilymandarin.com and many more websites.</h4>
         <![endif]-->
-        
-        <ng-include src="'/views/header.html'"></ng-include>
+
+        <lw-header alert="alert" modal="modal"></lw-header>
 
         <div class="error padded" ng-cloak ng-if="error">
             <h4>{{error}}</h4>
@@ -114,7 +115,7 @@
         </div>
 
         <main ng-view></main>
-        
+
         <footer><small>© 2014 房艳 · Website by <a target="_blank" href="http://www.facebook.com/peferron">Pierre-Emile Ferron</a> · Illustrations by <a target="_blank" href="http://dzo-ho.blogspot.com">Dzoan Ho</a></small></footer>
     </body>
 </html>
