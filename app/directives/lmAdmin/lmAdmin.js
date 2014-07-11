@@ -3,17 +3,19 @@
 angular
     .module('lmDirectives')
     .directive('lmAdmin', function(Admin) {
-        var d = {
-            restrict: 'E',
-            replace: true,
-            transclude: true
-        };
-
-        if (Admin) {
-            d.template = '<div ng-transclude class="admin"></div>';
-        } else {
-            d.template = '';
+        if (!Admin) {
+            return {
+                restrict: 'E',
+                replace: true,
+                transclude: true,
+                template: ''
+            };
         }
 
-        return d;
+        return {
+            restrict: 'E',
+            replace: true,
+            transclude: true,
+            template: '<div class="lm-admin" ng-transclude></div>'
+        };
     });

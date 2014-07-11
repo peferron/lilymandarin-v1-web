@@ -1,11 +1,19 @@
-.admin
-    lm-status
-        > *
-            vertical-align: middle
-        .validate
-            background: red
-        .validated
-            background: green
-        .processing
-            font-size: 14px
-            color: red
+lm-status
+    > *
+        vertical-align: middle
+    .btn
+        border: none
+        color: white
+
+.lm-status__edit
+    background: $default
+
+.lm-status__validate
+    background: red
+
+.lm-status__validate--validated
+    background: green
+
+.lm-status__processing
+    font-size: 14px
+    color: red
