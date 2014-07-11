@@ -6,16 +6,18 @@
 
 lm-social
     display: inline-block
-    .facebook
-        border-radius: 3px 0 0 3px
-        background: #3B5998
-    .twitter
-        border-radius: 0 3px 3px 0
-        background: #4099FF
 
-lm-social.compact
+.lm-social--compact
     @include compact
 
 @media screen and (max-width: 550px)
     lm-social
         @include compact
+
+.lm-social__facebook
+    border-radius: 3px 0 0 3px
+    background: #3B5998
+
+.lm-social__twitter
+    border-radius: 0 3px 3px 0
+    background: #4099FF
