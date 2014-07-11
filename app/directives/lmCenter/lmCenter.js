@@ -6,7 +6,7 @@ angular
         return {
             restrict: 'A',
             transclude: true,
-            template: '<div><div><div><div ng-transclude></div></div></div></div>'
+            templateUrl: '/directives/lmCenter/lmCenter.html'
         };
     });
 
