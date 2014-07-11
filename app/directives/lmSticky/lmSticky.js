@@ -67,6 +67,6 @@ angular
             // resize event on the lm-sticky element.
             $element.on('resize', updateSize);
         }];
-        
+
         return d;
     });
