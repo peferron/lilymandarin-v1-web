@@ -7,7 +7,9 @@ angular
             restrict: 'E',
             scope: {
                 modal: '=',
-                alert: '='
+                alert: '=',
+                tab: '=',
+                loading: '='
             },
             templateUrl: '/directives/lmHeader/lmHeader.html',
             controller: function($scope, Modal, Alert) {
