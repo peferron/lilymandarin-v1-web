@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('Plural', function() {
         // E.g. Plural(1, 'second') => '1 second', Plural(2, 'second') => '2 seconds'
         return function(value, unit) {

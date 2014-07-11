@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwControllers')
+    .module('lmControllers')
     .controller('photos',
         function($rootScope, $scope, $window, Article, Analytics, Admin) {
             $rootScope.title = 'Photos — LilyMandarin';
@@ -30,7 +30,7 @@ angular
 
             // Sets the positions of the given photos to fit in the given columns
             function setPositions(photos, columns) {
-                $scope.css = 'lw-photo { width: ' + columns.width + 'px; }';
+                $scope.css = 'lm-photo { width: ' + columns.width + 'px; }';
 
                 photos.forEach(function(photo) {
                     var shortest = indexOfMin(columns.heights);

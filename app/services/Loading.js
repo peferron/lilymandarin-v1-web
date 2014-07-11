@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .factory('Loading', function($q, $rootScope) {
         $rootScope.loading = false;
 

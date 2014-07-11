@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .factory('Review', function($resource) {
         return $resource('', {}, {
             query: {

@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwControllers')
+    .module('lmControllers')
     .controller('photo',
         function($rootScope, $scope, $routeParams, Article, Analytics, Domain, $location) {
             $rootScope.tab = 'photos';

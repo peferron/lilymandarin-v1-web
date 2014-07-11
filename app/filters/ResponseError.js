@@ -3,7 +3,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('ResponseError', function() {
         return function(response) {
             return response.config.method + ' ' + response.config.url +

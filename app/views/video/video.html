@@ -1,8 +1,8 @@
 <article class="video">
-    <lw-video-header video="video" social-url="socialUrl" social-text="socialText"></lw-video-header>
-    <div lw-sticky>
-        <div class="player" lw-top-half="{{videoWidth / videoHeight}}">
-            <lw-video source="sources.current"></lw-video>
+    <lm-video-header video="video" social-url="socialUrl" social-text="socialText"></lm-video-header>
+    <div lm-sticky>
+        <div class="player" lm-top-half="{{videoWidth / videoHeight}}">
+            <lm-video source="sources.current"></lm-video>
         </div>
     </div>
     <div class="sources" ng-if="sources.remaining.length">
@@ -12,7 +12,7 @@
         </span>
     </div>
     <div class="buttons">
-        <lw-social url="socialUrl" text="socialText"></lw-social>
+        <lm-social url="socialUrl" text="socialText"></lm-social>
     </div>
     <div class="lines padded">
         <div ng-repeat="line in video.lines">
@@ -29,6 +29,6 @@
         </div>
     </div>
     <div class="buttons">
-        <lw-social url="socialUrl" text="socialText"></lw-social><a class="btn btn-primary more" href="/videos">More videos</a>
+        <lm-social url="socialUrl" text="socialText"></lm-social><a class="btn btn-primary more" href="/videos">More videos</a>
     </div
 </article>

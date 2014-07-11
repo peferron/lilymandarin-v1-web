@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwControllers')
+    .module('lmControllers')
     .controller('video',
         function($rootScope, $scope, $routeParams, $location, Article, Analytics, Source, Domain) {
             $rootScope.tab = 'videos';

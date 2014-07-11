@@ -1,5 +1,5 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .constant('ClickTap', 'ontouchstart' in document.documentElement ? 'tap' : 'click');

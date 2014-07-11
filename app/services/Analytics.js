@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .factory('Analytics', function($rootScope, $window, $log) {
         return {
             page: function() {

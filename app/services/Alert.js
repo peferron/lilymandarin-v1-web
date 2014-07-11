@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .factory('Alert', function($rootScope, $filter) {
         return {
             // Displays an alert with the given id, type and message. Type should be 'success',

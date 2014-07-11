@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('FancyDate', function($filter) {
         // Returns the ordinal suffix ('st', 'nd' or 'th') for the day of the given date.
         function getSuffix(date) {

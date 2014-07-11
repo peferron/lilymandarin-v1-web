@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('Ufl', function() {
         return function(str) {
             if (!str) {

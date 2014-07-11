@@ -1,15 +1,15 @@
-<lw-admin>
+<lm-admin>
     <a href="/admin/new/video?category=" target="_blank" class="btn btn-xs new">New</a>
-</lw-admin>
+</lm-admin>
 <article ng-repeat="video in videos">
-    <lw-video-header video="video"></lw-video-header>
+    <lm-video-header video="video"></lm-video-header>
     <a title="Watch" class="preview" href="/video/{{video.id}}/{{video.slug}}">
         <img class="poster" ng-src="{{video | ImgSrc: 1200}}">
-        <div class="overlay horizontal-center" lw-center>
+        <div class="overlay horizontal-center" lm-center>
             <span class="icon icon-play-white"></span>
         </div>
     </a>
 </article>
 <div class="buttons">
-    <lw-more></lw-more>
+    <lm-more></lm-more>
 </div>

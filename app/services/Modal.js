@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .factory('Modal', function($rootScope, $document) {
         function onDocumentKeydown(e) {
             if (e.which === 27) {

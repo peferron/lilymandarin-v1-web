@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('Ago', function($filter) {
         // Converts a time ago expressed in milliseconds to a pretty sentence.
         return function(ago) {

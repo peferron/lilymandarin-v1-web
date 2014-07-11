@@ -1,17 +1,17 @@
 'use strict';
 
-angular.module('lwControllers', []);
-angular.module('lwDirectives', []);
-angular.module('lwFilters', []);
-angular.module('lwServices', ['ngResource']);
+angular.module('lmControllers', []);
+angular.module('lmDirectives', []);
+angular.module('lmFilters', []);
+angular.module('lmServices', ['ngResource']);
 
 angular
     .module('lw', [
         'ngRoute',
-        'lwFilters',
-        'lwDirectives',
-        'lwControllers',
-        'lwServices'
+        'lmFilters',
+        'lmDirectives',
+        'lmControllers',
+        'lmServices'
     ])
     .config(function($httpProvider) {
         $httpProvider.interceptors.push('Loading');

@@ -1,5 +1,5 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .constant('Admin', (/((; )|^)admin=true(;|$)/).test(document.cookie));

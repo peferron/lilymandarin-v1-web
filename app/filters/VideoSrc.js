@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('VideoSrc', function(Alert, Domain) {
         var BEST_VARIANT_HEIGHT = 360;
 

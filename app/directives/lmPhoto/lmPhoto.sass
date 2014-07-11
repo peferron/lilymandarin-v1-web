@@ -1,0 +1,41 @@
+lm-photo
+    display: block
+    position: absolute
+    .admin
+        position: absolute
+        left: 15px
+        bottom: 15px
+        .processing
+            display: block
+            background: white
+            margin-top: 5px
+            padding: 1px 4px
+            border-radius: 3px
+    .flipped + .admin
+        display: none
+
+.photo-back
+    display: table
+    width: 100%
+    height: 100%
+    color: $default
+    > div
+        display: table-cell
+        width: 100%
+        height: 100%
+        text-align: center
+        vertical-align: middle
+        padding: 0 10px 35px
+    h3
+        margin-top: 20px
+    h1 + h3
+        margin-top: 15px
+
+.photo-buttons
+    position: absolute
+    bottom: 15px
+    left: 0
+    right: 0
+    text-align: center
+    lm-social
+        margin-right: 10px

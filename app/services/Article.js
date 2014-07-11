@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .factory('Article', function($resource, $rootScope, Alert) {
         var interceptor = {
             responseError: function(response) {

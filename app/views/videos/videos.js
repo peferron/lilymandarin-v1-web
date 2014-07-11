@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwControllers')
+    .module('lmControllers')
     .controller('videos',
         function($rootScope, $scope, $routeParams, $location, Article, Analytics, Admin) {
             $rootScope.title = 'Videos — LilyMandarin';

@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwServices')
+    .module('lmServices')
     .factory('Source', function(Alert) {
         // Ordered from best to worst.
         var TYPES = ['internal', 'external-youtube', 'external-youku'];

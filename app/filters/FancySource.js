@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('FancySource', function() {
         // Converts a source into a human-readable description string.
         return function(source) {

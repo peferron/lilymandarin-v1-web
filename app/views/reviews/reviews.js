@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwControllers')
+    .module('lmControllers')
     .controller('reviews',
         function($rootScope, $scope, Analytics, Review) {
             if (!$rootScope.modal) {

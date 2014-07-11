@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwControllers')
+    .module('lmControllers')
     .controller('home', function($rootScope, $scope, Article, Analytics, Modal, Alert) {
         $rootScope.title = 'LilyMandarin';
         Analytics.page();

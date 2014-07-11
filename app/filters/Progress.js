@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lwFilters')
+    .module('lmFilters')
     .filter('Progress', function() {
         return function(progress) {
             if (progress < 0) {
