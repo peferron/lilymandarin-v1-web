@@ -6,7 +6,7 @@ angular
         return $resource('', {}, {
             query: {
                 method: 'GET',
-                url: '/data/static/reviews.json',
+                url: '/static/data/reviews.json',
                 isArray: true
             }
         });
