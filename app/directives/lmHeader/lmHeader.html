@@ -20,21 +20,21 @@
     </div>
 </div>
 
-<header>
-    <h2 class="title">
-        <a title="Homepage" href="/">Lily</a>
-        <span class="tab-color" ng-switch="" on="tab">
+<header class="header">
+    <h2 class="header__title">
+        <a class="header__title__home" title="Homepage" href="/">Lily</a>
+        <span class="header__title__tab-name" ng-switch="" on="tab">
             <span ng-switch-when="home">Mandarin</span>
             <span ng-switch-when="posts">Posts</span>
             <span ng-switch-when="photos">Photos</span>
             <span ng-switch-when="videos">Videos</span>
         </span>
     </h2>
-    <nav>
-        <a href="/" class="tab home-tab">Home</a>
-        <a href="/posts" class="tab posts-tab">Posts</a>
-        <a href="/photos" class="tab photos-tab">Photos</a>
-        <a href="/videos" class="tab videos-tab">Videos</a>
+    <nav class="header__tabs">
+        <a href="/" class="header__tab header__tab-home">Home</a>
+        <a href="/posts" class="header__tab header__tab-posts">Posts</a>
+        <a href="/photos" class="header__tab header__tab-photos">Photos</a>
+        <a href="/videos" class="header__tab header__tab-videos">Videos</a>
     </nav>
 </header>
 

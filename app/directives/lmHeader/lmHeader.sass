@@ -1,54 +1,71 @@
-@mixin tab-active($color)
-    color: $color
-    border-bottom-color: $color
-
-header
+.header
     border-bottom: 1px solid $lightgray
 
-.title
+.header__title
     text-align: center
-    > a
-        color: $gray !important
 
-nav
+a.header__title__home
+    color: $gray
+
+.header__tabs
     display: table
     width: 100%
 
-.tab
+.header__tab
     display: table-cell
     font-size: 18px
     border-bottom: 5px solid transparent
     text-align: center
     padding: 8px 0 12px
 
+// Colors
+
+@mixin tab-active($color)
+    color: $color
+    border-bottom-color: $color
+
+a.header__tab-home, .home .header__title__tab-name
+    color: $home
+
+.home .header__tab-home
+    @include tab-active($home)
+
+a.header__tab-posts, .posts .header__title__tab-name
+    color: $posts
+
+.posts .header__tab-posts
+    @include tab-active($posts)
+
+a.header__tab-photos, .photos .header__title__tab-name
+    color: $photos
+
+.photos .header__tab-photos
+    @include tab-active($photos)
+
+a.header__tab-videos, .videos .header__title__tab-name
+    color: $videos
+
+.videos .header__tab-videos
+    @include tab-active($videos)
+
 @media screen and (min-width: 600px)
-    header
+    .header
         display: table
         width: 100%
-    .title, nav
+    .header__title, .header__tabs
         display: table-cell
         vertical-align: middle
-    .title
+    .header__title
         text-align: left
         padding-left: $padding
-    nav
+    .header__tabs
         text-align: right
         width: auto
-    .tab
+    .header__tab
         display: inline-block
         padding: 16px 15px 12px
 
-.home .home-tab
-    @include tab-active($home)
-
-.posts .posts-tab
-    @include tab-active($posts)
-
-.photos .photos-tab
-    @include tab-active($photos)
-
-.videos .videos-tab
-    @include tab-active($videos)
+// Alert
 
 .alert-fixed
     position: fixed
@@ -74,6 +91,8 @@ nav
 .alert-dismissable .close:hover
     color: inherit
     opacity: 1
+
+// Modal
 
 .modal
     background: rgba(255, 255, 255, 0.5)
