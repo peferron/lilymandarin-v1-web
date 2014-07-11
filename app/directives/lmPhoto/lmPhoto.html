@@ -1,12 +1,12 @@
 <lm-card>
-    <div class="front">
+    <div class="lm-card__front">
         <div class="translucent-header">
             <small>{{clickTap | Ufl}} to show translation</small>
             <small>{{photo.ago | Ago}}</small>
         </div>
         <img class="photo" ng-if="photo | ImgSrc" ng-src="{{photo | ImgSrc: 600}}">
     </div>
-    <div class="back">
+    <div class="lm-card__back">
         <div class="photo-back">
             <div>
                 <h1 class="zh-cn">{{photo.lines[0]['zh-CN']}}</h1>
