@@ -22,7 +22,11 @@ module.exports = function (grunt) {
                 tasks: ['copy:icons', 'grunticon']
             },
             styles: {
-                files: ['<%= app %>/styles/**/*.sass'],
+                files: [
+                    '<%= app %>/*.sass',
+                    '<%= app %>/directives/**/*.sass',
+                    '<%= app %>/views/**/*.sass'
+                ],
                 tasks: ['sass', 'autoprefixer']
             },
             livereload: {
@@ -30,20 +34,18 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
+                    'Gruntfile.js',
                     '<%= app %>/*.html',
                     '<%= app %>/*.js',
                     '<%= app %>/data/**.json',
                     '<%= app %>/directives/**/*.html',
                     '<%= app %>/directives/**/*.js',
-                    '<%= app %>/directives/**/*.css',
                     '<%= app %>/filters/**/*.js',
                     '<%= app %>/views/**/*.html',
                     '<%= app %>/views/**/*.js',
-                    '<%= app %>/views/**/*.css',
                     '<%= app %>/services/**/*.js',
                     '.tmp/styles/*.css',
-                    '.tmp/icons/icons-svg.css',
-                    'Gruntfile.js'
+                    '.tmp/icons/icons-svg.css'
                 ]
             }
         },
@@ -116,7 +118,7 @@ module.exports = function (grunt) {
         // If multiple SASS files, use @import in the SASS file rather than grunt concat
         sass: {
             tmp: {
-                src: '<%= app %>/styles/main.sass',
+                src: '<%= app %>/app.sass',
                 dest: '.tmp/styles/lilyweb.css'
             }
         },

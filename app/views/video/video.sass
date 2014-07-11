@@ -1,0 +1,62 @@
+.video [lw-sticky]
+    &, > div
+        z-index: 3
+
+.lines
+    margin-top: 15px
+    > div
+        margin-top: 10px
+    h3
+        margin: 0 0 0px
+
+.translation
+    position: relative
+    button
+        border: 1px solid $lightgray
+        background: none
+        color: $default
+    .text
+        position: relative
+        z-index: 1
+
+.show-translation-container
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+
+.hidden-translation
+    .show-translation-container
+        opacity: 1
+        z-index: 2
+    .text
+        opacity: 0
+        cursor: default
+
+.translation .text,
+.hidden-translation .show-translation-container
+    transition: opacity 0.1s 0.1s linear
+
+.show-translation-container,
+.hidden-translation .text
+    transition: opacity 0.1s linear
+
+.player
+    width: 100%
+    max-width: $maxwidth
+    background: black
+    margin: 0 auto
+    text-align: center
+    lw-video, lw-video > div, iframe
+        display: block
+        height: 100%
+        width: 100%
+    video
+        height: 100%
+        max-width: 100% // Safari
+
+.sources
+    color: darken($gray, 10%)
+    background: lighten($lightgray, 10%)
+    padding: 10px $padding
+    text-align: center

@@ -1,0 +1,48 @@
+lw-post
+    display: block
+    text-align: left
+    width: 100%
+    border: 1px solid #CCC
+    padding: $padding
+    border-radius: 6px
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3)
+    .date
+        color: $gray
+    .admin
+        margin-left: 5px
+    .poster
+        display: block
+    img
+        width: 100%
+    .zh-cn
+        color: $posts
+    .content .text
+        margin-top: $padding
+        h4
+            margin-top: 5px
+    lw-social
+        display: block
+        margin-top: $padding
+
+lw-post .header
+    h3, .admin
+        display: inline-block
+        vertical-align: middle
+    .admin
+        margin-left: 5px
+
+lw-post
+    .header
+        margin-bottom: $padding
+
+@media screen and (min-width: 700px)
+    lw-post .content
+        display: table
+        width: 100%
+        .poster, .text
+            display: table-cell
+            vertical-align: middle
+        .text
+            margin-top: 0
+            width: 350px
+            padding-left: $padding

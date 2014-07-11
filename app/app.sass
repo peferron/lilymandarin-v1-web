@@ -1,0 +1,248 @@
+// Fonts (other interesting types: Lato, PT Sans)
+
+@font-face
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: normal
+    src: local('Open Sans'), local('OpenSans'), url(/static/fonts/opensans-regular.woff) format('woff'), url(/static/fonts/opensans-regular.ttf) format('truetype')
+
+@font-face
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: bold
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(/static/fonts/opensans-bold.woff) format('woff'), url(/static/fonts/opensans-bold.ttf) format('truetype')
+
+// Variables
+
+$home: #4892fc
+$posts: #7853bb
+$photos: #54af3d
+$videos: #e9604e
+
+$default: #333
+
+$gray: #999
+$lightgray: #ccc
+
+$padding: 15px
+
+$minwidth: 300px
+$maxwidth: 1200px
+
+$bootstrapsm: 768px
+
+// Reset
+
+body
+    font-family: 'Open Sans', sans-serif
+    color: $default
+    margin: 0 auto $padding
+    min-width: $minwidth
+    max-width: $maxwidth
+    overflow-y: scroll
+    // Hack to prevent horizontal scrollbar when flipping photos on Firefox
+    @media screen and (min-width: $minwidth)
+        overflow-x: hidden
+
+input, textarea, button, h1, h2, h3, h4, h5, h6
+    font-family: inherit
+    color: inherit
+
+h1, h2, h3, h4
+    margin: 0
+    font-weight: 400
+    line-height: inherit
+
+a:hover, a:focus
+    text-decoration: none
+    outline: none
+
+// Fastclick
+
+a, input, button
+    -ms-touch-action: none !important
+
+// Tab colors
+
+header a.home-tab,
+.home a,
+.home .tab-color
+    color: $home
+
+.home .btn-primary
+    background: $home
+    border-color: $home
+
+header a.posts-tab,
+.posts a,
+.posts .tab-color
+    color: $posts
+
+.posts .btn-primary
+    background: $posts
+    border-color: $posts
+
+header a.photos-tab,
+.photos a,
+.photos .tab-color
+    color: $photos
+
+.photos .btn-primary
+    background: $photos
+    border-color: $photos
+
+header a.videos-tab,
+.videos a,
+.videos .tab-color
+    color: $videos
+
+.videos .btn-primary
+    background: $videos
+    border-color: $videos
+
+// Common
+
+.btn-primary
+    color: white !important
+
+.icon-container
+    height: 20px
+    width: 24px
+    .icon
+        display: block
+        width: 24px
+        height: 24px
+        margin-top: -2px
+
+.icon-container, .btn .text
+    display: inline-block
+    vertical-align: top
+
+.btn .text
+    color: white
+    margin-right: 3px
+
+.padded
+    padding-left: $padding
+    padding-right: $padding
+
+.buttons
+    margin: 20px 0 0 $padding
+    > *
+        vertical-align: middle
+    lw-social
+        margin-right: 10px
+
+.translucent-header
+    z-index: 1
+    background: rgba(0, 0, 0, 0.5) // Fallback
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%) // IE 10+
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%) // W3C
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    color: white
+    text-align: left
+    display: table
+    padding: 10px $padding 20px
+    > *
+        opacity: 0.7
+        display: table-cell
+        vertical-align: middle
+        + *
+            text-align: right
+
+.icon
+    display: inline-block
+    background-size: cover
+
+.home, .posts, .videos
+    article, section
+        margin-top: 15px
+    article + article, section + section
+        margin-top: 40px
+    h3
+        margin-top: 0
+
+.ago
+    color: $gray
+    display: block
+    &:first-letter
+        text-transform: uppercase
+
+.pinyin, .en-us, .fr-fr
+    color: $gray
+
+.table
+    display: table
+
+.cell
+    display: table-cell
+
+.error
+    h4
+        margin: 15px 0
+    + main
+        display: none
+
+.new
+    margin: $padding 0 0 $padding
+
+.admin .btn
+    background: $default
+    border: none
+    color: white !important
+
+.center
+    text-align: center
+    > div
+        display: inline-block
+        text-align: left
+
+// Noscript & old Internet Explorer
+
+noscript h4, .ie
+    margin: $padding
+    padding: $padding
+    background: #DFD
+    border: 1px solid green
+
+// Footer
+
+footer
+    min-width: $minwidth
+    margin-top: 20px
+    border-top: 1px solid $lightgray
+    padding: $padding $padding 0
+    color: $gray
+    a
+        color: $gray !important
+    small
+        // Fix for a weird issue where the copyright notice won't be at the exact same vertical
+        // position on the photos tab as on the other tabs
+        display: block
+
+// Imports
+
+@import directives/lwAdmin/lwAdmin.sass
+@import directives/lwCard/lwCard.sass
+@import directives/lwCenter/lwCenter.sass
+@import directives/lwHeader/lwHeader.sass
+@import directives/lwMore/lwMore.sass
+@import directives/lwPhoto/lwPhoto.sass
+@import directives/lwPost/lwPost.sass
+@import directives/lwProgress/lwProgress.sass
+@import directives/lwStatus/lwStatus.sass
+@import directives/lwSticky/lwSticky.sass
+@import directives/lwSocial/lwSocial.sass
+@import directives/lwVideoHeader/lwVideoHeader.sass
+
+@import views/home/home.sass
+@import views/photo/photo.sass
+@import views/photos/photos.sass
+@import views/post/post.sass
+@import views/posts/posts.sass
+@import views/reviews/reviews.sass
+@import views/video/video.sass
+@import views/videos/videos.sass
