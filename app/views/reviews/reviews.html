@@ -1,15 +1,15 @@
 <section class="reviews padded">
-    <h3>Student reviews</h3>
+    <h3 class="reviews__title">Student reviews</h3>
     <div class="review" ng-repeat="review in reviews">
-        <div>
-            <div class="photo">
-                <img ng-if="review.photo" ng-src="/static/images/reviews/{{review.photo}}">
+        <div class="review__container">
+            <div class="review__photo">
+                <img class="review__photo__img" ng-if="review.photo" ng-src="/static/images/reviews/{{review.photo}}">
             </div>
-            <div class="text">
-                <p>{{review.text}}</p>
+            <div class="review__text">
+                <p class="review__quote">{{review.text}}</p>
                 <span>— {{review.name}}</span>
             </div>
         </div>
     </div>
-    <small class="loading">Loading...</small>
+    <small class="reviews__loading">Loading...</small>
 </section>

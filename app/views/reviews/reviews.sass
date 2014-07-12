@@ -1,51 +1,58 @@
-.reviews .loading
-    display: none
-
-.modal .reviews
-    padding-left: 0
-    padding-right: 0
-    margin-top: 0
-    h3
-        margin-top: 0
-    .loading
-        display: block
-        color: $gray
-    .review + .loading
-        display: none
-
 .review
     &:nth-child(2n+1)
         text-align: right
     + .review
         margin-top: 30px
-    > div
-        display: inline-block
-        margin-bottom: 0
-        @media screen and (min-width: $bootstrapsm)
-            max-width: 70%
-    .text, .photo
-        display: table-cell
-        text-align: left
-        vertical-align: top
-    p
-        white-space: pre-line
-        background: #F5F5F5
-        padding: 9.5px
-        line-height: 1.428571429
-        border-radius: 6px
-        border: 1px solid #cccccc
-    img
-        width: 150px
-        height: 150px
-        border-radius: 100%
-        margin: 0 20px 0 0
 
-.modal-body .review
-    > div
+.review__container
+    display: inline-block
+    margin-bottom: 0
+
+.review__text, .review__photo
+    display: table-cell
+    text-align: left
+    vertical-align: top
+
+.review__photo__img
+    width: 150px
+    height: 150px
+    border-radius: 100%
+    margin: 0 20px 0 0
+
+.review__quote
+    white-space: pre-line
+    background: #F5F5F5
+    padding: 9.5px
+    line-height: 1.428571429
+    border-radius: 6px
+    border: 1px solid #cccccc
+
+.reviews__loading
+    display: none
+
+.modal
+    .reviews
+        padding-left: 0
+        padding-right: 0
+        margin-top: 0
+    .reviews__title
+        margin-top: 0
+    .review__container
         max-width: 100%
-    @media screen and (max-width: 575px)
-        .text, .photo
+    .reviews__loading
+        display: block
+        color: $gray
+    .review + .reviews__loading
+        display: none
+
+@media screen and (min-width: $bootstrapsm)
+    .review__container
+        max-width: 70%
+
+@media screen and (max-width: 575px)
+    .modal
+        .review__text, .review__photo
             display: block
-        .photo
+        .review__photo
             text-align: center
             margin: 0 0 10px 0
