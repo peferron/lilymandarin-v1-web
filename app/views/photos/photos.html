@@ -2,7 +2,7 @@
     <a href="/admin/new/photo?category=photo" target="_blank" class="btn btn-xs new">New</a>
 </lm-admin>
 <style lm-style css="{{css}}" scoped></style>
-<div ng-style="{height: totalHeight + 'px'}">
+<div class="photos__container" ng-style="{height: totalHeight + 'px'}">
     <lm-photo ng-repeat="photo in photos" ng-style="photo.style" photo="photo"></lm-photo>
 </div>
 <div class="buttons">

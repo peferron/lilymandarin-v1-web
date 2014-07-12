@@ -5,16 +5,17 @@ lm-photo
         position: absolute
         left: 15px
         bottom: 15px
-        .lm-status__processing
-            display: block
-            background: white
-            margin-top: 5px
-            padding: 1px 4px
-            border-radius: 3px
-    .flipped + .lm-admin
+        z-index: 2
+    .lm-status__processing
+        display: block
+        background: white
+        margin-top: 5px
+        padding: 1px 4px
+        border-radius: 3px
+    .lm-card--flipped + .lm-admin
         display: none
 
-.photo-back
+.lm-photo__lines
     display: table
     width: 100%
     height: 100%
@@ -26,12 +27,12 @@ lm-photo
         text-align: center
         vertical-align: middle
         padding: 0 10px 35px
-    h3
-        margin-top: 20px
-    h1 + h3
+    .pinyin
         margin-top: 15px
+    .en-us
+        margin-top: 20px
 
-.photo-buttons
+.lm-photo__buttons
     position: absolute
     bottom: 15px
     left: 0
