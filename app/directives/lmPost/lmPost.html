@@ -1,14 +1,14 @@
-<div class="header">
-    <h3 class="date">{{post.firstValidationTime | FancyDate}}</h3>
-    <lm-admin>
+<div class="lm-post__header">
+    <h3 class="lm-post__header__date">{{post.firstValidationTime | FancyDate}}</h3>
+    <lm-admin class="lm-post__header__admin">
         <lm-status article="post"></lm-status>
     </lm-admin>
 </div>
-<div class="content">
-    <a ng-href="{{clickable ? ('/post/' + post.id + '/' + post.slug) : ''}}" target="_blank" class="poster">
-        <img ng-src="{{post | ImgSrc: 500}}">
+<div class="lm-post__content">
+    <a ng-href="{{clickable ? ('/post/' + post.id + '/' + post.slug) : ''}}" target="_blank" class="lm-post__poster">
+        <img class="lm-post__poster__img" ng-src="{{post | ImgSrc: 500}}">
     </a>
-    <div class="text">
+    <div class="lm-post__text">
         <h1 class="zh-cn">{{post.lines[0]['zh-CN']}}</h1>
         <h4 class="pinyin">{{post.lines[0]['pinyin']}}</h4>
         <h4 class="en-us">{{post.lines[0]['en-US']}}</h4>

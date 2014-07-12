@@ -6,43 +6,41 @@ lm-post
     padding: $padding
     border-radius: 6px
     box-shadow: 0 1px 1px rgba(0,0,0,0.3)
-    .date
-        color: $gray
-    .lm-admin
-        margin-left: 5px
-    .poster
-        display: block
-    img
-        width: 100%
+
+.lm-post__header
+    margin-bottom: $padding
+
+.lm-post__header__date, .lm-post__header__admin
+    display: inline-block
+    vertical-align: middle
+
+.lm-post__header__date
+    color: $gray
+
+.lm-post__poster
+    display: block
+
+.lm-post__poster__img
+    width: 100%
+
+.lm-post__text
+    margin-top: $padding
     .zh-cn
         color: $posts
-    .content .text
-        margin-top: $padding
-        h4
-            margin-top: 5px
+    .pinyin, .en-us, .fr-fr
+        margin-top: 5px
     lm-social
         display: block
         margin-top: $padding
 
-lm-post .header
-    h3, .lm-admin
-        display: inline-block
-        vertical-align: middle
-    .lm-admin
-        margin-left: 5px
-
-lm-post
-    .header
-        margin-bottom: $padding
-
 @media screen and (min-width: 700px)
-    lm-post .content
+    .lm-post__content
         display: table
         width: 100%
-        .poster, .text
-            display: table-cell
-            vertical-align: middle
-        .text
-            margin-top: 0
-            width: 350px
-            padding-left: $padding
+    .lm-post__poster, .lm-post__text
+        display: table-cell
+        vertical-align: middle
+    .lm-post__text
+        margin-top: 0
+        width: 350px
+        padding-left: $padding
