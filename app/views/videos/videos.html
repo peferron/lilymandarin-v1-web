@@ -3,11 +3,9 @@
 </lm-admin>
 <article ng-repeat="video in videos">
     <lm-video-header video="video"></lm-video-header>
-    <a title="Watch" class="preview" href="/video/{{video.id}}/{{video.slug}}">
-        <img class="poster" ng-src="{{video | ImgSrc: 1200}}">
-        <div class="overlay lm-center--horizontal" lm-center>
-            <span class="icon icon-play-white"></span>
-        </div>
+    <a title="Watch" class="videos__preview" href="/video/{{video.id}}/{{video.slug}}">
+        <img class="videos__preview__poster" ng-src="{{video | ImgSrc: 1200}}">
+        <div class="videos__preview__overlay icon-play-white"></div>
     </a>
 </article>
 <div class="buttons">

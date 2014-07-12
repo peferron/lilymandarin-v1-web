@@ -1,24 +1,20 @@
-.videos .poster
-    width: 100%
-    min-height: 205px
-
-.video-header
-    .ago
-        margin: 5px 0 10px
-
-.preview
+.videos__preview
     display: block
     position: relative
-    .overlay
-        position: absolute
-        top: 0
-        right: 0
-        bottom: 0
-        left: 0
-    .icon
-        width: 200px
-        height: 200px
-        opacity: 0.9
-    img:not([src])
+
+.videos__preview__poster
+    width: 100%
+    min-height: 205px
+    &:not([src])
         background: $lightgray
         padding-top: percentage(9/16)
+
+.videos__preview__overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 200px
