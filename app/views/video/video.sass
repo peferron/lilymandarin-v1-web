@@ -1,62 +1,58 @@
-.video [lm-sticky]
-    &, > div
-        z-index: 3
-
-.lines
-    margin-top: 15px
-    > div
-        margin-top: 10px
-    h3
-        margin: 0 0 0px
-
-.translation
-    position: relative
-    button
-        border: 1px solid $lightgray
-        background: none
-        color: $default
-    .text
-        position: relative
-        z-index: 1
-
-.show-translation-container
-    position: absolute
-    top: 0
-    left: 0
-    opacity: 0
-
-.hidden-translation
-    .show-translation-container
-        opacity: 1
-        z-index: 2
-    .text
-        opacity: 0
-        cursor: default
-
-.translation .text,
-.hidden-translation .show-translation-container
+@mixin video__in
     transition: opacity 0.1s 0.1s linear
 
-.show-translation-container,
-.hidden-translation .text
+@mixin video__out
     transition: opacity 0.1s linear
 
-.player
+.video__sticky, .video__top-half
+    z-index: 3
+
+.video__top-half
     width: 100%
     max-width: $maxwidth
     background: black
     margin: 0 auto
     text-align: center
-    lm-video, lm-video > div, iframe
-        display: block
-        height: 100%
-        width: 100%
-    video
-        height: 100%
-        max-width: 100% // Safari
 
-.sources
+.video__sources
     color: darken($gray, 10%)
     background: lighten($lightgray, 10%)
     padding: 10px $padding
     text-align: center
+
+.video__lines
+    margin-top: 15px
+
+.video__line
+    margin-top: 10px
+    .zh-cn
+        margin: 0 0 0px
+
+.video__line__translation
+    position: relative
+    button
+        border: 1px solid $lightgray
+        background: none
+        color: $default
+
+.video__line__translation__show
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    @include video__out
+
+.video__line__translation__text
+    position: relative
+    z-index: 1
+    @include video__in
+
+.video__line__translation--hidden
+    .video__line__translation__show
+        opacity: 1
+        z-index: 2
+        @include video__in
+    .video__line__translation__text
+        opacity: 0
+        cursor: default
+        @include video__out

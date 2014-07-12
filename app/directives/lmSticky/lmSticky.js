@@ -20,7 +20,7 @@ angular
         var d = {
             restrict: 'A',
             transclude: true,
-            template: '<div ng-transclude></div>'
+            templateUrl: '/directives/lmSticky/lmSticky.html'
         };
 
         if (canSticky()) {
@@ -58,7 +58,7 @@ angular
                     stuck = newStuck;
 
                     updateSize();
-                    $element.toggleClass('stuck', stuck);
+                    $element.toggleClass('lm-sticky--stuck', stuck);
                 })
                 .triggerHandler('scroll');
 

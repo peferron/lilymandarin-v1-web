@@ -1,11 +1,11 @@
 <article class="video">
     <lm-video-header video="video" social-url="socialUrl" social-text="socialText"></lm-video-header>
-    <div lm-sticky>
-        <div class="player" lm-top-half="{{videoWidth / videoHeight}}">
+    <div lm-sticky class="video__sticky">
+        <div class="video__top-half" lm-top-half="{{videoWidth / videoHeight}}">
             <lm-video source="sources.current"></lm-video>
         </div>
     </div>
-    <div class="sources" ng-if="sources.remaining.length">
+    <div class="video__sources" ng-if="sources.remaining.length">
         Playing from {{sources.current | FancySource}}. Also available on
         <span ng-repeat="source in sources.remaining">
             <a href="#" ng-click="setSource(source)">{{source | FancySource}}</a>{{$last ? '.' : ' and '}}
@@ -14,14 +14,14 @@
     <div class="buttons">
         <lm-social url="socialUrl" text="socialText"></lm-social>
     </div>
-    <div class="lines padded">
-        <div ng-repeat="line in video.lines">
+    <div class="video__lines padded">
+        <div class="video__line" ng-repeat="line in video.lines">
             <h3 class="zh-cn">{{line['zh-CN']}}</h3>
-            <div class="translation" ng-class="{'hidden-translation': !line.showTranslation}">
-                <div class="show-translation-container">
+            <div class="video__line__translation" ng-class="{'video__line__translation--hidden': !line.showTranslation}">
+                <div class="video__line__translation__show">
                     <button type="button" class="btn btn-sm" ng-click="toggleTranslation(line)">Translation</button>
                 </div>
-                <div class="text">
+                <div class="video__line__translation__text">
                     <h4 class="pinyin">{{line['pinyin']}}</h4>
                     <h4 class="en-us">{{line['en-US']}} <button type="button" class="btn btn-sm" ng-click="toggleTranslation(line)">Hide</button></h4>
                 </div>

@@ -5,9 +5,13 @@
     position: -o-sticky
     position: sticky
     top: 0 // Safari
-    &.stuck > div
-        position: fixed
-        top: 0
-        left: 0
-        width: 100%
-        line-height: 0
+
+.lm-sticky__container
+    z-index: inherit
+
+.lm-sticky--stuck .lm-sticky__container
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    line-height: 0
