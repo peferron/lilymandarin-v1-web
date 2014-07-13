@@ -1,0 +1,11 @@
+<lm-carousel period="4">
+    <div class="lm-latest__item col-xs-4" ng-repeat="tab in ['posts', 'photos', 'videos']" ng-class="'col{{$index}}'">
+        <a href="/{{tab}}" >
+            <div class="translucent-header">
+                <div>{{tab | Ufl}}</div>
+                <small>{{latest[tab][0].ago | Ago}}</small>
+            </div>
+            <div class="placeholder" ng-repeat="article in latest[tab]" ng-class="{active: carousel % latest[tab].length == $index}" ng-style="{'background-image': 'url({{article | ImgSrc: 397}})'}"></div>
+        </a>
+    </div>
+</lm-carousel>
