@@ -9,10 +9,7 @@ angular
         $rootScope.tab = 'home';
 
         function showReviewsModal() {
-            Modal.show({
-                templateUrl: '/views/reviews/reviewsModal.html',
-                controller: 'reviews'
-            });
+            Modal.show('/views/reviews/reviewsModal.html');
         }
 
         $scope.showReviews = function($event) {

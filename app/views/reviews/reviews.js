@@ -4,7 +4,7 @@ angular
     .module('lmControllers')
     .controller('reviews',
         function($rootScope, $scope, Analytics, Review) {
-            if (!$rootScope.modal) {
+            if (!$rootScope.modalTemplateUrl) {
                 $rootScope.title = 'Student reviews — LilyMandarin';
                 $rootScope.tab = 'home';
                 Analytics.page();

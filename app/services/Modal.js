@@ -9,15 +9,13 @@ angular
             }
         }
 
-        function show(options) {
-            $rootScope.modal = {
-                templateUrl: options.templateUrl
-            };
+        function show(templateUrl) {
+            $rootScope.modalTemplateUrl = templateUrl;
             $document.on('keydown', onDocumentKeydown);
         }
 
         function hide() {
-            $rootScope.modal = null;
+            $rootScope.modalTemplateUrl = null;
             $document.off('keydown', onDocumentKeydown);
         }
 

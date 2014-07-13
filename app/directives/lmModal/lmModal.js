@@ -6,7 +6,7 @@ angular
         return {
             restrict: 'E',
             scope: {
-                modal: '=',
+                templateUrl: '='
             },
             templateUrl: '/directives/lmModal/lmModal.html',
             controller: function($scope, Modal) {

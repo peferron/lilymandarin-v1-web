@@ -1,8 +1,8 @@
-<div ng-if="modal">
+<div ng-if="templateUrl">
     <div class="modal in" ng-click="hideModal()">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div ng-include="modal.templateUrl"></div>
+                <div ng-include="templateUrl"></div>
             </div>
         </div>
     </div>
