@@ -8,8 +8,6 @@ angular
 
         $rootScope.tab = 'home';
 
-        $scope.email = 'fangyan61@gmail.com';
-
         function showReviewsModal() {
             Modal.show({
                 templateUrl: '/views/reviews/reviewsModal.html',
