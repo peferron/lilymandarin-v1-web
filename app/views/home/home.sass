@@ -81,45 +81,42 @@
 
 // Contact
 
-.contact
-    .portrait
-        background-image: url(/static/images/portrait.jpg)
-        background-position: 0% 20%
-        background-repeat: no-repeat
-        background-size: cover
-        padding-top: 70%
-    img
-        border-radius: 100%
-        width: 100%
-        max-width: 400px
-    .methods
-        padding-left: $padding
-    .method
-        margin-top: 15px
-        .icon, h4
-            display: inline-block
-            vertical-align: middle
-        .icon
-            background-color: $home
-            border-radius: 3px
-            width: 32px
-            height: 32px
-        h4
-            margin: 0 0 0 10px
-            color: $default
-    .email h4
-        font-weight: bold
+.contact__portrait
+    background-image: url(/static/images/portrait.jpg)
+    background-position: 0% 20%
+    background-repeat: no-repeat
+    background-size: cover
+    padding-top: 70%
+
+.contact__method
+    margin: 15px 0 15px 15px
+
+.contact__icon, .contact__address
+    display: inline-block
+    vertical-align: middle
+
+.contact__icon
+    background-color: $home
+    border-radius: 3px
+    width: 32px
+    height: 32px
+
+.contact__address
+    margin: 0 0 0 10px
+    color: $default
+
+.contact__address--email
+    font-weight: bold
 
 @media screen and (min-width: 610px)
-    .contact
-        .portrait
-            border-radius: 100%
-            width: 250px
-            height: 250px
-            padding-top: 0
-            margin-left: $padding
-            display: inline-block
-            vertical-align: middle
-        .methods
-            display: inline-block
-            vertical-align: middle
+    .contact__portrait
+        border-radius: 100%
+        width: 250px
+        height: 250px
+        padding-top: 0
+        margin-left: $padding
+        display: inline-block
+        vertical-align: middle
+    .contact__methods
+        display: inline-block
+        vertical-align: middle
