@@ -2,7 +2,7 @@
 
 angular
     .module('lmControllers')
-    .controller('home', function($rootScope, $scope, Article, Analytics, Modal, Alert) {
+    .controller('home', function($rootScope, $scope, Analytics, Modal) {
         $rootScope.title = 'LilyMandarin';
         Analytics.page();
 

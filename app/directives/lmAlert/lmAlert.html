@@ -1,11 +1,11 @@
-<div ng-if="alert">
+<div ng-if="type && message">
     <div class="alert-fixed">
-        <div class="alert alert-dismissable" ng-class="{warning: 'alert-warning', success: 'alert-success', error: 'alert-danger', info: 'alert-info'}[alert.type]">
+        <div class="alert alert-dismissable" ng-class="{warning: 'alert-warning', success: 'alert-success', error: 'alert-danger', info: 'alert-info'}[type]">
             <button type="button" ng-click="hideAlert()" class="close">&times;</button>
-            {{alert.message}}
+            {{message}}
         </div>
     </div>
     <div class="alert alert-dismissable">
-        {{alert.message}}
+        {{message}}
     </div>
 </div>

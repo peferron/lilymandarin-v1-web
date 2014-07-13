@@ -6,7 +6,8 @@ angular
         return {
             restrict: 'E',
             scope: {
-                alert: '=',
+                type: '=',
+                message: '='
             },
             templateUrl: '/directives/lmAlert/lmAlert.html',
             controller: function($scope, Alert) {

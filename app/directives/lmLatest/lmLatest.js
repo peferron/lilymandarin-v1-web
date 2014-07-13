@@ -7,7 +7,7 @@ angular
             restrict: 'E',
             scope: {},
             templateUrl: '/directives/lmLatest/lmLatest.html',
-            controller: function($scope, Article) {
+            controller: function($scope, Article, Alert) {
                 function getArticleTab(article) {
                     if (!article) {
                         Alert.show('Home', 'error', 'Cannot get tab for null article');
