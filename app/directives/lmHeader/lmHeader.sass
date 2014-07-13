@@ -1,3 +1,7 @@
+@mixin tab-active($color)
+    color: $color
+    border-bottom-color: $color
+
 .header
     border-bottom: 1px solid $lightgray
 
@@ -17,12 +21,6 @@ a.header__title__home
     border-bottom: 5px solid transparent
     text-align: center
     padding: 8px 0 12px
-
-// Colors
-
-@mixin tab-active($color)
-    color: $color
-    border-bottom-color: $color
 
 a.header__tab-home, .home .header__title__tab-name
     color: $home
@@ -64,43 +62,3 @@ a.header__tab-videos, .videos .header__title__tab-name
     .header__tab
         display: inline-block
         padding: 16px 15px 12px
-
-// Alert
-
-.alert-fixed
-    position: fixed
-    width: 100%
-    top: 0
-    z-index: 9999
-    + .alert
-        visibility: hidden
-
-.alert
-    word-wrap: break-word
-    border-radius: 0
-    border-top: 0
-    margin-bottom: 0
-    box-shadow: 0 0 4px $gray
-    .close
-        top: -15px
-        right: -36px
-        padding: 12px 19px
-        font-size: 24px
-        opacity: 1
-
-.alert-dismissable .close:hover
-    color: inherit
-    opacity: 1
-
-// Modal
-
-.modal
-    background: rgba(255, 255, 255, 0.5)
-    &.in
-        display: block
-    .close
-        padding: 15px
-        margin: -15px -15px 0 0
-
-.modal-footer
-    margin-top: 0

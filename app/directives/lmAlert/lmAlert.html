@@ -1,0 +1,11 @@
+<div ng-if="alert">
+    <div class="alert-fixed">
+        <div class="alert alert-dismissable" ng-class="{warning: 'alert-warning', success: 'alert-success', error: 'alert-danger', info: 'alert-info'}[alert.type]">
+            <button type="button" ng-click="hideAlert()" class="close">&times;</button>
+            {{alert.message}}
+        </div>
+    </div>
+    <div class="alert alert-dismissable">
+        {{alert.message}}
+    </div>
+</div>

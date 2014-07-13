@@ -1,0 +1,24 @@
+.alert-fixed
+    position: fixed
+    width: 100%
+    top: 0
+    z-index: 9999
+    + .alert
+        visibility: hidden
+
+.alert
+    word-wrap: break-word
+    border-radius: 0
+    border-top: 0
+    margin-bottom: 0
+    box-shadow: 0 0 4px $gray
+    .close
+        top: -15px
+        right: -36px
+        padding: 12px 19px
+        font-size: 24px
+        opacity: 1
+
+.alert-dismissable .close:hover
+    color: inherit
+    opacity: 1
