@@ -67,18 +67,12 @@ a, input, button
 .home a
     color: $home
 
-.lm-progress__bar
-    background: $home
-
 .home .btn-primary
     background: $home
     border-color: $home
 
 .posts a
     color: $posts
-
-.posts .lm-progress__bar
-    background: $posts
 
 .posts .btn-primary
     background: $posts
@@ -91,14 +85,8 @@ a, input, button
     background: $photos
     border-color: $photos
 
-.photos .lm-progress__bar
-    background: $photos
-
 .videos a
     color: $videos
-
-.videos .lm-progress__bar
-    background: $videos
 
 .videos .btn-primary
     background: $videos
@@ -106,23 +94,24 @@ a, input, button
 
 // Common
 
-.btn-primary
-    color: white !important
-
 .icon-container
     height: 20px
     width: 24px
+    display: inline-block
+    vertical-align: top
     .icon
         display: block
         width: 24px
         height: 24px
         margin-top: -2px
 
-.icon-container, .btn .text
+.icon
     display: inline-block
-    vertical-align: top
+    background-size: cover
 
 .btn .text
+    display: inline-block
+    vertical-align: top
     color: white
     margin-right: 3px
 
@@ -157,37 +146,27 @@ a, input, button
         + *
             text-align: right
 
-.icon
-    display: inline-block
-    background-size: cover
-
 .home, .posts, .videos
     article, section
         margin-top: 15px
     article + article, section + section
         margin-top: 40px
-    h3
-        margin-top: 0
-
-.ago
-    color: $gray
-    display: block
-    &:first-letter
-        text-transform: uppercase
 
 .pinyin, .en-us, .fr-fr
     color: $gray
+
+a.new
+    background: $default
+    color: white
+    margin: $padding 0 0 $padding
+
+// Error
 
 .error
     h4
         margin: 15px 0
     + main
         display: none
-
-a.new
-    background: $default
-    color: white
-    margin: $padding 0 0 $padding
 
 // Noscript & old Internet Explorer
 

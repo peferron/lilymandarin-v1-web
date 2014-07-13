@@ -22,30 +22,6 @@ a.header__title__home
     text-align: center
     padding: 8px 0 12px
 
-a.header__tab-home, .home .header__title__tab-name
-    color: $home
-
-.home .header__tab-home
-    @include tab-active($home)
-
-a.header__tab-posts, .posts .header__title__tab-name
-    color: $posts
-
-.posts .header__tab-posts
-    @include tab-active($posts)
-
-a.header__tab-photos, .photos .header__title__tab-name
-    color: $photos
-
-.photos .header__tab-photos
-    @include tab-active($photos)
-
-a.header__tab-videos, .videos .header__title__tab-name
-    color: $videos
-
-.videos .header__tab-videos
-    @include tab-active($videos)
-
 @media screen and (min-width: 600px)
     .header
         display: table
@@ -62,3 +38,49 @@ a.header__tab-videos, .videos .header__title__tab-name
     .header__tab
         display: inline-block
         padding: 16px 15px 12px
+
+// Home
+
+a.header__tab-home, .home .header__title__tab-name
+    color: $home
+
+.home .header__tab-home
+    @include tab-active($home)
+
+.lm-progress__bar
+    background: $home
+
+// Posts
+
+a.header__tab-posts, .posts .header__title__tab-name
+    color: $posts
+
+.posts .header__tab-posts
+    @include tab-active($posts)
+
+.posts .lm-progress__bar
+    background: $posts
+
+// Photos
+
+a.header__tab-photos, .photos .header__title__tab-name
+    color: $photos
+
+.photos .header__tab-photos
+    @include tab-active($photos)
+
+.photos .lm-progress__bar
+    background: $photos
+
+// Videos
+
+a.header__tab-videos, .videos .header__title__tab-name
+    color: $videos
+
+.videos .header__tab-videos
+    @include tab-active($videos)
+
+.videos .lm-progress__bar
+    background: $videos
+
+
