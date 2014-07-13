@@ -1,33 +1,23 @@
-.home h3
+.home__title
     margin-bottom: 15px
 
-.mailchimp
-    label
-        display: block
-        font-weight: normal
-        margin-bottom: 10px
-    .perks
-        span
-            vertical-align: bottom
-        .icon
-            width: 14px
-            height: 14px
-            margin: 0 5px 3px 0
-    button
-        margin: 10px 0
+// Mailchimp
 
-@media screen and (min-width: 599px)
-    .mailchimp
-        input
-            display: inline-block
-            max-width: 400px
-            margin-bottom: 10px
-            vertical-align: middle
-        button
-            margin: 0 0 10px 10px
-            vertical-align: middle
+.mailchimp__label
+    display: block
+    font-weight: normal
+    margin-bottom: 10px
 
-.latest-campaign
+.mailchimp__perk
+    vertical-align: bottom
+    width: 14px
+    height: 14px
+    margin: 0 5px 3px 0
+
+.mailchimp__submit
+    margin: 10px 0
+
+.mailchimp__latest
     margin-top: 5px
     lm-write
         display: inline-block
@@ -35,8 +25,20 @@
         &.loaded
             color: $default
             font-size: 0
-            a
-                font-size: 14px
+        a
+            font-size: 14px
+
+@media screen and (min-width: 599px)
+    .mailchimp__email
+        display: inline-block
+        max-width: 400px
+        margin-bottom: 10px
+        vertical-align: middle
+    .mailchimp__submit
+        margin: 0 0 10px 10px
+        vertical-align: middle
+
+// Lessons
 
 .lessons
     margin-bottom: -15px
@@ -76,6 +78,8 @@
         padding-top: 80%
     @media screen and (max-width: 500px)
         padding-top: 100%
+
+// Contact
 
 .contact
     .portrait
