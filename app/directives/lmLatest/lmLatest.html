@@ -1,11 +1,11 @@
 <lm-carousel period="4">
-    <div class="lm-latest__item col-xs-4" ng-repeat="tab in ['posts', 'photos', 'videos']" ng-class="'col{{$index}}'">
-        <a href="/{{tab}}" >
+    <div class="lm-latest__tab col-xs-4" ng-repeat="tab in ['posts', 'photos', 'videos']" ng-class="'lm-latest__tab--{{$index}}'">
+        <a class="lm-latest__tab__container" href="/{{tab}}" >
             <div class="translucent-header">
-                <div>{{tab | Ufl}}</div>
+                <div class="lm-latest__tab__name">{{tab | Ufl}}</div>
                 <small>{{latest[tab][0].ago | Ago}}</small>
             </div>
-            <div class="placeholder" ng-repeat="article in latest[tab]" ng-class="{active: carousel % latest[tab].length == $index}" ng-style="{'background-image': 'url({{article | ImgSrc: 397}})'}"></div>
+            <div class="lm-latest__tab__placeholder" ng-repeat="article in latest[tab]" ng-class="{active: carousel % latest[tab].length == $index}" ng-style="{'background-image': 'url({{article | ImgSrc: 397}})'}"></div>
         </a>
     </div>
 </lm-carousel>
