@@ -43,30 +43,18 @@
 .lessons
     margin-bottom: -15px
     overflow: hidden
-    .row
-        text-align: center
-        > div
-            margin-bottom: 15px
 
-.illus
+.lessons__item
+    text-align: center
+    margin-bottom: 15px
+
+.lessons__illus
     display: block
     background-position: center
     background-repeat: no-repeat
     background-size: contain
     width: 120%
     margin-left: -10%
-    &.reputable
-        background-image: url(/static/images/Mat_Lily_01.svg)
-    &.adaptable
-        background-image: url(/static/images/Mat_Lily_02.svg)
-    &.efficient
-        background-image: url(/static/images/Mat_Lily_03.svg)
-    &.bilingual
-        background-image: url(/static/images/Mat_Lily_04.svg)
-    + h4
-        margin: 8px 0 4px
-
-.illus
     padding-top: 80%
     @media screen and (max-width: 1050px)
         padding-top: 90%
@@ -78,6 +66,18 @@
         padding-top: 80%
     @media screen and (max-width: 500px)
         padding-top: 100%
+
+.lessons__illus--reputable
+    background-image: url(/static/images/Mat_Lily_01.svg)
+.lessons__illus--adaptable
+    background-image: url(/static/images/Mat_Lily_02.svg)
+.lessons__illus--efficient
+    background-image: url(/static/images/Mat_Lily_03.svg)
+.lessons__illus--bilingual
+    background-image: url(/static/images/Mat_Lily_04.svg)
+
+.lessons__keyword
+    margin: 8px 0 4px
 
 // Contact
 
