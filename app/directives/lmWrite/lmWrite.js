@@ -6,6 +6,8 @@ angular
         return {
             restrict: 'E',
             link: function(scope, element, attrs) {
+                /* jshint evil: true */
+
                 var oldWrite = document.write;
                 document.write = function (str) {
                     element.html(str);
