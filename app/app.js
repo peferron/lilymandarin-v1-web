@@ -7,16 +7,18 @@ angular.module('lmServices', ['ngResource']);
 
 angular
     .module('lm', [
+        'ngAnimate',
         'ngRoute',
         'lmFilters',
         'lmDirectives',
         'lmControllers',
         'lmServices'
     ])
-    .config(function($httpProvider) {
+    .config(function($animateProvider, $httpProvider, $sceDelegateProvider) {
+        $animateProvider.classNameFilter(/animate/);
+
         $httpProvider.interceptors.push('Loading');
-    })
-    .config(function($sceDelegateProvider) {
+
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
             'http://media.lilymandarin.com/**',

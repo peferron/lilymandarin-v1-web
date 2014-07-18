@@ -31,6 +31,8 @@ $maxwidth: 1200px
 
 $bootstrapsm: 768px
 
+$animation: 0.15s
+
 // Reset
 
 body
@@ -92,6 +94,18 @@ a, input, button
     background: $videos
     border-color: $videos
 
+// View change animation
+
+main
+    transition: opacity ease $animation
+    &.ng-enter
+        transition-delay: $animation
+        opacity: 0
+    &.ng-enter.ng-enter-active
+        opacity: 1
+    &.ng-leave.ng-leave-active
+        opacity: 0
+
 // Common
 
 .icon-container
@@ -148,11 +162,11 @@ a.btn, a.btn:hover, a.btn:focus
         + *
             text-align: right
 
-.home, .posts, .videos
-    article, section
-        margin-top: 15px
-    article + article, section + section
-        margin-top: 40px
+article, section
+    margin-top: 15px
+
+article + article, section + section
+    margin-top: 40px
 
 .pinyin, .en-us, .fr-fr
     color: $gray
