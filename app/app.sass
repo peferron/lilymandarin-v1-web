@@ -31,8 +31,6 @@ $maxwidth: 1200px
 
 $bootstrapsm: 768px
 
-$animation: 0.15s
-
 // Reset
 
 body
@@ -93,18 +91,6 @@ a, input, button
 .videos .btn-primary
     background: $videos
     border-color: $videos
-
-// View change animation
-
-main
-    transition: opacity ease $animation
-    &.ng-enter
-        transition-delay: $animation
-        opacity: 0
-    &.ng-enter.ng-enter-active
-        opacity: 1
-    &.ng-leave.ng-leave-active
-        opacity: 0
 
 // Common
 

@@ -194,7 +194,6 @@ module.exports = function (grunt) {
             libs: {
                 src: [
                     '<%= app %>/bower_components/angular/angular.min.js',
-                    '<%= app %>/bower_components/angular-animate/angular-animate.min.js',
                     '<%= app %>/bower_components/angular-resource/angular-resource.min.js',
                     '<%= app %>/bower_components/angular-route/angular-route.min.js',
                     '<%= app %>/bower_components/fastclick/lib/fastclick.min.js'
