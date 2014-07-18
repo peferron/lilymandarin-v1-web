@@ -150,7 +150,7 @@ module.exports = function (grunt) {
         // Template concatenation
         ngtemplates: {
             options: {
-                module: 'lw',
+                module: 'lm',
                 prefix: '/',
                 htmlmin: {
                     collapseBooleanAttributes: true,

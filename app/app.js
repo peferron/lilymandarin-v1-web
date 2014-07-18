@@ -6,7 +6,7 @@ angular.module('lmFilters', []);
 angular.module('lmServices', ['ngResource']);
 
 angular
-    .module('lw', [
+    .module('lm', [
         'ngRoute',
         'lmFilters',
         'lmDirectives',

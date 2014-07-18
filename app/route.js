@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('lw')
+    .module('lm')
     .config(function($locationProvider, $routeProvider) {
         $locationProvider.html5Mode(true);
 
