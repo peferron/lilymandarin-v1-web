@@ -1,5 +1,5 @@
 <div class="lm-video__container" ng-switch on="source.type">
-    <video class="lm-video__native" ng-switch-when="internal" controls autoplayy>
+    <video class="lm-video__native" ng-switch-when="internal" controls autoplay>
         <source type="video/mp4" ng-src="{{source | VideoSrc: 'mp4'}}">
         <source type="video/webm" ng-src="{{source | VideoSrc: 'webm'}}">
     </video>
