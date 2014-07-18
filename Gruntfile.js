@@ -250,7 +250,7 @@ module.exports = function (grunt) {
                     ],
                     dest: '<%= dist %>'
                 }, {
-                    src: '<%= app %>/static/lib/bootstrap_custom/css/bootstrap.min.css',
+                    src: '<%= app %>/static/lib/bootstrap_custom/bootstrap.min.css',
                     dest: '<%= dist %>/styles/libs.min.css'
                 }, {
                     expand: true,
