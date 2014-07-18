@@ -87,7 +87,12 @@ module.exports = function (grunt) {
         // Empties folders to start fresh
         clean: {
             tmp: '.tmp',
-            dist: 'dist'
+            dist: {
+                src: 'dist/*',
+                options: {
+                    force: true
+                }
+            }
         },
 
         // SVG minification
@@ -321,21 +326,14 @@ module.exports = function (grunt) {
 
         // Deploy
         shell: {
-            checksync: {
-                command: 'test -z "$(git status --porcelain)"'
-            },
-            deploy: {
-                command: 'git subtree push --prefix dist <%= deploy %> master'
-            },
-            'deploy-force': {
-                command:
-                    'git push <%= deploy %> `git subtree split --prefix dist master`:master --force'
-            },
             'git-add': {
-                command: 'git add -A'
+                command: 'git -C ../lilymandarin-web-dist add -A'
             },
-            'git-commit': {
-                command: 'git commit -m "<%= m %>"'
+            'git-push': {
+                command: 'git -C ../lilymandarin-web-dist push'
+            },
+            'git-push-force': {
+                command: 'git -C ../lilymandarin-web-dist push --force'
             }
         }
     });
@@ -404,20 +402,14 @@ module.exports = function (grunt) {
     grunt.registerTask('deploy', [
         //'test',
         'build',
-        'shell:checksync',
-        'shell:deploy'
+        'shell:git-add',
+        'shell:git-push'
     ]);
 
     grunt.registerTask('deploy-force', [
         //'test',
         'build',
-        'shell:checksync',
-        'shell:deploy-force'
-    ]);
-
-    grunt.registerTask('commit', [
-        'build',
         'shell:git-add',
-        'shell:git-commit'
+        'shell:git-push-force'
     ]);
 };
