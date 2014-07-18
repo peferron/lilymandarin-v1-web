@@ -17,7 +17,7 @@ angular
     .config(function($animateProvider, $httpProvider, $sceDelegateProvider) {
         $animateProvider.classNameFilter(/animate/);
 
-        $httpProvider.interceptors.push('Loading');
+        $httpProvider.interceptors.push('Cache', 'Loading');
 
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
