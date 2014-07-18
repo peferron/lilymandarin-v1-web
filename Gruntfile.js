@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         m: grunt.option('m') || '',
         app: 'app',
         dist: 'dist',
-        deploy: process.env.LILYMANDARIN_WEB_DEPLOY,
+        gitDist: 'git -C ../lilymandarin-web-dist',
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
@@ -327,13 +327,16 @@ module.exports = function (grunt) {
         // Deploy
         shell: {
             'git-add': {
-                command: 'git -C ../lilymandarin-web-dist add -A'
+                command: '<%= gitDist %> add -A'
+            },
+            'git-commit': {
+                command: '<%= gitDist %> commit -m "Grunt update"'
             },
             'git-push': {
-                command: 'git -C ../lilymandarin-web-dist push'
+                command: '<%= gitDist %> push'
             },
             'git-push-force': {
-                command: 'git -C ../lilymandarin-web-dist push --force'
+                command: '<%= gitDist %> push --force'
             }
         }
     });
@@ -403,6 +406,7 @@ module.exports = function (grunt) {
         //'test',
         'build',
         'shell:git-add',
+        'shell:git-commit',
         'shell:git-push'
     ]);
 
@@ -410,6 +414,7 @@ module.exports = function (grunt) {
         //'test',
         'build',
         'shell:git-add',
+        'shell:git-commit',
         'shell:git-push-force'
     ]);
 };
