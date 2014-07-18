@@ -1,6 +1,6 @@
 <section class="reviews padded">
     <h3 class="reviews__title">Student reviews</h3>
-    <div class="review" ng-repeat="review in reviews">
+    <div class="review" ng-repeat="review in reviews track by $index">
         <div class="review__container">
             <div class="review__photo">
                 <img class="review__photo__img" ng-if="review.photo" ng-src="/static/images/reviews/{{review.photo}}">

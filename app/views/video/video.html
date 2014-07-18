@@ -7,7 +7,7 @@
     </div>
     <div class="video__sources" ng-if="sources.remaining.length">
         Playing from {{sources.current | FancySource}}. Also available on
-        <span ng-repeat="source in sources.remaining">
+        <span ng-repeat="source in sources.remaining track by source.type">
             <a href="#" ng-click="setSource(source)">{{source | FancySource}}</a>{{$last ? '.' : ' and '}}
         </span>
     </div>
@@ -15,7 +15,7 @@
         <lm-social url="socialUrl" text="socialText"></lm-social>
     </div>
     <div class="video__lines padded">
-        <div class="video__line" ng-repeat="line in video.lines">
+        <div class="video__line" ng-repeat="line in video.lines track by $index">
             <h3 class="zh-cn">{{line['zh-CN']}}</h3>
             <div class="video__line__translation" ng-class="{'video__line__translation--hidden': !line.showTranslation}">
                 <div class="video__line__translation__show">
