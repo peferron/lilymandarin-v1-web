@@ -1,9 +1,9 @@
 <article class="video">
     <lm-video-header video="video" social-url="socialUrl" social-text="socialText"></lm-video-header>
     <div lm-sticky class="video__sticky">
-        <div class="video__top-half" lm-top-half="{{videoWidth / videoHeight}}">
+        <lm-top-half class="video__top-half" ratio="videoWidth / videoHeight">
             <lm-video source="sources.current"></lm-video>
-        </div>
+        </lm-top-half>
     </div>
     <div class="video__sources" ng-if="sources.remaining.length">
         Playing from {{sources.current | FancySource}}. Also available on

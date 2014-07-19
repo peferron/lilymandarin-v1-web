@@ -4,10 +4,13 @@ angular
     .module('lmDirectives')
     .directive('lmTopHalf', function() {
         return {
-            restrict: 'A',
+            restrict: 'E',
+            replace: true,
+            transclude: true,
             scope: {
-                aspectRatio: '@lmTopHalf'
+                ratio: '='
             },
+            templateUrl: '/directives/lmTopHalf/lmTopHalf.html',
             controller: function($element, $window, $document, $scope) {
                 // available returns the maximum width and height available for use
                 function available() {
@@ -20,24 +23,22 @@ angular
                 // updatePosition needs to be called every time the aspect ratio or the window size
                 // has changed
                 function updatePosition() {
-                    var aspectRatio = parseFloat($scope.aspectRatio);
-                    if (isNaN(aspectRatio)) {
+                    var ratio = parseFloat($scope.ratio);
+                    if (isNaN(ratio)) {
                         return;
                     }
 
                     var a = available();
 
                     var maxHeight = a.height / 2;
-                    var maxWidth = maxHeight * aspectRatio;
+                    var maxWidth = maxHeight * ratio;
 
-                    var width = Math.min(a.width, maxWidth);
-                    var height = width / aspectRatio;
-
-                    $element.css('height', height + 'px');
+                    $scope.width = Math.min(a.width, maxWidth);
+                    $scope.height = $scope.width / ratio;
                 }
 
                 // Update position on aspect ratio change
-                $scope.$watch('aspectRatio', updatePosition);
+                $scope.$watch('ratio', updatePosition);
 
                 // Update position on window resize
                 // Avoid an issue in Chrome (and maybe other browsers) where the window resize event
@@ -49,7 +50,7 @@ angular
                         var a = available();
                         if (prevAvailable.width !== a.width || prevAvailable.height !== a.height) {
                             prevAvailable = a;
-                            updatePosition();
+                            $scope.$apply(updatePosition);
                         }
                     });
             }
