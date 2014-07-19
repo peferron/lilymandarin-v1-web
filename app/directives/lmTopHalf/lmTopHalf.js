@@ -17,8 +17,6 @@ angular
                     };
                 }
 
-                // availableHeight returns the maximum
-
                 // updatePosition needs to be called every time the aspect ratio or the window size
                 // has changed
                 function updatePosition() {
