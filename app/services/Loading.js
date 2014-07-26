@@ -2,7 +2,7 @@
 
 angular
     .module('lmServices')
-    .factory('Loading', function($q, $rootScope) {
+    .service('Loading', function($q, $rootScope) {
         $rootScope.loading = false;
 
         var count = 0;
@@ -23,21 +23,18 @@ angular
             }
         }
 
-        return {
-            request: function(config) {
-                //log('Request: ' + config.url);
-                inc();
-                return config || $q.when(config);
-            },
-            response: function(response) {
-                //log('Response: ' + response.config.url);
-                dec();
-                return response || $q.when(response);
-            },
-            responseError: function(rejection) {
-                //log('Response error: ' + rejection.config.url);
-                dec();
-                return $q.reject(rejection);
-            }
+        this.request = function(config) {
+            inc();
+            return config || $q.when(config);
+        };
+
+        this.response = function(response) {
+            dec();
+            return response || $q.when(response);
+        };
+
+        this.responseError = function(rejection) {
+            dec();
+            return $q.reject(rejection);
         };
     });

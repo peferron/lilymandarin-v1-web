@@ -2,7 +2,7 @@
 
 angular
     .module('lmServices')
-    .factory('Modal', function($rootScope, $document) {
+    .service('Modal', function($rootScope, $document) {
         function onDocumentKeydown(e) {
             if (e.which === 27) {
                 $rootScope.$apply(hide);
@@ -19,12 +19,11 @@ angular
             $document.off('keydown', onDocumentKeydown);
         }
 
-        return {
-            show: show,
-            hide: function($event) {
-                if (!$event || angular.element($event.target).hasClass('modal')) {
-                    hide();
-                }
+        this.show = show;
+
+        this.hide = function($event) {
+            if (!$event || angular.element($event.target).hasClass('modal')) {
+                hide();
             }
         };
     });
