@@ -17,8 +17,8 @@ angular
             // The aspect ratio of the most "vertical" supported format
             var MIN_ASPECT_RATIO = 3/4;
 
-            // The minimum photo height, relatively to the window height
-            var MAX_PHOTO_HEIGHT = 0.9;
+            // The maximum photo height, relatively to the available height
+            var MAX_PHOTO_HEIGHT = 1;
 
             // The maximum photo width, absolute
             var MAX_PHOTO_WIDTH = 590;
@@ -53,16 +53,16 @@ angular
                 });
             }
 
-            // Returns an empty columns object for the given body width and window height, ready to
-            // be filled with photos
-            function initColumns(bodyWidth, windowHeight) {
+            // Returns an empty columns object for the given available width and height, ready to be
+            // filled with photos
+            function initColumns(availableWidth, availableHeight) {
                 // Minimum number of columns to keep photos below MAX_PHOTO_WIDTH
-                var minCount1 = Math.ceil((bodyWidth + PADDING) / (MAX_PHOTO_WIDTH + PADDING));
+                var minCount1 = Math.ceil((availableWidth + PADDING) / (MAX_PHOTO_WIDTH + PADDING));
 
                 // Minimum number of columns to be able to show an entire photo of aspect ratio
                 // MIN_ASPECT_RATIO on screen, with LOL left to spare
-                var minCount2 = Math.ceil((bodyWidth + PADDING) /
-                    ((windowHeight * MAX_PHOTO_HEIGHT) * MIN_ASPECT_RATIO + PADDING));
+                var minCount2 = Math.ceil((availableWidth + PADDING) /
+                    ((availableHeight * MAX_PHOTO_HEIGHT) * MIN_ASPECT_RATIO + PADDING));
 
                 var count = Math.max(minCount1, minCount2);
 
@@ -72,7 +72,7 @@ angular
                 }
 
                 return {
-                    width: Math.floor((bodyWidth - (count - 1) * PADDING) / count),
+                    width: Math.floor((availableWidth - (count - 1) * PADDING) / count),
                     heights: heights
                 };
             }
@@ -100,21 +100,31 @@ angular
                 $scope.totalHeight = maxValue(columns.heights) - PADDING;
             }
 
-            // Cache the body width and window height to avoiding an issue in Chrome (and maybe
-            // other browsers) where the window resize event is fired twice every time.
-            var bodyWidth = document.body.clientWidth;
-            var windowHeight = $window.innerHeight;
+            function availableWidth() {
+                return $window.document.body.clientWidth;
+            }
+
+            function availableHeight() {
+                // Use screen.availHeight instead of window.height because window.height can vary
+                // while scrolling vertically on Chrome Android (because of the address bar popping
+                // in and out of view).
+                return $window.screen.availHeight;
+            }
+
+            // Cache the available width and height to avoiding an issue in Chrome (and maybe other
+            // browsers) where the window resize event is fired twice every time.
+            var aw = availableWidth();
+            var ah = availableHeight();
             angular
                 .element($window)
                 .on('resize', function () {
-                    if (bodyWidth === document.body.clientWidth &&
-                        windowHeight === $window.innerHeight) {
+                    if (aw === availableWidth() && ah === availableHeight()) {
                         return;
                     }
-                    bodyWidth = document.body.clientWidth;
-                    windowHeight = $window.innerHeight;
+                    aw = availableWidth();
+                    ah = availableHeight();
 
-                    columns = initColumns(bodyWidth, windowHeight);
+                    columns = initColumns(aw, ah);
 
                     $scope.$apply(function() {
                         setPositions($scope.photos, columns);
@@ -145,7 +155,7 @@ angular
                 Article.query(params, function(photos) {
                     // This will only happen on the first load
                     if (!columns) {
-                        columns = initColumns(document.body.clientWidth, $window.innerHeight);
+                        columns = initColumns(availableWidth(), availableHeight());
                     }
 
                     // There is no need to recompute the positions of the already-appended photos
