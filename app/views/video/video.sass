@@ -4,8 +4,9 @@
 @mixin video__out
     transition: opacity 0.1s linear
 
-.video__sticky, .video__top-half
-    z-index: 4
+.video__sticky, .video__top-half,
+.video__sticky .lm-sticky__container // For Chrome on Android; z-index inherit doesn't work.
+    z-index: 3
 
 .video__top-half
     background: black
@@ -26,7 +27,6 @@
 
 .video__line__translation
     position: relative
-    z-index: 3
     .btn
         border: 1px solid $lightgray
         background: none
