@@ -1,6 +1,6 @@
 {
   "name": "lilymandarin-web",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/peferron/lilymandarin-web",
   "authors": [
     "pe.ferron@gmail.com"
@@ -12,15 +12,15 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
     "app/bower_components",
     "test",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
+    "angular": "~1.2.18",
+    "angular-mocks": "~1.2.23",
     "angular-resource": "~1.2.18",
-    "fastclick": "~1.0.2",
     "angular-route": "~1.2.18",
-    "angular": "~1.2.18"
+    "fastclick": "~1.0.2"
   }
 }

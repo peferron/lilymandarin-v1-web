@@ -13,10 +13,6 @@ module.exports = function (grunt) {
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
-            jsTest: {
-                files: ['test/spec/**.js'],
-                tasks: ['karma']
-            },
             icons: {
                 files: ['<%= app %>/static/icons/**/*.svg'],
                 tasks: ['copy:icons', 'grunticon']
@@ -63,16 +59,6 @@ module.exports = function (grunt) {
                     open: false,
                     base: [
                         '.tmp',
-                        '<%= app %>'
-                    ]
-                }
-            },
-            test: {
-                options: {
-                    port: 9001,
-                    base: [
-                        '.tmp',
-                        'test',
                         '<%= app %>'
                     ]
                 }
@@ -319,8 +305,7 @@ module.exports = function (grunt) {
         // Test settings
         karma: {
             unit: {
-                configFile: 'karma.conf.js',
-                singleRun: true
+                configFile: 'test/karma.conf.js',
             }
         },
 
@@ -361,17 +346,11 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', [
-        'clean:tmp',
-
-        'sass',
-        'autoprefixer',
-
-        'connect:test',
         'karma'
     ]);
 
     grunt.registerTask('build', [
-        //'test',
+        'test',
 
         'clean:tmp',
         'clean:dist',
@@ -403,7 +382,6 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('deploy', [
-        //'test',
         'build',
         'shell:git-add',
         'shell:git-commit',
@@ -411,7 +389,6 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('deploy-force', [
-        //'test',
         'build',
         'shell:git-add',
         'shell:git-commit',
