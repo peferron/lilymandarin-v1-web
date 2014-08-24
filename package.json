@@ -1,14 +1,7 @@
 {
   "name": "lilymandarin-web",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Web interface for http://lilymandarin.com",
-  "main": "Gruntfile.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "grunt test"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/peferron/lilymandarin-web.git"
@@ -19,7 +12,7 @@
     "url": "https://github.com/peferron/lilymandarin-web/issues"
   },
   "homepage": "https://github.com/peferron/lilymandarin-web",
-  "dependencies": {
+  "devDependencies": {
     "bower": "^1.3.5",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.5",
@@ -40,6 +33,7 @@
     "grunt-string-replace": "^0.2.7",
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.2.0",
+    "karma": "^0.12.22",
     "load-grunt-config": "^0.10.0"
   }
 }
