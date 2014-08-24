@@ -304,8 +304,14 @@ module.exports = function (grunt) {
 
         // Test settings
         karma: {
-            unit: {
+            watch: {
                 configFile: 'test/karma.conf.js',
+            },
+            singleRun: {
+                configFile: 'test/karma.conf.js',
+                options: {
+                    singleRun: true
+                }
             }
         },
 
@@ -346,12 +352,10 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', [
-        'karma'
+        'karma:watch'
     ]);
 
     grunt.registerTask('build', [
-        'test',
-
         'clean:tmp',
         'clean:dist',
 
@@ -382,6 +386,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('deploy', [
+        'karma:singleRun',
         'build',
         'shell:git-add',
         'shell:git-commit',
@@ -389,6 +394,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('deploy-force', [
+        'karma:singleRun',
         'build',
         'shell:git-add',
         'shell:git-commit',
