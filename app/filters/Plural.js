@@ -11,10 +11,6 @@ angular
             if (!unit) {
                 return value + '';
             }
-            if (document.documentElement.lang === 'en-US') {
-                return value + ' ' + unit + (Math.abs(value) > 1 ? 's' : '');
-            }
-            // Unsupported language
-            return value;
+            return value + ' ' + unit + (Math.abs(value) > 1 ? 's' : '');
         };
     });

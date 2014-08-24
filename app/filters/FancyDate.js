@@ -27,16 +27,13 @@ angular
             if (typeof time !== 'number' || isNaN(time)) {
                 return time;
             }
-            if (document.documentElement.lang === 'en-US') {
-                var date = new Date(time);
-                var ngDate = $filter('date');
 
-                var str = ngDate(date, 'MMMM d, y');
-                var suffix = getSuffix(date);
+            var date = new Date(time);
+            var ngDate = $filter('date');
 
-                return str.replace(',', suffix + ',');
-            }
-            // Unsupported language
-            return time;
+            var str = ngDate(date, 'MMMM d, y');
+            var suffix = getSuffix(date);
+
+            return str.replace(',', suffix + ',');
         };
     });
