@@ -29,7 +29,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-grunticon": "^1.2.6",
     "grunt-karma": "^0.8.3",
-    "grunt-ngmin": "0.0.3",
+    "grunt-ng-annotate": "^0.3.2",
     "grunt-rev": "^0.1.0",
     "grunt-shell-spawn": "^0.3.0",
     "grunt-string-replace": "^0.2.7",

@@ -189,10 +189,10 @@ module.exports = function (grunt) {
         },
 
         // Explicit string-based dependency injection for AngularJS minification safety
-        ngmin: {
+        ngAnnotate: {
             tmp: {
                 src: '.tmp/scripts/lilyweb.js',
-                dest: '.tmp/scripts/lilyweb.ngmin.js'
+                dest: '.tmp/scripts/lilyweb.ngannotate.js'
             }
         },
 
@@ -203,8 +203,8 @@ module.exports = function (grunt) {
             },
             tmp: {
                 files: [{
-                    src: '.tmp/scripts/lilyweb.ngmin.js',
-                    dest: '.tmp/scripts/lilyweb.ngmin.min.js'
+                    src: '.tmp/scripts/lilyweb.ngannotate.js',
+                    dest: '.tmp/scripts/lilyweb.ngannotate.min.js'
                 }, {
                     src: '<%= app %>/bower_components/fastclick/lib/fastclick.js',
                     dest: '<%= app %>/bower_components/fastclick/lib/fastclick.min.js'
@@ -242,7 +242,7 @@ module.exports = function (grunt) {
                     cwd: '.tmp',
                     src: [
                         'styles/lilyweb.prefixed.min.css',
-                        'scripts/lilyweb.ngmin.min.js'
+                        'scripts/lilyweb.ngannotate.min.js'
                     ],
                     dest: '<%= dist %>'
                 }, {
@@ -367,7 +367,7 @@ module.exports = function (grunt) {
         // HTML + JS
         'ngtemplates',
         'concat:lilyweb',
-        'ngmin',
+        'ngAnnotate',
         'uglify',
         'concat:libs',
         'string-replace',
