@@ -33,18 +33,6 @@ angular
         });
     });
 
-// Convenience functions for debugging
-
-window.log = function() {
-    window.console.log.apply(window.console, arguments);
-};
-window.warn = function() {
-    window.console.warn.apply(window.console, arguments);
-};
-window.error = function() {
-    window.console.error.apply(window.console, arguments);
-};
-
 // Fastclick
 
 window.addEventListener('load', function() {
