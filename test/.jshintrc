@@ -23,9 +23,11 @@
     "globalstrict": true,
 
     // Environment
-    "browser": true,
     "globals": {
-        "angular": false,
-        "FastClick": false
+        "beforeEach": false,
+        "describe": false,
+        "inject": false,
+        "it": false,
+        "module": false
     }
 }
