@@ -3,7 +3,7 @@
 angular
     .module('lmFilters')
     .filter('VideoSrc', function(Alert, Domain) {
-        var BEST_VARIANT_HEIGHT = 360;
+        var BEST_VARIANT_HEIGHT = 540;
 
         // Must be sorted from lowest height to highest.
         var DEFAULT_VARIANTS = [
@@ -23,14 +23,12 @@ angular
         // Returns the best available variant. The available variants must be sorted from lowest
         // height to highest.
         function bestVariant(availableVariants) {
-            var variant;
             for (var i = 0; i < availableVariants.length; i++) {
-                if (i > 0 && variant.h > BEST_VARIANT_HEIGHT) {
+                if (i > 0 && availableVariants[i].h > BEST_VARIANT_HEIGHT) {
                     break;
                 }
-                variant = availableVariants[i];
             }
-            return variant;
+            return availableVariants[i - 1];
         }
 
         // Returns the list of available variants for the given source and format, sorted from
