@@ -22,7 +22,7 @@ angular
             }
         }
 
-        // Converts a time expressed as a nanoseconds string to a pretty date.
+        // Converts a time expressed in milliseconds to a pretty date.
         return function(time) {
             if (typeof time !== 'number' || isNaN(time)) {
                 return time;
