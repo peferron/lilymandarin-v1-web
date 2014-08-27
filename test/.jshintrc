@@ -25,6 +25,7 @@
     // Environment
     "globals": {
         "beforeEach": false,
+        "afterEach": false,
         "describe": false,
         "inject": false,
         "it": false,
