@@ -1,3 +1,5 @@
+/* global describe: false, beforeEach: false, module: false, inject: false, it: false */
+
 'use strict';
 
 describe('filter Ago', function() {

@@ -1,3 +1,6 @@
+/* global describe: false, beforeEach: false, module: false, inject: false, afterEach: false,
+    it: false */
+
 'use strict';
 
 describe('controller photo', function() {
