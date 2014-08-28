@@ -41,7 +41,9 @@ module.exports = function (grunt) {
                     '<%= app %>/views/**/*.js',
                     '<%= app %>/services/**/*.js',
                     '.tmp/styles/*.css',
-                    '.tmp/icons/icons-svg.css'
+                    '.tmp/icons/icons-svg.css',
+                    // Exclusions (must be last)
+                    '!<%= app %>/**/*_test.js'
                 ]
             }
         },
@@ -173,7 +175,9 @@ module.exports = function (grunt) {
                     '<%= app %>/filters/**/*.js',
                     '<%= app %>/services/**/*.js',
                     '<%= app %>/views/**/*.js',
-                    '.tmp/views/views-html.js'
+                    '.tmp/views/views-html.js',
+                    // Exclusions (must be last)
+                    '!<%= app %>/**/*_test.js'
                 ],
                 dest: '.tmp/scripts/lilyweb.js'
             },
