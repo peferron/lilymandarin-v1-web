@@ -359,6 +359,10 @@ module.exports = function (grunt) {
         'karma:watch'
     ]);
 
+    grunt.registerTask('test-once', [
+        'karma:singleRun'
+    ]);
+
     grunt.registerTask('build', [
         'clean:tmp',
         'clean:dist',
