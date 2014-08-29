@@ -64,63 +64,83 @@ describe('controller video', function() {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('should enforce canonical path if id does not match', function() {
-        $location.path('/video/xyzid/abcslug');
-
+    function createAndExpect() {
         $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(video);
         createController();
-        $httpBackend.flush();
+    }
 
+    function createAndFlush() {
+        createAndExpect();
+        $httpBackend.flush();
+    }
+
+    it('should enforce canonical path if id does not match', function() {
+        $location.path('/video/xyzid/abcslug');
+        createAndFlush();
         $location.path().should.equal('/video/abcid/abcslug');
     });
 
     it('should enforce canonical path if slug does not match', function() {
         $location.path('/video/abcid/xyzslug');
-
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(video);
-        createController();
-        $httpBackend.flush();
-
+        createAndFlush();
         $location.path().should.equal('/video/abcid/abcslug');
     });
 
-    it('should use default video height and width if media is absent', function() {
-        $location.path('/video/abcid/abcslug');
-        delete video.internal.medias['main-video'];
+    describe('when canonical path matches', function() {
+        beforeEach(function() {
+            $location.path('/video/abcid/abcslug');
+        });
 
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(video);
-        createController();
-        $httpBackend.flush();
+        it('should set the tab before the video is loaded', function() {
+            createAndExpect();
+            $rootScope.tab.should.equal('videos');
+            $httpBackend.flush();
+        });
 
-        $scope.videoHeight.should.equal(100);
-        $scope.videoWidth.should.equal(100);
-    });
+        it('should use default video height and width if media is absent', function() {
+            delete video.internal.medias['main-video'];
+            createAndFlush();
+            $scope.videoHeight.should.equal(100);
+            $scope.videoWidth.should.equal(100);
+        });
 
-    it('should set everything right', function() {
-        $location.path('/video/abcid/abcslug');
+        describe('with default video', function() {
+            beforeEach(function() {
+                createAndFlush();
+            });
 
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(video);
-        createController();
-        $rootScope.tab.should.equal('videos');
-        $httpBackend.flush();
+            it('should set the title', function() {
+                $rootScope.title.should.equal('abctitle — LilyMandarin');
+            });
 
-        $rootScope.title.should.equal('abctitle — LilyMandarin');
-        $scope.socialUrl.should.equal('http://lilymandarin.com/video/abcid/abcslug');
-        $scope.socialText.should.equal('abctitle');
-        $scope.video.id.should.equal('abcid');
-        $scope.videoHeight.should.equal(1080);
-        $scope.videoWidth.should.equal(1920);
-        $scope.sources.available.should.deep.equal([
-            {type: 'internal', value: 'abcfilename', height: 1080},
-            {type: 'external-youtube', value: 'abcyoutube'},
-            {type: 'external-youku', value: 'abcyouku'}
-        ]);
-        $scope.sources.current.should.deep.equal(
-            {type: 'internal', value: 'abcfilename', height: 1080}
-        );
-        $scope.sources.remaining.should.deep.equal([
-            {type: 'external-youtube', value: 'abcyoutube'},
-            {type: 'external-youku', value: 'abcyouku'}
-        ]);
+            it('should set the social url and text', function() {
+                $scope.socialUrl.should.equal('http://lilymandarin.com/video/abcid/abcslug');
+                $scope.socialText.should.equal('abctitle');
+            });
+
+            it('should set the video id', function() {
+                $scope.video.id.should.equal('abcid');
+            });
+
+            it('should set the video height and width', function() {
+                $scope.videoHeight.should.equal(1080);
+                $scope.videoWidth.should.equal(1920);
+            });
+
+            it('should set the sources', function() {
+                $scope.sources.available.should.deep.equal([
+                    {type: 'internal', value: 'abcfilename', height: 1080},
+                    {type: 'external-youtube', value: 'abcyoutube'},
+                    {type: 'external-youku', value: 'abcyouku'}
+                ]);
+                $scope.sources.current.should.deep.equal(
+                    {type: 'internal', value: 'abcfilename', height: 1080}
+                );
+                $scope.sources.remaining.should.deep.equal([
+                    {type: 'external-youtube', value: 'abcyoutube'},
+                    {type: 'external-youku', value: 'abcyouku'}
+                ]);
+            });
+        });
     });
 });

@@ -50,37 +50,56 @@ describe('controller post', function() {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('should enforce canonical path if id does not match', function() {
-        $location.path('/post/xyzid/abcslug');
-
+    function createAndExpect() {
         $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(post);
         createController();
-        $httpBackend.flush();
+    }
 
+    function createAndFlush() {
+        createAndExpect();
+        $httpBackend.flush();
+    }
+
+    it('should enforce canonical path if id does not match', function() {
+        $location.path('/post/xyzid/abcslug');
+        createAndFlush();
         $location.path().should.equal('/post/abcid/abcslug');
     });
 
     it('should enforce canonical path if slug does not match', function() {
         $location.path('/post/abcid/xyzslug');
-
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(post);
-        createController();
-        $httpBackend.flush();
-
+        createAndFlush();
         $location.path().should.equal('/post/abcid/abcslug');
     });
 
-    it('should set everything right', function() {
-        $location.path('/post/abcid/abcslug');
+    describe('when canonical path matches', function() {
+        beforeEach(function() {
+            $location.path('/post/abcid/abcslug');
+        });
 
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(post);
-        createController();
-        $rootScope.tab.should.equal('posts');
-        $httpBackend.flush();
+        it('should set the tab before the post is loaded', function() {
+            createAndExpect();
+            $rootScope.tab.should.equal('posts');
+            $httpBackend.flush();
+        });
 
-        $rootScope.title.should.equal('abctitle — LilyMandarin');
-        $scope.socialUrl.should.equal('http://lilymandarin.com/post/abcid/abcslug');
-        $scope.socialText.should.equal('abczhcn / abcenus');
-        $scope.post.id.should.equal('abcid');
+        describe('after loading default post', function() {
+            beforeEach(function() {
+                createAndFlush();
+            });
+
+            it('should set the title', function() {
+                $rootScope.title.should.equal('abctitle — LilyMandarin');
+            });
+
+            it('should set the social url and text', function() {
+                $scope.socialUrl.should.equal('http://lilymandarin.com/post/abcid/abcslug');
+                $scope.socialText.should.equal('abczhcn / abcenus');
+            });
+
+            it('should set the post id', function() {
+                $scope.post.id.should.equal('abcid');
+            });
+        });
     });
 });

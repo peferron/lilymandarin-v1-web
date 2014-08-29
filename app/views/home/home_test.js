@@ -17,9 +17,13 @@ describe('controller home', function() {
         };
     }));
 
-    it('should set everything right', function() {
+    it('should set the title', function() {
         createController();
         $rootScope.title.should.equal('LilyMandarin');
+    });
+
+    it('should set the tab', function() {
+        createController();
         $rootScope.tab.should.equal('home');
     });
 });

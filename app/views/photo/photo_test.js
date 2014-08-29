@@ -50,51 +50,68 @@ describe('controller photo', function() {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('should enforce canonical path if id does not match', function() {
-        $location.path('/photo/xyzid/abcslug');
-
+    function createAndExpect() {
         $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(photo);
         createController();
-        $httpBackend.flush();
+    }
 
+    function createAndFlush() {
+        createAndExpect();
+        $httpBackend.flush();
+    }
+
+    it('should enforce canonical path if id does not match', function() {
+        $location.path('/photo/xyzid/abcslug');
+        createAndFlush();
         $location.path().should.equal('/photo/abcid/abcslug');
     });
 
     it('should enforce canonical path if slug does not match', function() {
         $location.path('/photo/abcid/xyzslug');
-
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(photo);
-        createController();
-        $httpBackend.flush();
-
+        createAndFlush();
         $location.path().should.equal('/photo/abcid/abcslug');
     });
 
-    it('should use default photo height and width if media is absent', function() {
-        $location.path('/photo/abcid/abcslug');
-        delete photo.internal.medias['main-photo'];
+    describe('when canonical path matches', function() {
+        beforeEach(function() {
+            $location.path('/photo/abcid/abcslug');
+        });
 
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(photo);
-        createController();
-        $httpBackend.flush();
+        it('should set the tab before the photo is loaded', function() {
+            createAndExpect();
+            $rootScope.tab.should.equal('photos');
+            $httpBackend.flush();
+        });
 
-        $scope.photoHeight.should.equal(100);
-        $scope.photoWidth.should.equal(100);
-    });
+        it('should use default photo height and width if media is absent', function() {
+            delete photo.internal.medias['main-photo'];
+            createAndFlush();
+            $scope.photoHeight.should.equal(100);
+            $scope.photoWidth.should.equal(100);
+        });
 
-    it('should set everything right', function() {
-        $location.path('/photo/abcid/abcslug');
+        describe('after loading default photo', function() {
+            beforeEach(function() {
+                createAndFlush();
+            });
 
-        $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(photo);
-        createController();
-        $rootScope.tab.should.equal('photos');
-        $httpBackend.flush();
+            it('should set the title', function() {
+                $rootScope.title.should.equal('abctitle — LilyMandarin');
+            });
 
-        $rootScope.title.should.equal('abctitle — LilyMandarin');
-        $scope.socialUrl.should.equal('http://lilymandarin.com/photo/abcid/abcslug');
-        $scope.socialText.should.equal('abczhcn / abcenus');
-        $scope.photo.id.should.equal('abcid');
-        $scope.photoHeight.should.equal(345);
-        $scope.photoWidth.should.equal(678);
+            it('should set the social url and text', function() {
+                $scope.socialUrl.should.equal('http://lilymandarin.com/photo/abcid/abcslug');
+                $scope.socialText.should.equal('abczhcn / abcenus');
+            });
+
+            it('should set the photo id', function() {
+                $scope.photo.id.should.equal('abcid');
+            });
+
+            it('should set the photo height and width', function() {
+                $scope.photoHeight.should.equal(345);
+                $scope.photoWidth.should.equal(678);
+            });
+        });
     });
 });

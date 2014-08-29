@@ -60,7 +60,7 @@ describe('filter ImgSrc', function() {
         src(article).should.equal('/media/abc_w600p.jpg');
     });
 
-    it('should also handle videos', function() {
+    it('should also handle video posters', function() {
         var article = {
             type: 'video',
             internal: {
