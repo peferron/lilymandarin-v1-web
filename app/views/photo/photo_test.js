@@ -88,6 +88,7 @@ describe('controller photo', function() {
 
         $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(photo);
         createController();
+        $rootScope.tab.should.equal('photos');
         $httpBackend.flush();
 
         $rootScope.title.should.equal('abctitle — LilyMandarin');

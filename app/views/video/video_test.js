@@ -102,6 +102,7 @@ describe('controller video', function() {
 
         $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(video);
         createController();
+        $rootScope.tab.should.equal('videos');
         $httpBackend.flush();
 
         $rootScope.title.should.equal('abctitle — LilyMandarin');

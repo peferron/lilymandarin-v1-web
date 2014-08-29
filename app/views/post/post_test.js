@@ -76,6 +76,7 @@ describe('controller post', function() {
 
         $httpBackend.expectGET('/api/v1/articles/abcid.json').respond(post);
         createController();
+        $rootScope.tab.should.equal('posts');
         $httpBackend.flush();
 
         $rootScope.title.should.equal('abctitle — LilyMandarin');
