@@ -8,9 +8,8 @@ describe('controller home', function() {
 
     var $rootScope, createController;
 
-    beforeEach(inject(function($injector) {
-        $rootScope = $injector.get('$rootScope');
-        var $controller = $injector.get('$controller');
+    beforeEach(inject(function(_$rootScope_, $controller) {
+        $rootScope = _$rootScope_;
         createController = function() {
             $controller('home', {
                 $scope: {}

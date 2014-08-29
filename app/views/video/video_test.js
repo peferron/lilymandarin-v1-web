@@ -9,13 +9,12 @@ describe('controller video', function() {
 
     var $httpBackend, $rootScope, $location, $scope, createController, video;
 
-    beforeEach(inject(function($injector) {
-        $httpBackend = $injector.get('$httpBackend');
-        $rootScope = $injector.get('$rootScope');
-        $location = $injector.get('$location');
+    beforeEach(inject(function(_$httpBackend_, _$rootScope_, _$location_, $controller) {
+        $httpBackend = _$httpBackend_;
+        $rootScope = _$rootScope_;
+        $location = _$location_;
         $scope = {};
 
-        var $controller = $injector.get('$controller');
         createController = function() {
             $controller('video', {
                 $scope: $scope,
