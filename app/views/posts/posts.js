@@ -3,7 +3,7 @@
 angular
     .module('lmControllers')
     .controller('posts',
-        function($rootScope, $scope, $routeParams, $location, Article, Analytics, Admin) {
+        function($rootScope, $scope, Article, Analytics, Admin) {
             $rootScope.title = 'Posts — LilyMandarin';
             Analytics.page();
 
