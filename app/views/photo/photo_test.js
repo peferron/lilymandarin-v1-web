@@ -71,23 +71,24 @@ describe('controller photo', function() {
             $location.path('/photo/abcid/abcslug');
         });
 
-        it('should set the tab before the photo is loaded', function() {
-            createAndExpect();
-            $rootScope.tab.should.equal('photos');
-            $httpBackend.flush();
-        });
+        describe('before the photo is loaded', function() {
+            beforeEach(createAndExpect);
 
-        it('should use default photo height and width if media is absent', function() {
-            delete photo.internal.medias['main-photo'];
-            createAndFlush();
-            $scope.photoHeight.should.equal(100);
-            $scope.photoWidth.should.equal(100);
-        });
-
-        describe('after loading default photo', function() {
-            beforeEach(function() {
-                createAndFlush();
+            it('should set the tab', function() {
+                $rootScope.tab.should.equal('photos');
+                $httpBackend.flush();
             });
+
+            it('should use default photo height and width if media is absent', function() {
+                delete photo.internal.medias['main-photo'];
+                $httpBackend.flush();
+                $scope.photoHeight.should.equal(100);
+                $scope.photoWidth.should.equal(100);
+            });
+        });
+
+        describe('after the default photo is loaded', function() {
+            beforeEach(createAndFlush);
 
             it('should set the title', function() {
                 $rootScope.title.should.equal('abctitle — LilyMandarin');
@@ -98,7 +99,7 @@ describe('controller photo', function() {
                 $scope.socialText.should.equal('abczhcn / abcenus');
             });
 
-            it('should set the photo id', function() {
+            it('should set the photo', function() {
                 $scope.photo.id.should.equal('abcid');
             });
 

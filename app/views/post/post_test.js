@@ -77,10 +77,8 @@ describe('controller post', function() {
             $httpBackend.flush();
         });
 
-        describe('after loading default post', function() {
-            beforeEach(function() {
-                createAndFlush();
-            });
+        describe('after the default post is loaded', function() {
+            beforeEach(createAndFlush);
 
             it('should set the title', function() {
                 $rootScope.title.should.equal('abctitle — LilyMandarin');
@@ -91,7 +89,7 @@ describe('controller post', function() {
                 $scope.socialText.should.equal('abczhcn / abcenus');
             });
 
-            it('should set the post id', function() {
+            it('should set the post', function() {
                 $scope.post.id.should.equal('abcid');
             });
         });

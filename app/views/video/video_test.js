@@ -85,23 +85,24 @@ describe('controller video', function() {
             $location.path('/video/abcid/abcslug');
         });
 
-        it('should set the tab before the video is loaded', function() {
-            createAndExpect();
-            $rootScope.tab.should.equal('videos');
-            $httpBackend.flush();
-        });
+        describe('before the video is loaded', function() {
+            beforeEach(createAndExpect);
 
-        it('should use default video height and width if media is absent', function() {
-            delete video.internal.medias['main-video'];
-            createAndFlush();
-            $scope.videoHeight.should.equal(100);
-            $scope.videoWidth.should.equal(100);
-        });
-
-        describe('with default video', function() {
-            beforeEach(function() {
-                createAndFlush();
+            it('should set the tab', function() {
+                $rootScope.tab.should.equal('videos');
+                $httpBackend.flush();
             });
+
+            it('should use default video height and width if media is absent', function() {
+                delete video.internal.medias['main-video'];
+                $httpBackend.flush();
+                $scope.videoHeight.should.equal(100);
+                $scope.videoWidth.should.equal(100);
+            });
+        });
+
+        describe('after the default video is loaded', function() {
+            beforeEach(createAndFlush);
 
             it('should set the title', function() {
                 $rootScope.title.should.equal('abctitle — LilyMandarin');
@@ -112,7 +113,7 @@ describe('controller video', function() {
                 $scope.socialText.should.equal('abctitle');
             });
 
-            it('should set the video id', function() {
+            it('should set the video', function() {
                 $scope.video.id.should.equal('abcid');
             });
 
