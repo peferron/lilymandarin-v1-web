@@ -74,12 +74,6 @@ describe('controller video', function() {
         $httpBackend.flush();
     }
 
-    it('should enforce canonical path if id does not match', function() {
-        $location.path('/video/xyzid/abcslug');
-        createAndFlush();
-        $location.path().should.equal('/video/abcid/abcslug');
-    });
-
     it('should enforce canonical path if slug does not match', function() {
         $location.path('/video/abcid/xyzslug');
         createAndFlush();

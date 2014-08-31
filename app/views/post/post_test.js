@@ -60,12 +60,6 @@ describe('controller post', function() {
         $httpBackend.flush();
     }
 
-    it('should enforce canonical path if id does not match', function() {
-        $location.path('/post/xyzid/abcslug');
-        createAndFlush();
-        $location.path().should.equal('/post/abcid/abcslug');
-    });
-
     it('should enforce canonical path if slug does not match', function() {
         $location.path('/post/abcid/xyzslug');
         createAndFlush();

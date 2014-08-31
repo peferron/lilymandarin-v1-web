@@ -60,12 +60,6 @@ describe('controller photo', function() {
         $httpBackend.flush();
     }
 
-    it('should enforce canonical path if id does not match', function() {
-        $location.path('/photo/xyzid/abcslug');
-        createAndFlush();
-        $location.path().should.equal('/photo/abcid/abcslug');
-    });
-
     it('should enforce canonical path if slug does not match', function() {
         $location.path('/photo/abcid/xyzslug');
         createAndFlush();
