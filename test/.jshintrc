@@ -1,28 +1,11 @@
 {
-    // Enforcing options
-    "bitwise": true,
-    "camelcase": true,
-    "curly": true,
-    "eqeqeq": true,
-    "forin": true,
-    "freeze": true,
-    "immed": true,
-    "indent": 4,
-    "latedef": "nofunc",
-    "maxlen": 100,
-    "newcap": false,
-    "noarg": true,
-    "noempty": true,
-    "nonbsp": true,
-    "nonew": true,
-    "quotmark": "single",
-    "undef": true,
-    "unused": true,
+    "extends": "../.jshintrc",
 
-    // Relaxing options
-    "globalstrict": true,
+    // Enforcing options
+    "newcap": false,
 
     // Environment
+    "node": true,
     "globals": {
         "beforeEach": false,
         "afterEach": false,
