@@ -3,7 +3,7 @@
         <a class="lm-latest__tab__container" href="/{{tab}}" >
             <div class="translucent-header">
                 <div class="lm-latest__tab__name">{{tab | Ufl}}</div>
-                <small>{{latest[tab][0].ago | Ago}}</small>
+                <!-- <small>{{latest[tab][0].ago | Ago}}</small> -->
             </div>
             <div class="lm-latest__tab__placeholder" ng-repeat="article in latest[tab] track by article.id" ng-class="{active: carousel % latest[tab].length == $index}" ng-style="{'background-image': 'url({{article | ImgSrc: 397}})'}"></div>
         </a>
