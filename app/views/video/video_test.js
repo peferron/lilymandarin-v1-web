@@ -114,7 +114,7 @@ describe('controller video', function() {
             });
 
             it('should set the video', function() {
-                $scope.video.id.should.equal('abcid');
+                $scope.video.should.deep.resource.equal(video);
             });
 
             it('should set the video height and width', function() {

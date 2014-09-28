@@ -100,7 +100,7 @@ describe('controller photo', function() {
             });
 
             it('should set the photo', function() {
-                $scope.photo.id.should.equal('abcid');
+                $scope.photo.should.deep.resource.equal(photo);
             });
 
             it('should set the photo height and width', function() {

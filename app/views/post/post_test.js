@@ -90,7 +90,7 @@ describe('controller post', function() {
             });
 
             it('should set the post', function() {
-                $scope.post.id.should.equal('abcid');
+                $scope.post.should.deep.resource.equal(post);
             });
         });
     });

@@ -29,12 +29,16 @@ describe('controller videos', function() {
     function createVideos(first, last) {
         var v = [];
         for (var i = first; i >= last; i--) {
-            v.push({
-                firstValidationTimeNano: 'id' + i + '_nano',
-                id: 'id' + i
-            });
+            v.push(createVideo(i));
         }
         return v;
+    }
+
+    function createVideo(i) {
+        return {
+            firstValidationTimeNano: 'id' + i + '_nano',
+            id: 'id' + i
+        };
     }
 
     function createAndExpect(videos) {
@@ -94,9 +98,7 @@ describe('controller videos', function() {
         });
 
         it('should set the videos', function() {
-            $scope.videos.length.should.equal(2);
-            $scope.videos[0].id.should.equal('id100');
-            $scope.videos[1].id.should.equal('id99');
+            $scope.videos.should.deep.resource.equal(createVideos(100, 99));
         });
     });
 
@@ -126,8 +128,7 @@ describe('controller videos', function() {
 
             it('should keep the videos unchanged', function() {
                 $scope.videos.length.should.equal(20);
-                $scope.videos[0].id.should.equal('id100');
-                $scope.videos[19].id.should.equal('id81');
+                $scope.videos.should.deep.resource.equal(createVideos(100, 81));
             });
         });
 
@@ -142,10 +143,7 @@ describe('controller videos', function() {
 
             it('should append the next videos', function() {
                 $scope.videos.length.should.equal(22);
-                $scope.videos[0].id.should.equal('id100');
-                $scope.videos[19].id.should.equal('id81');
-                $scope.videos[20].id.should.equal('id80');
-                $scope.videos[21].id.should.equal('id79');
+                $scope.videos.should.deep.resource.equal(createVideos(100, 79));
             });
         });
 
@@ -160,10 +158,7 @@ describe('controller videos', function() {
 
             it('should append the next videos', function() {
                 $scope.videos.length.should.equal(40);
-                $scope.videos[0].id.should.equal('id100');
-                $scope.videos[19].id.should.equal('id81');
-                $scope.videos[20].id.should.equal('id80');
-                $scope.videos[39].id.should.equal('id61');
+                $scope.videos.should.deep.resource.equal(createVideos(100, 61));
             });
         });
     });

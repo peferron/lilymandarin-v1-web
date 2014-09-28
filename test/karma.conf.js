@@ -4,6 +4,7 @@ module.exports = function(config) {
     config.set({
         basePath : '../',
         files : [
+            'node_modules/chai-angular/chai-angular.js',
             'app/bower_components/angular/angular.js',
             'app/bower_components/angular-mocks/angular-mocks.js',
             'app/bower_components/angular-resource/angular-resource.js',
@@ -14,8 +15,7 @@ module.exports = function(config) {
             'app/directives/**/*.js',
             'app/filters/**/*.js',
             'app/services/**/*.js',
-            'app/views/**/*.js',
-            'test/unit/**/*.js'
+            'app/views/**/*.js'
         ],
         autoWatch : true,
         frameworks: ['mocha', 'chai'],
