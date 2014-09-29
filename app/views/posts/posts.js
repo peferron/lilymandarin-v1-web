@@ -28,6 +28,8 @@ angular
                 } else {
                     // Subsequent loads
                     params.validatedBefore = $scope.posts[length - 1].firstValidationTimeNano;
+                    // Only the first load should get non-validated articles, otherwise they will
+                    // end up duplicated.
                     params.validatedOnly = true;
                 }
 

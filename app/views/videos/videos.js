@@ -21,14 +21,16 @@ angular
                 };
 
                 var length = $scope.videos.length;
-                if (length) {
-                    params.validatedBefore = $scope.videos[length - 1].firstValidationTimeNano;
-                    // Only get non-validated articles on the first load, otherwise they will end up
-                    // duplicated!
-                    params.validatedOnly = true;
-                } else {
+                if (!length) {
+                    // First load
                     params.validatedBefore = '0';
                     params.validatedOnly = !Admin;
+                } else {
+                    // Subsequent loads
+                    params.validatedBefore = $scope.videos[length - 1].firstValidationTimeNano;
+                    // Only the first load should get non-validated articles, otherwise they will
+                    // end up duplicated.
+                    params.validatedOnly = true;
                 }
 
                 Article.query(params, function(videos) {
