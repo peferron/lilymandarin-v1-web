@@ -3,7 +3,7 @@
 </lm-admin>
 <style lm-style css="{{css}}" scoped></style>
 <div class="photos__container" ng-style="{height: totalHeight + 'px'}">
-    <lm-photo ng-repeat="photo in photos track by photo.id" ng-style="photo.style" photo="photo"></lm-photo>
+    <lm-photo ng-repeat="article in articles track by article.id" ng-style="article.style" photo="article"></lm-photo>
 </div>
 <div class="buttons">
     <lm-more name="photos" status="loadStatus" load="load()"></lm-more>

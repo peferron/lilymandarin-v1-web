@@ -35,7 +35,7 @@ angular
                 }
 
                 if (callback) {
-                    callback();
+                    callback(articles);
                 }
             });
         };

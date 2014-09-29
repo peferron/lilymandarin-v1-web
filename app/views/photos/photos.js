@@ -3,13 +3,11 @@
 angular
     .module('lmControllers')
     .controller('photos',
-        function($rootScope, $scope, $window, Article, Analytics, Admin) {
+        function($rootScope, $scope, $window, Articles, Analytics) {
             $rootScope.title = 'Photos — LilyMandarin';
             Analytics.page();
 
             $rootScope.tab = 'photos';
-
-            $scope.photos = [];
 
             // Ideally, the padding should be specified in the CSS
             var PADDING = 5;
@@ -132,49 +130,24 @@ angular
                     });
                 });
 
-            // Fetches and appends a new batch of photos
             $scope.load = function() {
-                $scope.loadStatus = 'loading';
-
-                var params = {
-                    categories: 'photo',
-                    count: 30
-                };
-
-                var length = $scope.photos.length;
-                if (!length) {
-                    // First load
-                    params.validatedBefore = '0';
-                    params.validatedOnly = !Admin;
-                } else {
-                    // Subsequent loads
-                    params.validatedBefore = $scope.photos[length - 1].firstValidationTimeNano;
-                    // Only the first load should get non-validated articles, otherwise they will
-                    // end up duplicated.
-                    params.validatedOnly = true;
-                }
-
-                Article.query(params, function(photos) {
-                    // This will only happen on the first load
-                    if (!columns) {
-                        columns = initColumns(availableWidth(), availableHeight());
-                    }
-
-                    // There is no need to recompute the positions of the already-appended photos
-                    // in $scope.photos. Just compute the positions of the new photos, using the
-                    // current columns state
-                    setPositions(photos, columns);
-
-                    updateContainer();
-
-                    // This is efficient because Angular will not recreate DOM elements for the
-                    // already-appended photos in $scope.photos
-                    $scope.photos = $scope.photos.concat(photos);
-
-                    $scope.loadStatus = photos.length < params.count ? 'ended' : 'ready';
-                });
+                Articles.load({categories: 'photo', count: 30}, $scope, onLoad);
             };
 
             $scope.load();
+
+            function onLoad(articles) {
+                // This will only happen on the first load.
+                if (!columns) {
+                    columns = initColumns(availableWidth(), availableHeight());
+                }
+
+                // There is no need to recompute the positions of the already-appended photos
+                // in $scope.photos. Just compute the positions of the new photos, using the
+                // current columns state.
+                setPositions(articles, columns);
+
+                updateContainer();
+            }
         }
     );
