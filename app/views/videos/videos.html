@@ -1,10 +1,10 @@
 <lm-admin>
     <a href="/admin/new/video?category=" target="_blank" class="btn btn-xs new">New</a>
 </lm-admin>
-<article ng-repeat="video in videos track by video.id">
-    <lm-video-header video="video"></lm-video-header>
-    <a title="Watch" class="videos__preview" href="/video/{{video.id}}/{{video.slug}}">
-        <img class="videos__preview__poster" ng-src="{{video | ImgSrc: 1200}}">
+<article ng-repeat="article in articles track by article.id">
+    <lm-video-header video="article"></lm-video-header>
+    <a title="Watch" class="videos__preview" href="/video/{{article.id}}/{{article.slug}}">
+        <img class="videos__preview__poster" ng-src="{{article | ImgSrc: 1200}}">
         <div class="videos__preview__overlay icon-play-white"></div>
     </a>
 </article>
