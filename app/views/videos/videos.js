@@ -9,10 +9,8 @@ angular
 
             $rootScope.tab = 'videos';
 
-            var params = {categories: 'music|movie', count: 20};
-
             $scope.load = function() {
-                Articles.load(params, $scope);
+                Articles.load({categories: 'music|movie', count: 20}, $scope);
             };
 
             $scope.load();

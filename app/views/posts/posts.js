@@ -9,10 +9,8 @@ angular
 
             $rootScope.tab = 'posts';
 
-            var params = {categories: 'post', count: 20};
-
             $scope.load = function() {
-                Articles.load(params, $scope);
+                Articles.load({categories: 'post', count: 20}, $scope);
             };
 
             $scope.load();
