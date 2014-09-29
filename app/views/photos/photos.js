@@ -136,7 +136,7 @@ angular
 
             $scope.load();
 
-            function onLoad(articles) {
+            function onLoad(photos) {
                 // This will only happen on the first load.
                 if (!columns) {
                     columns = initColumns(availableWidth(), availableHeight());
@@ -145,7 +145,7 @@ angular
                 // There is no need to recompute the positions of the already-appended photos
                 // in $scope.photos. Just compute the positions of the new photos, using the
                 // current columns state.
-                setPositions(articles, columns);
+                setPositions(photos, columns);
 
                 updateContainer();
             }
