@@ -6,5 +6,5 @@
     <lm-photo ng-repeat="photo in photos track by photo.id" ng-style="photo.style" photo="photo"></lm-photo>
 </div>
 <div class="buttons">
-    <lm-more></lm-more>
+    <lm-more name="photos" status="loadStatus" load="load()"></lm-more>
 </div>
