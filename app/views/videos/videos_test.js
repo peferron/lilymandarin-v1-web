@@ -26,50 +26,51 @@ describe('controller videos', function() {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    function createVideos(first, last) {
+    function createArticles(first, last) {
         var v = [];
         for (var i = first; i >= last; i--) {
-            v.push(createVideo(i));
+            v.push(createArticle(i));
         }
         return v;
     }
 
-    function createVideo(i) {
+    function createArticle(i) {
         return {
-            firstValidationTimeNano: 'id' + i + '_nano',
-            id: 'id' + i
+            id: 'id' + i,
+            validated: true,
+            firstValidationTimeNano: 'id' + i + '_nano'
         };
     }
 
-    function createAndExpect(videos) {
+    function createAndExpect(articles) {
         $httpBackend.expectGET('/api/v1/articles.json' +
             '?categories=music%7Cmovie' +
             '&count=20' +
             '&validated_before=0' +
             '&validated_only=true'
-        ).respond(videos);
+        ).respond(articles);
         createController();
     }
 
-    function createAndFlush(videos) {
-        createAndExpect(videos);
+    function createAndFlush(articles) {
+        createAndExpect(articles);
         $httpBackend.flush();
     }
 
-    function expectMoreAndFlush(before, videos) {
+    function expectMoreAndFlush(before, articles) {
         $httpBackend.expectGET('/api/v1/articles.json' +
             '?categories=music%7Cmovie' +
             '&count=20' +
             '&validated_before=' + before +
             '&validated_only=true'
-        ).respond(videos);
+        ).respond(articles);
         $scope.load();
         $httpBackend.flush();
     }
 
-    describe('before the videos are loaded', function() {
+    describe('before the articles are loaded', function() {
         beforeEach(function() {
-            createAndExpect(createVideos(100, 99));
+            createAndExpect(createArticles(100, 99));
         });
         afterEach(function() {
             $httpBackend.flush();
@@ -88,36 +89,34 @@ describe('controller videos', function() {
         });
     });
 
-    describe('after 2 videos are loaded', function() {
+    describe('after 2 articles are loaded', function() {
         beforeEach(function() {
-            createAndFlush(createVideos(100, 99));
+            createAndFlush(createArticles(100, 99));
         });
 
         it('should set the status to "ended"', function() {
             $scope.loadStatus.should.equal('ended');
         });
 
-        it('should set the videos', function() {
-            $scope.videos.should.deep.resource.equal(createVideos(100, 99));
+        it('should set the articles', function() {
+            $scope.articles.should.deep.resource.equal(createArticles(100, 99));
         });
     });
 
-    describe('after 20 videos are loaded', function() {
+    describe('after 20 articles are loaded', function() {
         beforeEach(function() {
-            createAndFlush(createVideos(100, 81));
+            createAndFlush(createArticles(100, 81));
         });
 
         it('should set the status to "ready"', function() {
             $scope.loadStatus.should.equal('ready');
         });
 
-        it('should set the videos', function() {
-            $scope.videos.length.should.equal(20);
-            $scope.videos[0].id.should.equal('id100');
-            $scope.videos[19].id.should.equal('id81');
+        it('should set the articles', function() {
+            $scope.articles.should.deep.resource.equal(createArticles(100, 81));
         });
 
-        describe('after the next 0 videos are loaded', function() {
+        describe('after the next 0 articles are loaded', function() {
             beforeEach(function() {
                 expectMoreAndFlush('id81_nano', []);
             });
@@ -126,39 +125,36 @@ describe('controller videos', function() {
                 $scope.loadStatus.should.equal('ended');
             });
 
-            it('should keep the videos unchanged', function() {
-                $scope.videos.length.should.equal(20);
-                $scope.videos.should.deep.resource.equal(createVideos(100, 81));
+            it('should keep the articles unchanged', function() {
+                $scope.articles.should.deep.resource.equal(createArticles(100, 81));
             });
         });
 
-        describe('after the next 2 videos are loaded', function() {
+        describe('after the next 2 articles are loaded', function() {
             beforeEach(function() {
-                expectMoreAndFlush('id81_nano', createVideos(80, 79));
+                expectMoreAndFlush('id81_nano', createArticles(80, 79));
             });
 
             it('should set the status to "ended"', function() {
                 $scope.loadStatus.should.equal('ended');
             });
 
-            it('should append the next videos', function() {
-                $scope.videos.length.should.equal(22);
-                $scope.videos.should.deep.resource.equal(createVideos(100, 79));
+            it('should append the next articles', function() {
+                $scope.articles.should.deep.resource.equal(createArticles(100, 79));
             });
         });
 
-        describe('after the next 20 videos are loaded', function() {
+        describe('after the next 20 articles are loaded', function() {
             beforeEach(function() {
-                expectMoreAndFlush('id81_nano', createVideos(80, 61));
+                expectMoreAndFlush('id81_nano', createArticles(80, 61));
             });
 
             it('should set the status to "ready"', function() {
                 $scope.loadStatus.should.equal('ready');
             });
 
-            it('should append the next videos', function() {
-                $scope.videos.length.should.equal(40);
-                $scope.videos.should.deep.resource.equal(createVideos(100, 61));
+            it('should append the next articles', function() {
+                $scope.articles.should.deep.resource.equal(createArticles(100, 61));
             });
         });
     });
