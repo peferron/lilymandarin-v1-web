@@ -3,8 +3,8 @@
         <lm-admin>
             <a href="/admin/new/photo?category=post" target="_blank" class="btn btn-xs new">New</a>
         </lm-admin>
-        <article ng-repeat="post in posts track by post.id" class="padded">
-            <lm-post post="post" clickable="true"></lm-post>
+        <article ng-repeat="article in articles track by article.id" class="padded">
+            <lm-post post="article" clickable="true"></lm-post>
         </article>
         <div class="buttons">
             <lm-more></lm-more>
