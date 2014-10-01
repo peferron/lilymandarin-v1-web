@@ -6,8 +6,7 @@ angular
         if (!Admin) {
             return {
                 restrict: 'E',
-                replace: true,
-                transclude: true,
+                transclude: 'element',
                 template: ''
             };
         }
