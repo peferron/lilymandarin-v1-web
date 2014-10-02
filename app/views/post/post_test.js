@@ -4,8 +4,7 @@
 'use strict';
 
 describe('controller post', function() {
-    beforeEach(module('lmControllers'));
-    beforeEach(module('lmServices'));
+    beforeEach(module('lmControllers', 'lmServices'));
 
     var $httpBackend, $rootScope, $location, $scope, createController, post;
 

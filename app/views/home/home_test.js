@@ -3,8 +3,7 @@
 'use strict';
 
 describe('controller home', function() {
-    beforeEach(module('lmControllers'));
-    beforeEach(module('lmServices'));
+    beforeEach(module('lmControllers', 'lmServices'));
 
     var $rootScope, createController;
 

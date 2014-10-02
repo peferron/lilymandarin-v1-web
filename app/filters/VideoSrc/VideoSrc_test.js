@@ -3,8 +3,7 @@
 'use strict';
 
 describe('filter VideoSrc', function() {
-    beforeEach(module('lmFilters'));
-    beforeEach(module('lmServices'));
+    beforeEach(module('lmFilters', 'lmServices'));
 
     var src;
     beforeEach(inject(function(VideoSrcFilter) {
