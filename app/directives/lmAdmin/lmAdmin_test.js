@@ -3,23 +3,26 @@
 'use strict';
 
 describe('directive lmAdmin', function() {
-    var $provide, $compile, $rootScope;
+    var $provide;
     beforeEach(module('lmDirectives', function(_$provide_) {
         $provide = _$provide_;
     }));
-    beforeEach(inject(function(_$compile_, _$rootScope_){
-        $compile = _$compile_;
-        $rootScope = _$rootScope_;
-    }));
+
+    var element;
+    function compile(admin) {
+        inject(function($compile, $rootScope) {
+            $provide.value('Admin', admin);
+            element = $compile('<lm-admin><div class="abc">def</div></lm-admin>')($rootScope);
+            $rootScope.$digest();
+        });
+    }
 
     describe('when Admin is false', function() {
         beforeEach(function() {
-            $provide.value('Admin', false);
+            compile(false);
         });
 
-        it('replaces the element with the appropriate content', function() {
-            var element = $compile('<lm-admin><div>abc</div></lm-admin>')($rootScope);
-            $rootScope.$digest();
+        it('replaces the element with a comment', function() {
             element.should.have.length(1);
             element[0].nodeType.should.equal(Node.COMMENT_NODE);
         });
@@ -27,14 +30,12 @@ describe('directive lmAdmin', function() {
 
     describe('when Admin is true', function() {
         beforeEach(function() {
-            $provide.value('Admin', true);
+            compile(true);
         });
 
-        it('replaces the element with the appropriate content', function() {
-            var element = $compile('<lm-admin><div>abc</div></lm-admin>')($rootScope);
-            $rootScope.$digest();
+        it('inserts the transcluded elements', function() {
             element.should.have.length(1);
-            element.html().should.equal('<div class="ng-scope">abc</div>');
+            element.find('.abc').html().should.equal('def');
         });
     });
 });
