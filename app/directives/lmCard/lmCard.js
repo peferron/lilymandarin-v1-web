@@ -8,6 +8,7 @@ angular
             replace: true,
             transclude: true,
             templateUrl: '/directives/lmCard/lmCard.html',
+            scope: {},
             controller: function($scope, $window) {
                 $scope.flipped = false;
 
