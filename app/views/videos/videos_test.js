@@ -4,9 +4,9 @@
 'use strict';
 
 describe('controller videos', function() {
-    beforeEach(module('lmControllers', 'lmServices'));
-
     var $httpBackend, $rootScope, $scope, createController;
+
+    beforeEach(module('lmControllers', 'lmServices'));
 
     beforeEach(inject(function(_$httpBackend_, _$rootScope_, $controller) {
         $httpBackend = _$httpBackend_;

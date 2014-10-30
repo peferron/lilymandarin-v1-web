@@ -3,12 +3,12 @@
 'use strict';
 
 describe('directive lmAdmin', function() {
-    var $provide;
+    var $provide, element;
+
     beforeEach(module('lmDirectives', function(_$provide_) {
         $provide = _$provide_;
     }));
 
-    var element;
     function compile(admin) {
         inject(function($compile, $rootScope) {
             $provide.value('Admin', admin);

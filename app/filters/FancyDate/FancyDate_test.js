@@ -4,9 +4,10 @@
 // 'use strict';
 
 // describe('filter FancyDate', function() {
+//     var fancy;
+
 //     beforeEach(module('lmFilters'));
 
-//     var fancy;
 //     beforeEach(inject(function(FancyDateFilter) {
 //         fancy = function(s) {
 //             return FancyDateFilter(new Date(s).getTime());

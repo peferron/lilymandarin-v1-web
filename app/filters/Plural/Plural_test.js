@@ -3,9 +3,10 @@
 'use strict';
 
 describe('filter Plural', function() {
+    var plural;
+
     beforeEach(module('lmFilters'));
 
-    var plural;
     beforeEach(inject(function(PluralFilter) {
         plural = PluralFilter;
     }));

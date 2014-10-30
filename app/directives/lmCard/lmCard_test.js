@@ -3,6 +3,8 @@
 'use strict';
 
 describe('directive lmCard', function() {
+    var element;
+
     beforeEach(module('lmDirectives', 'lmTemplates'));
 
     function mockSelection(selection) {
@@ -18,7 +20,6 @@ describe('directive lmCard', function() {
         });
     }
 
-    var element;
     beforeEach(inject(function($compile, $rootScope) {
         element = $compile('<lm-card><div class="abc">def</div></lm-card>')($rootScope);
         $rootScope.$digest();

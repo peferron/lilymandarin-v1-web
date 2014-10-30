@@ -3,9 +3,10 @@
 // 'use strict';
 
 // describe('filter Ago', function() {
+//     var ago;
+
 //     beforeEach(module('lmFilters'));
 
-//     var ago;
 //     beforeEach(inject(function(AgoFilter) {
 //         ago = AgoFilter;
 //     }));

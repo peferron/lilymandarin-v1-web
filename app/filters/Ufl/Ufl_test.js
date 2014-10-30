@@ -3,9 +3,10 @@
 'use strict';
 
 describe('filter Ufl (UppercaseFirstLetter)', function() {
+    var ufl;
+
     beforeEach(module('lmFilters'));
 
-    var ufl;
     beforeEach(inject(function(UflFilter) {
         ufl = UflFilter;
     }));

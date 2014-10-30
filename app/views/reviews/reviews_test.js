@@ -4,9 +4,9 @@
 'use strict';
 
 describe('controller reviews', function() {
-    beforeEach(module('lmControllers', 'lmServices'));
-
     var $httpBackend, $rootScope, $scope, createController, reviews;
+
+    beforeEach(module('lmControllers', 'lmServices'));
 
     beforeEach(inject(function(_$httpBackend_, _$rootScope_, $controller) {
         $httpBackend = _$httpBackend_;
