@@ -31,7 +31,7 @@ describe('directive lmCard', function() {
     });
 
     it('is not flipped at startup', function() {
-        element.hasClass('lm-card--flipped"').should.equal(false);
+        element.hasClass('lm-card--flipped').should.equal(false);
     });
 
     it('can be flipped', function() {
