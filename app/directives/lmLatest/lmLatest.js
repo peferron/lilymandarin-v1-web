@@ -47,8 +47,11 @@ angular
                         if (tab) {
                             $scope.latest[tab].push(article);
                         }
+
                     });
                 });
+
+
             }
         };
     });
