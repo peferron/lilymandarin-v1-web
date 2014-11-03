@@ -3,14 +3,9 @@
 'use strict';
 
 describe('directive lmPhoto', function() {
-    var element, $compile, $rootScope;
+    var element;
 
     beforeEach(module('lmDirectives', 'lmTemplates', 'lmFilters', 'lmServices'));
-
-    beforeEach(inject(function(_$compile_, _$rootScope_) {
-        $compile = _$compile_;
-        $rootScope = _$rootScope_;
-    }));
 
     beforeEach(inject(function($compile, $rootScope) {
         $rootScope.photo = {

@@ -7,6 +7,11 @@ describe('directive lmCard', function() {
 
     beforeEach(module('lmDirectives', 'lmTemplates'));
 
+    beforeEach(inject(function($compile, $rootScope) {
+        element = $compile('<lm-card><div class="abc">def</div></lm-card>')($rootScope);
+        $rootScope.$digest();
+    }));
+
     function mockSelection(selection) {
         inject(function($window) {
             $window.getSelection = function() {
@@ -19,11 +24,6 @@ describe('directive lmCard', function() {
             };
         });
     }
-
-    beforeEach(inject(function($compile, $rootScope) {
-        element = $compile('<lm-card><div class="abc">def</div></lm-card>')($rootScope);
-        $rootScope.$digest();
-    }));
 
     it('inserts the transcluded elements', function() {
         element.should.have.length(1);

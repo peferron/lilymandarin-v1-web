@@ -3,17 +3,14 @@
 'use strict';
 
 describe('directive lmProgress', function() {
-    var bar, $compile, $rootScope, $timeout;
+    var bar, $rootScope, $timeout;
 
     beforeEach(module('lmDirectives', 'lmTemplates'));
 
-    beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_) {
-        $compile = _$compile_;
+    beforeEach(inject(function(_$rootScope_, _$timeout_, $compile) {
         $rootScope = _$rootScope_;
         $timeout = _$timeout_;
-    }));
 
-    beforeEach(inject(function($compile, $rootScope) {
         var element = $compile('<lm-progress loading="loading"></lm-progress>')($rootScope);
         $rootScope.$digest();
         bar = element.find('.lm-progress__bar');
