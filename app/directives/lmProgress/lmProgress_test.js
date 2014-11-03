@@ -5,7 +5,7 @@
 describe('directive lmProgress', function() {
     var bar, $compile, $rootScope, $timeout;
 
-    beforeEach(module('lmDirectives', 'lmTemplates', 'lmFilters', 'lmServices'));
+    beforeEach(module('lmDirectives', 'lmTemplates'));
 
     beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_) {
         $compile = _$compile_;
