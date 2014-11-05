@@ -2,28 +2,14 @@
 
 angular
     .module('lmDirectives')
-    .directive('lmSticky', function() {
-        // Returns whether the current browser has native support for CSS position: sticky
-        function canSticky() {
-            var el = document.createElement('div');
-
-            el.style.cssText =
-                'position: -webkit-sticky;' +
-                'position: -moz-sticky;' +
-                'position: -ms-sticky;' +
-                'position: -o-sticky;' +
-                'position: sticky;';
-
-            return (/sticky/).test(el.style.position);
-        }
-
+    .directive('lmSticky', function(CanSticky) {
         var d = {
             restrict: 'A',
             transclude: true,
             templateUrl: '/directives/lmSticky/lmSticky.html'
         };
 
-        if (canSticky()) {
+        if (CanSticky) {
             // Native browser support, no custom controller needed
             return d;
         }
