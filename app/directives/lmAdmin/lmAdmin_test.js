@@ -3,15 +3,15 @@
 'use strict';
 
 describe('directive lmAdmin', function() {
-    var $provide, element;
+    var element;
 
-    beforeEach(module('lmDirectives', function(_$provide_) {
-        $provide = _$provide_;
-    }));
+    beforeEach(module('lmDirectives'));
 
     function compile(admin) {
-        inject(function($compile, $rootScope) {
+        module(function($provide) {
             $provide.value('Admin', admin);
+        });
+        inject(function($compile, $rootScope) {
             element = $compile('<lm-admin><div class="abc">def</div></lm-admin>')($rootScope);
             $rootScope.$digest();
         });
