@@ -36,10 +36,10 @@ angular
                 var left = shortest * (columns.width + PADDING);
 
                 var media = article.internal.medias['main-photo'];
-                var photoHeight = media ? media.height : 100;
-                var photoWidth = media ? media.width : 100;
+                var mediaHeight = media ? media.height : 100;
+                var mediaWidth = media ? media.width : 100;
 
-                var height = Math.floor(photoHeight * columns.width / photoWidth);
+                var height = Math.floor(mediaHeight * columns.width / mediaWidth);
 
                 columns.heights[shortest] += height + PADDING;
 
@@ -52,14 +52,14 @@ angular
 
         // Returns an empty columns object for the given available width and height, ready to be
         // filled with photos
-        function initColumns(windowWidth, windowHeight) {
+        function initColumns(availableWidth, availableHeight) {
             // Minimum number of columns to keep photos below MAX_PHOTO_WIDTH
-            var minCount1 = Math.ceil((windowWidth + PADDING) / (MAX_PHOTO_WIDTH + PADDING));
+            var minCount1 = Math.ceil((availableWidth + PADDING) / (MAX_PHOTO_WIDTH + PADDING));
 
             // Minimum number of columns to be able to show an entire photo of aspect ratio
             // MIN_ASPECT_RATIO on screen, with LOL left to spare
-            var minCount2 = Math.ceil((windowWidth + PADDING) /
-                ((windowHeight * MAX_PHOTO_HEIGHT) * MIN_ASPECT_RATIO + PADDING));
+            var minCount2 = Math.ceil((availableWidth + PADDING) /
+                ((availableHeight * MAX_PHOTO_HEIGHT) * MIN_ASPECT_RATIO + PADDING));
 
             var count = Math.max(minCount1, minCount2);
 
@@ -69,7 +69,7 @@ angular
             }
 
             return {
-                width: Math.floor((windowWidth - (count - 1) * PADDING) / count),
+                width: Math.floor((availableWidth - (count - 1) * PADDING) / count),
                 heights: heights
             };
         }
@@ -97,8 +97,8 @@ angular
             $scope.totalHeight = maxValue(columns.heights) - PADDING;
         }
 
-        function onResize(windowWidth, windowHeight) {
-            columns = initColumns(windowWidth, windowHeight);
+        function onResize(availableWidth, availableHeight) {
+            columns = initColumns(availableWidth, availableHeight);
 
             $scope.$apply(function() {
                 setPositions($scope.articles, columns);
