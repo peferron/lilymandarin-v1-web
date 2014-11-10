@@ -11,11 +11,11 @@ angular
                 ratio: '='
             },
             templateUrl: '/directives/lmTopHalf/lmTopHalf.html',
-            controller: function($element, $window, $document, $scope) {
+            controller: function($element, $window, $scope) {
                 // available returns the maximum width and height available for use
                 function available() {
                     return {
-                        width: $document[0].body.clientWidth,
+                        width: $window.document.body.clientWidth,
                         height: $window.innerHeight
                     };
                 }

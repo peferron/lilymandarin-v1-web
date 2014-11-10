@@ -9,13 +9,13 @@ describe('directive lmTopHalf', function() {
 
     function compile(width, height, ratio) {
         module(function($provide) {
-            $provide.value('$document', [{
-                body: {
-                    clientWidth: width
-                }
-            }]);
             $provide.value('$window', {
-                innerHeight: height
+                innerHeight: height,
+                document: {
+                    body: {
+                        clientWidth: width
+                    }
+                }
             });
         });
         inject(function($compile, $rootScope) {
