@@ -2,7 +2,7 @@
 
 angular
     .module('lmControllers')
-    .controller('photos', function($rootScope, $scope, Articles, Analytics, Window) {
+    .controller('photos', function($rootScope, $scope, $window, Articles, Analytics, Window) {
         $rootScope.title = 'Photos — LilyMandarin';
         Analytics.page();
 
@@ -21,9 +21,22 @@ angular
         var MAX_PHOTO_WIDTH = 590;
 
         // The current state of the columns
-        // { width: the width of each column in pixels,
-        //   heights: an array with the summed height of all photos in each column }
+        // columns.width: the width of each column in pixels
+        // columns.heights: an array with the summed height of all photos in each column
         var columns;
+
+        var win = Window.on({
+            width: function() {
+                return $window.document.body.clientWidth;
+            },
+            height: function() {
+                // Use screen.availHeight instead of window.height because window.height can vary
+                // while scrolling vertically on Chrome Android (because of the address bar popping
+                // in and out of view).
+                return $window.screen.availHeight;
+            },
+            resize: onResize
+        });
 
         // Sets the positions of the given photos to fit in the given columns
         function setPositions(articles, columns) {
@@ -97,11 +110,13 @@ angular
             $scope.totalHeight = maxValue(columns.heights) - PADDING;
         }
 
-        function onResize(availableWidth, availableHeight) {
-            columns = initColumns(availableWidth, availableHeight);
+        function onResize() {
+            columns = initColumns(win.width, win.height);
 
             $scope.$apply(function() {
+                // Recompute the positions of all photos.
                 setPositions($scope.articles, columns);
+
                 updateContainer();
             });
         }
@@ -109,7 +124,7 @@ angular
         function onLoad(articles) {
             // This will only happen on the first load.
             if (!columns) {
-                columns = initColumns(Window.width(), Window.height());
+                columns = initColumns(win.width, win.height);
             }
 
             // There is no need to recompute the positions of the already-appended photos
@@ -120,14 +135,10 @@ angular
             updateContainer();
         }
 
-        Window.onResize(onResize);
-
         // $scope.$on is weirdly undefined during automated testing, so we must add a check to
         // prevent the tests from crashing.
         if ($scope.$on) {
-            $scope.$on('$destroy', function() {
-                Window.offResize(onResize);
-            });
+            $scope.$on('$destroy', win.off);
         }
 
         $scope.load = function() {

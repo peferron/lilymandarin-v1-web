@@ -11,14 +11,18 @@ angular
                 ratio: '='
             },
             templateUrl: '/directives/lmTopHalf/lmTopHalf.html',
-            controller: function($element, $window, $scope) {
-                // available returns the maximum width and height available for use
-                function available() {
-                    return {
-                        width: $window.document.body.clientWidth,
-                        height: $window.innerHeight
-                    };
-                }
+            controller: function($element, $window, $scope, Window) {
+                var win = Window.on({
+                    width: function() {
+                        return $window.document.body.clientWidth;
+                    },
+                    height: function() {
+                        return $window.innerHeight;
+                    },
+                    resize: function() {
+                        $scope.$apply(updatePosition);
+                    }
+                });
 
                 // updatePosition needs to be called every time the aspect ratio or the window size
                 // has changed
@@ -28,31 +32,21 @@ angular
                         return;
                     }
 
-                    var a = available();
-
-                    var maxHeight = a.height / 2;
+                    var maxHeight = win.height / 2;
                     var maxWidth = maxHeight * ratio;
 
-                    $scope.width = Math.min(a.width, maxWidth);
+                    $scope.width = Math.min(win.width, maxWidth);
                     $scope.height = $scope.width / ratio;
                 }
 
                 // Update position on aspect ratio change
                 $scope.$watch('ratio', updatePosition);
 
-                // Update position on window resize
-                // Avoid an issue in Chrome (and maybe other browsers) where the window resize event
-                // is fired twice every time
-                var prevAvailable = available();
-                angular
-                    .element($window)
-                    .on('resize', function () {
-                        var a = available();
-                        if (prevAvailable.width !== a.width || prevAvailable.height !== a.height) {
-                            prevAvailable = a;
-                            $scope.$apply(updatePosition);
-                        }
-                    });
+                // $scope.$on is weirdly undefined during automated testing, so we must add a check
+                // to prevent the tests from crashing.
+                if ($scope.$on) {
+                    $scope.$on('$destroy', win.off);
+                }
             }
         };
     });

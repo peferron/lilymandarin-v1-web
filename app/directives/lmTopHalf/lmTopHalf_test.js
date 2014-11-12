@@ -14,7 +14,7 @@ describe('directive lmTopHalf', function() {
         }
     };
 
-    beforeEach(module('lmDirectives', 'lmTemplates', function($provide) {
+    beforeEach(module('lmDirectives', 'lmTemplates', 'lmServices', function($provide) {
         $provide.value('$window', mockWindow);
     }));
 
@@ -53,7 +53,7 @@ describe('directive lmTopHalf', function() {
         describe('then ratio changed to 2', function() {
             beforeEach(function() {
                 $rootScope.ratio = 2;
-                element.isolateScope().$digest();
+                $rootScope.$digest();
             });
 
             it('sets the element height to 50px', function() {
@@ -70,6 +70,7 @@ describe('directive lmTopHalf', function() {
                 mockWindow.document.body.clientWidth = 200;
                 mockWindow.innerHeight = 150;
                 angular.element(mockWindow).triggerHandler('resize');
+                $rootScope.$digest();
             });
 
             it('sets the element height to 75px', function() {

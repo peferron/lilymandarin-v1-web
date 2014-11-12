@@ -6,21 +6,26 @@
 describe('controller photos', function() {
     var $httpBackend, $rootScope, $scope, createController;
 
-    beforeEach(module('lmControllers', 'lmServices'));
+    beforeEach(module('lmControllers', 'lmServices', function($provide) {
+        $provide.value('$window', {
+            document: {
+                body: {
+                    clientWidth: 1000
+                }
+            },
+            screen: {
+                availHeight: 2000
+            }
+        });
+    }));
 
-    beforeEach(inject(function(_$httpBackend_, _$rootScope_, $controller, Window) {
+    beforeEach(inject(function(_$httpBackend_, _$rootScope_, $controller) {
         $httpBackend = _$httpBackend_;
         $rootScope = _$rootScope_;
         $scope = {};
 
-        Window.width = function() { return 1000; };
-        Window.height = function() { return 2000; };
-
         createController = function() {
-            $controller('photos', {
-                $scope: $scope,
-                Window: Window
-            });
+            $controller('photos', { $scope: $scope });
         };
     }));
 
