@@ -7,7 +7,7 @@ angular
             // Cache the available width and height to avoiding an issue in Chrome (and maybe other
             // browsers) where the window resize event is fired twice every time.
 
-            var x = {
+            var obj = {
                 width: opts.width(),
                 height: opts.height(),
                 off: function() {
@@ -18,11 +18,11 @@ angular
             function onWindowResize() {
                 var nw = opts.width();
                 var nh = opts.height();
-                if (nw === x.width && nh === x.height) {
+                if (nw === obj.width && nh === obj.height) {
                     return;
                 }
-                x.width = nw;
-                x.height = nh;
+                obj.width = nw;
+                obj.height = nh;
                 if (opts.resize) {
                     opts.resize();
                 }
@@ -30,6 +30,6 @@ angular
 
             angular.element($window).on('resize', onWindowResize);
 
-            return x;
+            return obj;
         };
     });
