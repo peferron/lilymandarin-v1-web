@@ -16,10 +16,10 @@ angular
             };
         };
 
-        // Hides the current alert if it matches the given id. If id is empty, always hides the
+        // Hides the current alert if it matches the given id. If id is undefined, always hides the
         // current alert.
         this.hide = function(id) {
-            if (!id || $rootScope.alert && $rootScope.alert.id === id) {
+            if (angular.isUndefined(id) || $rootScope.alert && $rootScope.alert.id === id) {
                 $rootScope.alert = null;
             }
         };
