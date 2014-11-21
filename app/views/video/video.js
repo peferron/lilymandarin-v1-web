@@ -23,7 +23,7 @@ angular
             };
 
             Article.get({id: $routeParams.id}, function(video) {
-                // Enforce canonical path
+                // Enforce canonical path.
                 var path = '/video/' + video.id + '/' + video.slug;
                 if ($location.path() !== path) {
                     $location.path(path).replace();

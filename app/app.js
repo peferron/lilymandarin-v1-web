@@ -26,7 +26,7 @@ angular
         ]);
     })
     .run(function($rootScope, ClickTap, Alert) {
-        // Hide the current alert and error at each route change
+        // Hide the current alert and error at each route change.
         $rootScope.$on('$routeChangeStart', function() {
             Alert.hide();
             $rootScope.error = null;

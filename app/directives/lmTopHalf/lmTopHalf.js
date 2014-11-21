@@ -25,7 +25,7 @@ angular
                 });
 
                 // updatePosition needs to be called every time the aspect ratio or the window size
-                // has changed
+                // has changed.
                 function updatePosition() {
                     var ratio = parseFloat($scope.ratio);
                     if (isNaN(ratio)) {
@@ -39,7 +39,7 @@ angular
                     $scope.height = $scope.width / ratio;
                 }
 
-                // Update position on aspect ratio change
+                // Update position on aspect ratio change.
                 $scope.$watch('ratio', updatePosition);
 
                 // $scope.$on is weirdly undefined during automated testing, so we must add a check

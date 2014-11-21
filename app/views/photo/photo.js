@@ -7,7 +7,7 @@ angular
             $rootScope.tab = 'photos';
 
             Article.get({id: $routeParams.id}, function(photo) {
-                // Enforce canonical path
+                // Enforce canonical path.
                 var path = '/photo/' + photo.id + '/' + photo.slug;
                 if ($location.path() !== path) {
                     $location.path(path).replace();

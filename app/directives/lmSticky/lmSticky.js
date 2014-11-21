@@ -10,13 +10,13 @@ angular
         };
 
         if (CanSticky) {
-            // Native browser support, no custom controller needed
+            // Native browser support, no custom controller needed.
             return d;
         }
 
         // Explicit dependency injection because ngmin only works with basic patterns.
         d.controller = ['$element', '$window', function( $element, $window) {
-            // updateSize needs to be called every time the height of the content changes
+            // updateSize needs to be called every time the height of the content changes.
             var height;
             function updateSize() {
                 var newHeight = '';
@@ -30,7 +30,7 @@ angular
                 $element.css('height', height);
             }
 
-            // JS polyfill
+            // JS polyfill.
             // Calling toggleClass at every scroll event would be costly, so let's use an
             // intermediary variable and only update the class when it really needs to.
             var stuck = false;

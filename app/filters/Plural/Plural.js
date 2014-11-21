@@ -3,7 +3,9 @@
 angular
     .module('lmFilters')
     .filter('Plural', function() {
-        // E.g. Plural(1, 'second') => '1 second', Plural(2, 'second') => '2 seconds'
+        // Eexamples:
+        // - Plural(1, 'second') => '1 second'
+        // - Plural(2, 'second') => '2 seconds'
         return function(value, unit) {
             if (typeof value !== 'number' || isNaN(value)) {
                 return value;

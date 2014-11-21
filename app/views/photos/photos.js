@@ -8,21 +8,21 @@ angular
 
         $rootScope.tab = 'photos';
 
-        // Ideally, the padding should be specified in the CSS
+        // Ideally, the padding should be specified in the CSS.
         var PADDING = 5;
 
-        // The aspect ratio of the most "vertical" supported format
+        // The aspect ratio of the most "vertical" supported format.
         var MIN_ASPECT_RATIO = 3/4;
 
-        // The maximum photo height, relatively to the available height
+        // The maximum photo height, relatively to the available height.
         var MAX_PHOTO_HEIGHT = 1;
 
-        // The maximum photo width, absolute
+        // The maximum photo width, absolute.
         var MAX_PHOTO_WIDTH = 590;
 
-        // The current state of the columns
-        // columns.width: the width of each column in pixels
-        // columns.heights: an array with the summed height of all photos in each column
+        // The current state of the columns.
+        // columns.width: the width of each column in pixels.
+        // columns.heights: an array with the summed height of all photos in each column.
         var columns;
 
         var win = Window.on({
@@ -38,7 +38,7 @@ angular
             resize: onResize
         });
 
-        // Sets the positions of the given photos to fit in the given columns
+        // Sets the positions of the given photos to fit in the given columns.
         function setPositions(articles, columns) {
             $scope.css = 'lm-photo { width: ' + columns.width + 'px; }';
 
@@ -64,13 +64,13 @@ angular
         }
 
         // Returns an empty columns object for the given available width and height, ready to be
-        // filled with photos
+        // filled with photos.
         function initColumns(availableWidth, availableHeight) {
-            // Minimum number of columns to keep photos below MAX_PHOTO_WIDTH
+            // Minimum number of columns to keep photos below MAX_PHOTO_WIDTH.
             var minCount1 = Math.ceil((availableWidth + PADDING) / (MAX_PHOTO_WIDTH + PADDING));
 
             // Minimum number of columns to be able to show an entire photo of aspect ratio
-            // MIN_ASPECT_RATIO on screen, with LOL left to spare
+            // MIN_ASPECT_RATIO on screen, with LOL left to spare.
             var minCount2 = Math.ceil((availableWidth + PADDING) /
                 ((availableHeight * MAX_PHOTO_HEIGHT) * MIN_ASPECT_RATIO + PADDING));
 
@@ -87,7 +87,7 @@ angular
             };
         }
 
-        // Returns the index of the minimum value in the given array
+        // Returns the index of the minimum value in the given array.
         function indexOfMin(a) {
             var m = 0;
             for (var i = 1; i < a.length; i++) {
@@ -98,14 +98,14 @@ angular
             return m;
         }
 
-        // Returns the maximum value in the given array
+        // Returns the maximum value in the given array.
         function maxValue(a) {
             return a.reduce(function(x, y) {
                 return Math.max(x, y);
             });
         }
 
-        // Updates the style of the photo container
+        // Updates the style of the photo container.
         function updateContainer() {
             $scope.totalHeight = maxValue(columns.heights) - PADDING;
         }
@@ -114,7 +114,7 @@ angular
             columns = initColumns(win.width, win.height);
 
             $scope.$apply(function() {
-                // Recompute the positions of all photos.
+                // Recompute the positions of all photos..
                 setPositions($scope.articles, columns);
 
                 updateContainer();

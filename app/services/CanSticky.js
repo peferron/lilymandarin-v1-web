@@ -3,7 +3,7 @@
 angular
     .module('lmServices')
     .constant('CanSticky', (function() {
-        // Returns whether the current browser has native support for CSS position: sticky
+        // Returns whether the current browser has native support for CSS position: sticky.
         var el = angular.element('<div></div>')[0];
         el.style.cssText =
             'position: -webkit-sticky;' +
