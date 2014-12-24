@@ -5,36 +5,36 @@ angular
     .service('Loading', function($q, $rootScope) {
         $rootScope.loading = false;
 
-        var count = 0;
+        var concurrent = 0;
 
-        function inc() {
-            if (count === 0) {
+        function increment() {
+            if (concurrent === 0) {
                 $rootScope.loading = true;
             }
-            count++;
+            concurrent++;
         }
 
-        function dec() {
-            if (count === 1) {
+        function decrement() {
+            if (concurrent === 1) {
                 $rootScope.loading = false;
             }
-            if (count > 0) {
-                count--;
+            if (concurrent > 0) {
+                concurrent--;
             }
         }
 
         this.request = function(config) {
-            inc();
+            increment();
             return config || $q.when(config);
         };
 
         this.response = function(response) {
-            dec();
+            decrement();
             return response || $q.when(response);
         };
 
         this.responseError = function(rejection) {
-            dec();
+            decrement();
             return $q.reject(rejection);
         };
     })
