@@ -37,4 +37,7 @@ angular
             dec();
             return $q.reject(rejection);
         };
+    })
+    .config(function($httpProvider) {
+        $httpProvider.interceptors.push('Loading');
     });

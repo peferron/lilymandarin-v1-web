@@ -13,8 +13,7 @@ angular
         'lmControllers',
         'lmServices'
     ])
-    .config(function($httpProvider, $sceDelegateProvider) {
-        $httpProvider.interceptors.push('Cache', 'Loading');
+    .config(function($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
             'http://media.lilymandarin.com/**',

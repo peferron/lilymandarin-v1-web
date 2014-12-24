@@ -11,4 +11,7 @@ angular
             }
             return config || $q.when(config);
         };
+    })
+    .config(function($httpProvider) {
+        $httpProvider.interceptors.push('Cache');
     });
