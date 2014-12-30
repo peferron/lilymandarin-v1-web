@@ -37,5 +37,4 @@ describe('service Loading', function() {
         Loading.responseError();
         $rootScope.loading.should.equal(true);
     });
-
 });
