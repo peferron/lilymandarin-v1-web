@@ -10,7 +10,11 @@ angular
             },
             templateUrl: '/directives/lmModal/lmModal.html',
             controller: function($scope, Modal) {
-                $scope.hideModal = Modal.hide;
+                $scope.hide = function($event) {
+                    if (!$event || angular.element($event.target).hasClass('modal')) {
+                        Modal.hide();
+                    }
+                };
             }
         };
     });

@@ -20,10 +20,5 @@ angular
         }
 
         this.show = show;
-
-        this.hide = function($event) {
-            if (!$event || angular.element($event.target).hasClass('modal')) {
-                hide();
-            }
-        };
+        this.hide = hide;
     });
