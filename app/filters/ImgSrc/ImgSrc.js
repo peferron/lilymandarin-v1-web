@@ -20,17 +20,11 @@ angular
 
         // Returns the list of available widths for the given media, sorted from lowest to highest.
         function availableWidths(media) {
-            var a = [];
-            for (var i = 0; i < WIDTHS.length; i++) {
-                var gw = WIDTHS[i];
-                if (gw < media.width) {
-                    a.push(gw);
-                } else {
-                    break;
-                }
-            }
-            a.push(media.width);
-            return a;
+            return WIDTHS
+                .filter(function(width) {
+                    return width < media.width;
+                })
+                .concat(media.width);
         }
 
         // Returns the file suffix corresponding to the given width.
