@@ -35,6 +35,10 @@ angular
             localStorage.favoriteSourceType = source.type;
         };
 
+        this.resetFavorite = function() {
+            delete localStorage.favoriteSourceType;
+        };
+
         this.best = function(sources) {
             var favoriteType = localStorage.favoriteSourceType;
             var types = favoriteType ? [favoriteType].concat(TYPES) : TYPES;
@@ -49,11 +53,7 @@ angular
                 }
             }
 
-            Alert.show(
-                'Source',
-                'error',
-                'No best source found: ' + JSON.stringify(sources)
-            );
+            Alert.show('Source', 'error', 'No best source found: ' + JSON.stringify(sources));
         };
 
         this.remaining = function(available, current) {
