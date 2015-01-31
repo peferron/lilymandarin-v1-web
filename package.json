@@ -12,6 +12,9 @@
     "url": "https://github.com/peferron/lilymandarin-web/issues"
   },
   "homepage": "https://github.com/peferron/lilymandarin-web",
+  "scripts": {
+    "test": "grunt test-once"
+  },
   "devDependencies": {
     "bower": "^1.3.5",
     "chai": "^1.9.1",
