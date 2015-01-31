@@ -36,8 +36,6 @@ describe('directive lmProgress', function() {
         bar.css('width').should.equal('10%');
         $timeout.flush();
         bar.css('width').should.equal('19%');
-        $timeout.flush();
-        bar.css('width').should.equal('27.1%');
 
         $rootScope.loading = false;
         $rootScope.$digest();

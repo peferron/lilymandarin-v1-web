@@ -30,10 +30,10 @@ module.exports = function(config) {
         autoWatch : true,
         frameworks: ['chai', 'mocha'],
         reporters: ['progress', 'coverage'],
-        browsers : ['Chrome'],
+        browsers : ['PhantomJS'],
         plugins : [
             'karma-chai',
-            'karma-chrome-launcher',
+            'karma-phantomjs-launcher',
             'karma-coverage',
             'karma-mocha',
             'karma-ng-html2js-preprocessor'
