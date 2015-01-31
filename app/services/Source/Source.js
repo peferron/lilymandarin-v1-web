@@ -7,28 +7,7 @@ angular
         var TYPES = ['internal', 'external-youtube', 'external-youku'];
 
         this.available = function(video) {
-            var sources = [];
-
-            var media = video.internal.medias['main-video'];
-            if (media && media.filename) {
-                sources.push({
-                    type: 'internal',
-                    value: media.filename,
-                    height: media.height
-                });
-            }
-
-            var e = video.external;
-            for (var type in e) {
-                if (e.hasOwnProperty(type) && e[type]) {
-                    sources.push({
-                        type: 'external-' + type,
-                        value: e[type]
-                    });
-                }
-            }
-
-            return sources;
+            return internalSources(video).concat(externalSources(video));
         };
 
         this.setFavorite = function(source) {
@@ -61,4 +40,30 @@ angular
                 return source.type !== current.type;
             });
         };
+
+        function internalSources(video) {
+            var mainVideo = video.internal.medias['main-video'];
+            if (mainVideo && mainVideo.filename) {
+                return [{
+                    type: 'internal',
+                    value: mainVideo.filename,
+                    height: mainVideo.height
+                }];
+            }
+            return [];
+        }
+
+        function externalSources(video) {
+            // Example:
+            // "external": {
+            //     "youtube": "NJR8In-7_Ac",
+            //     "youku": "XNjU3OTY3MjQ0"
+            // }
+            return Object.keys(video.external || {}).map(function(type) {
+                return {
+                    type: 'external-' + type,
+                    value: video.external[type]
+                };
+            });
+        }
     });
