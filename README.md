@@ -1,4 +1,4 @@
-# lilymandarin-web [![Travis](https://img.shields.io/travis/peferron/lilymandarin-web.svg)](https://travis-ci.org/peferron/lilymandarin-web) [![Coveralls](https://img.shields.io/coveralls/peferron/lilymandarin-web.svg)](https://coveralls.io/r/peferron/lilymandarin-web)
+# lilymandarin-web [![Build Status](https://travis-ci.org/peferron/lilymandarin-web.svg?branch=master)](https://travis-ci.org/peferron/lilymandarin-web) [![Coverage Status](https://coveralls.io/repos/peferron/lilymandarin-web/badge.svg?branch=master)](https://coveralls.io/r/peferron/lilymandarin-web?branch=master)
 
 Web interface for [lilymandarin.com](http://lilymandarin.com).
 
