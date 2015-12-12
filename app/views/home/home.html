@@ -1,49 +1,15 @@
-<section class="latest">
-    <h3 class="home__title padded">Latest</h3>
-    <lm-latest></lm-latest>
-</section>
-
-<section class="mailchimp padded">
-    <label class="mailchimp__label" for="mailchimp__email">
-        <h3 class="home__title">Join the newsletter!</h3>
-    </label>
-
-    <form action="http://lilymandarin.us3.list-manage.com/subscribe/post?u=8a65a9b821e6f82d77ea3557d&amp;id=b6fc866739" method="post" target="_blank">
-        <input type="email" class="mailchimp__email form-control input-lg" id="mailchimp__email" value="" name="EMAIL" placeholder="Enter your email address" required><button type="submit" class="mailchimp__submit btn btn-lg btn-primary">Subscribe</button>
-    </form>
-
-    <div>
-        <div>
-            <span class="mailchimp__perk icon icon-check-green"></span><span>One email a week</span>
-        </div>
-        <div>
-            <span class="mailchimp__perk icon icon-check-green"></span><span>Easy to unsubscribe – no spam</span>
-        </div>
-        <div>
-            <span class="mailchimp__perk icon icon-check-green"></span><span>Free!</span>
-        </div>
-    </div>
-
-    <!-- <div class="mailchimp__latest">
-        Latest sample:
-        <lm-write src="http://us3.campaign-archive1.com/generate-js/?u=8a65a9b821e6f82d77ea3557d&fid=3945&show=1">
-            <span>Loading...</span>
-        </lm-write>
-    </div> -->
-</section>
-
 <section class="lessons padded">
     <h3 class="home__title">Private Chinese lessons</h3>
     <div class="row">
         <div class="lessons__item col-xs-6 col-sm-3">
             <div class="lessons__illus lessons__illus--reputable"></div>
             <h4 class="lessons__keyword">Reputable</h4>
-            <div>Four years teaching experience – <a href="/reviews" ng-click="showReviews($event)">student reviews</a></div>
+            <div>Four years teaching experience</div>
         </div>
         <div class="lessons__item col-xs-6 col-sm-3">
             <div class="lessons__illus lessons__illus--adaptable"></div>
             <h4 class="lessons__keyword">Adaptable</h4>
-            <div>Tailored to your interests – in Shanghai or on Skype</div>
+            <div>Tailored to your interests</div>
         </div>
         <div class="clearfix visible-xs"></div>
         <div class="lessons__item col-xs-6 col-sm-3">
@@ -59,6 +25,78 @@
     </div>
 </section>
 
+<section class="plans padded">
+    <h3 class="home__title">Pricing</h3>
+    <table class="plans__table">
+        <tr>
+            <td class="plan__select">
+                <h4>Choisissez votre</h4>
+                <span class="nowrap">
+                    <h4>plan</h4>
+                    <span class="plan__select__arrow">
+                        <span class="icon icon-arrow-black"></span>
+                    </span>
+                </span>
+            </td>
+            <td class="plan__header plan--customized">
+                <h4 class="plan__name">Personnalisé</h4>
+                <h4 class="plan__price">40€/h</h4>
+                <span class="plan__description">Ideal pour soutien scolaire et formation professionnelle. Passez vos examens avec une super note et communiquez avec vos partenaires de travail en Chine.</span>
+            </td>
+            <td class="plan__header plan--individual">
+                <h4 class="plan__name">Individuel</h4>
+                <h4 class="plan__price">30€/h</h4>
+                <span class="plan__description">Ideal pour developpement personnel. Ajoutez une nouvelle competence a votre CV ou preparez un futur deplacement en Chine.</span>
+            </td>
+            <td class="plan__header plan--group">
+                <h4 class="plan__name">Groupe (2-4 pers.)</h4>
+                <h4 class="plan__price">15€/h</h4>
+                <span class="plan__description">Ideal pour developpement personnel et mutuel. Partage le meme interet et discuter ensemlbe.</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="plan__feature__description">Matériaux conçu guarantee votre progress</td>
+            <td class="plan__feature__presence plan--customized">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+            <td class="plan__feature__presence plan--individual">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+            <td class="plan__feature__presence plan--group">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="plan__feature__description">Mp3 music (chansons Chinoises avec parole ( inclure pronunciation et traduction)</td>
+            <td class="plan__feature__presence plan--customized">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+            <td class="plan__feature__presence plan--individual">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+            <td class="plan__feature__presence plan--group">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="plan__feature__description">Cours adaptés a votre domaine -ou- Apprendre votre livre en avance et Materiaux prepare pour passer les tests.</td>
+            <td class="plan__feature__presence plan--customized">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+            <td class="plan__feature__presence plan--individual"></td>
+            <td class="plan__feature__presence plan--group"></td>
+        </tr>
+        <tr>
+            <td class="plan__feature__description">Cartes charactaire chinoise</td>
+            <td class="plan__feature__presence plan--customized">
+                <span class="plan__feature__check icon icon-check-green"></span>
+            </td>
+            <td class="plan__feature__presence plan--individual"></td>
+            <td class="plan__feature__presence plan--group"></td>
+        </tr>
+    </table>
+</section>
+
 <section class="contact">
     <h3 class="home__title padded">Contact me</h3>
     <div class="contact__portrait"></div>
@@ -72,4 +110,9 @@
             </a>
         </div>
     </div>
+</section>
+
+<section class="reviews padded">
+    <h3 class="home__title">Student reviews</h3>
+    <lm-reviews></lm-reviews>
 </section>

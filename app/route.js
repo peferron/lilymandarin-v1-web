@@ -10,10 +10,6 @@ angular
                 templateUrl: '/views/home/home.html',
                 controller: 'home'
             })
-            .when('/reviews', {
-                templateUrl: '/views/reviews/reviews.html',
-                controller: 'reviews'
-            })
             .when('/posts', {
                 templateUrl: '/views/posts/posts.html',
                 controller: 'posts'

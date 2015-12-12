@@ -1,43 +1,6 @@
 .home__title
     margin-bottom: 15px
 
-// Mailchimp
-
-.mailchimp__label
-    display: block
-    font-weight: normal
-    margin-bottom: 10px
-
-.mailchimp__perk
-    vertical-align: bottom
-    width: 14px
-    height: 14px
-    margin: 0 5px 3px 0
-
-.mailchimp__submit
-    margin: 10px 0
-
-// .mailchimp__latest
-//     margin-top: 5px
-//     lm-write
-//         display: inline-block
-//         color: $gray
-//         &.loaded
-//             color: $default
-//             font-size: 0
-//         a
-//             font-size: 14px
-
-@media screen and (min-width: 599px)
-    .mailchimp__email
-        display: inline-block
-        max-width: 400px
-        margin-bottom: 10px
-        vertical-align: middle
-    .mailchimp__submit
-        margin: 0 0 10px 10px
-        vertical-align: middle
-
 // Lessons
 
 .lessons
@@ -78,6 +41,81 @@
 
 .lessons__keyword
     margin: 8px 0 4px
+
+// Plans
+
+.plans__table
+    border: none
+    border-collapse: collapse
+    td
+        padding: 8px
+        border-left: 8px solid white
+        &:first-child
+            border-left: none
+    tr:nth-child(odd)
+        .plan--customized
+            background: darken(lighten($home, 30%), 3%)
+        .plan--individual, .plan--group, .plan__feature__description
+            background: darken(#F0F0F0, 3%)
+
+.plan__header
+    text-align: center
+    vertical-align: top
+    width: 25%
+
+.plan--customized
+    background: lighten($home, 30%)
+    .plan__name, .plan__price
+        font-weight: bold
+
+.plan__price
+    margin-bottom: 4px
+
+.plan--individual, .plan--group, .plan__feature__description
+    background: #F0F0F0
+
+.plan__feature__presence
+    text-align: center
+
+.plan__feature__description
+    height: 8rem
+
+.plan__feature__check
+    width: 32px
+    height: 32px
+
+.plan__select
+    text-align: center
+    h4
+        display: inline
+
+.nowrap
+    white-space: nowrap
+
+.plan__select__arrow
+    position: relative
+    height: 1em
+    width: 1em
+    display: inline-block
+    .icon
+        display: inline-block
+        position: absolute
+        top: 2px
+        left: 5px
+        height: 1em
+        width: 1em
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: 0 center
+        animation: bounce 0.8s linear infinite
+
+@keyframes bounce
+    0%, 100%
+        transform: translateX(0)
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+    50%
+        transform: translateX(0.5em)
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
 
 // Contact
 
