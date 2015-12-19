@@ -60,9 +60,9 @@
         "text": "He estat alumne de la Lily a Shanghai durant dos mesos, en un curs intensiu de 4 hores setmanals. Sabia que en dos mesos aprendria força xines, pero no m'esperava que n'aprendria tant, i es que la Lily es una molt bona professora que es preocupa perque l'estudiant aprengui, pacient i divertida amb la qual el temps passa volant i aprens sense practicament adonar-te'n. Moltes gracies Lily per aquest dos mesos!!"
     },
     {
-        "name": "Frederique",
-        "photo": "",
-        "text": "Lily's class is very good. I would definitely recommend her. I could immediately use the things I learned during the classes in daily life. She is very practical. She amends the lessons in line with your wishes. Last, but not least, she is a very nice person!"
+        "name": "Lea",
+        "photo": "lea2.jpg",
+        "text": "Lily war eine wundervolle Chinesischlehrerin. Mein Chinesisch hat sich während meiner Zeit als Lily’s Schuüerin wesentlich verbessert. Sie ist sehr geduldig, und konnte vorallem durch ihre Englisch und Franzoesischkentnisse, spezifische grammatikalische Konzepte sehr gut weitervermitteln.\n\nAber das beste an Lily war ihre Persönlichkeit – ich habe mich jeden Tag auf den Unterricht gefreut! Alles in allem kann ich Lily als Chinesischlehrerin wärmstens weiterempfehlen!"
     },
     {
         "name": "Rebecca",
@@ -105,13 +105,13 @@
         "text": "I spent 3 weeks this past summer in Shanghai with the goal of improving my Mandarin. I had been studying Chinese for 5 years and consider my level \"decent\" but not great. I attended Hutong School where Fang Yan (房艳) was my instructor. From the first class, I was thrilled by how much I learned. She was always prepared, targeted her teaching to my level and provided the perfect balance of speaking and listening. I truly wish she would move to Chicago so I could continue studying with her. For anyone interested in starting or continuing their Mandarin studies, I heavily recommend Fang Yan (房艳) to be your instructor."
     },
     {
-        "name": "Lea",
-        "photo": "lea2.jpg",
-        "text": "Lily war eine wundervolle Chinesischlehrerin. Mein Chinesisch hat sich während meiner Zeit als Lily’s Schuüerin wesentlich verbessert. Sie ist sehr geduldig, und konnte vorallem durch ihre Englisch und Franzoesischkentnisse, spezifische grammatikalische Konzepte sehr gut weitervermitteln.\n\nAber das beste an Lily war ihre Persönlichkeit – ich habe mich jeden Tag auf den Unterricht gefreut! Alles in allem kann ich Lily als Chinesischlehrerin wärmstens weiterempfehlen!"
-    },
-    {
         "name": "Tegan",
         "photo": "tegan.jpg",
         "text": "Lily is a fantastic teacher, if you are looking for someone to guide you through the difficult work of Mandarin with a smile and a laugh then I would highly recommend Lily.\n\nLily is great at developing your knowledge of Mandarin starting with the basic building blocks to more complex sentence structures and, eventually, fluency. Plus class is also fun – she has a great sense of humour and makes learning enjoyable.\n\nAfter just 3 weeks with Lily, I have the confidence to use my developing Mandarin out on the streets of Shanghai."
+    },
+    {
+        "name": "Frederique",
+        "photo": "",
+        "text": "Lily's class is very good. I would definitely recommend her. I could immediately use the things I learned during the classes in daily life. She is very practical. She amends the lessons in line with your wishes. Last, but not least, she is a very nice person!"
     }
 ]
