@@ -3,71 +3,33 @@
 
 'use strict';
 
-describe('controller reviews', function() {
-    var $httpBackend, $rootScope, $scope, createController, reviews;
+describe('directive lmReviews', function() {
+    var element;
 
-    beforeEach(module('lmControllers', 'lmServices'));
+    var reviews = [
+        {
+            name: 'name0',
+            photo: 'photo0.jpg',
+            text: 'text0'
+        },
+        {
+            name: 'name1',
+            photo: 'photo1.jpg',
+            text: 'text1'
+        },
+    ];
 
-    beforeEach(inject(function(_$httpBackend_, _$rootScope_, $controller) {
-        $httpBackend = _$httpBackend_;
-        $rootScope = _$rootScope_;
-        $scope = {};
+    beforeEach(module('lmDirectives', 'lmTemplates', 'lmServices'));
 
-        createController = function() {
-            $controller('reviews', {
-                $scope: $scope
-            });
-        };
-
-        reviews = [
-            {
-                name: 'name0',
-                photo: 'photo0.jpg',
-                text: 'text0'
-            },
-            {
-                name: 'name1',
-                photo: 'photo1.jpg',
-                text: 'text1'
-            },
-        ];
+    beforeEach(inject(function($httpBackend, $compile, $rootScope) {
+        $httpBackend.expectGET('/static/data/reviews.json').respond(reviews);
+        element = $compile('<lm-reviews></lm-reviews>')($rootScope);
+        $rootScope.$digest();
+        $httpBackend.flush();
     }));
 
-    afterEach(function() {
-        $httpBackend.verifyNoOutstandingExpectation();
-        $httpBackend.verifyNoOutstandingRequest();
-    });
-
-    function createAndExpect() {
-        $httpBackend.expectGET('/static/data/reviews.json').respond(reviews);
-        createController();
-    }
-
-    function createAndFlush() {
-        createAndExpect();
-        $httpBackend.flush();
-    }
-
-    describe('before the reviews are loaded', function() {
-        beforeEach(createAndExpect);
-        afterEach(function() {
-            $httpBackend.flush();
-        });
-
-        it('should set the title', function() {
-            $rootScope.title.should.equal('Student reviews — LilyMandarin');
-        });
-
-        it('should set the tab', function() {
-            $rootScope.tab.should.equal('home');
-        });
-    });
-
-    describe('after the reviews are loaded', function() {
-        beforeEach(createAndFlush);
-
-        it('should set the videos', function() {
-            $scope.reviews.should.deep.resource.equal(reviews);
-        });
+    it('sets the reviews', function() {
+        var $scope = element.isolateScope();
+        $scope.reviews.should.deep.resource.equal(reviews);
     });
 });
