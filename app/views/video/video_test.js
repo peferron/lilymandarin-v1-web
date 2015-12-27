@@ -108,7 +108,7 @@ describe('controller video', function() {
             });
 
             it('should set the social url and text', function() {
-                $scope.socialUrl.should.equal('http://lilymandarin.com/video/abcid/abcslug');
+                $scope.socialUrl.should.equal('http://lilymandarin-v1.peferron.com/video/abcid/abcslug');
                 $scope.socialText.should.equal('abctitle');
             });
 

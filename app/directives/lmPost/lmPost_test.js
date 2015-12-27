@@ -48,7 +48,7 @@ describe('directive lmPost', function() {
 
     it('sets the social url and text', function() {
         var $scope = element.isolateScope();
-        $scope.socialUrl.should.equal('http://lilymandarin.com/post/abcid/abcslug');
+        $scope.socialUrl.should.equal('http://lilymandarin-v1.peferron.com/post/abcid/abcslug');
         $scope.socialText.should.equal('abczhcn / abcenus');
     });
 });

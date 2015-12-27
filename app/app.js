@@ -16,8 +16,6 @@ angular
     .config(function($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
-            'http://media.lilymandarin.com/**',
-            'https://media.lilymandarin.com/**',
             'http://www.youtube.com/embed/**',
             'https://www.youtube.com/embed/**',
             'http://player.youku.com/embed/**',

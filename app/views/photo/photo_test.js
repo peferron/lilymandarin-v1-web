@@ -94,7 +94,7 @@ describe('controller photo', function() {
             });
 
             it('should set the social url and text', function() {
-                $scope.socialUrl.should.equal('http://lilymandarin.com/photo/abcid/abcslug');
+                $scope.socialUrl.should.equal('http://lilymandarin-v1.peferron.com/photo/abcid/abcslug');
                 $scope.socialText.should.equal('abczhcn / abcenus');
             });
 
