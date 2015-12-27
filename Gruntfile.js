@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         m: grunt.option('m') || '',
         app: 'app',
         dist: 'dist',
-        gitDist: 'git -C ../lilymandarin-web-dist',
+        gitDist: 'git -C ../lilymandarin-v1-web-dist',
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
