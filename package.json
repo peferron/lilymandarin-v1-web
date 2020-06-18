@@ -39,7 +39,7 @@
     "grunt-string-replace": "^0.2.7",
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.2.0",
-    "jquery": "^2.1.1",
+    "jquery": "^3.5.1",
     "karma": "^0.12.31",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^0.2.7",
